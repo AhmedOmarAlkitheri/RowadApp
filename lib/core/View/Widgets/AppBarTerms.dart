@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
 class Appbarterms extends StatefulWidget {
-  const Appbarterms({super.key});
-
+  const Appbarterms({super.key, required this.selectedTerm});
+  final int selectedTerm;
   @override
   State<Appbarterms> createState() => _AppbartermsState();
 }
 
 class _AppbartermsState extends State<Appbarterms> {
-  int _selectedTerm = 0;
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -34,14 +32,16 @@ class _AppbartermsState extends State<Appbarterms> {
           children: [
             GestureDetector(
               onTap: () {
-                setState(() {
-                  _selectedTerm = 0;
-                });
+                //  setState(() {
+
+                // });
+                Navigator.pushNamedAndRemoveUntil(
+                    context, "/FirstTerm", (route) => false);
               },
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: _selectedTerm == 0
+                  color: widget.selectedTerm == 0
                       ? Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
@@ -51,7 +51,8 @@ class _AppbartermsState extends State<Appbarterms> {
                 child: Text(
                   "الفصل الأول",
                   style: TextStyle(
-                    color: _selectedTerm == 0 ? Colors.white : Colors.black,
+                    color:
+                        widget.selectedTerm == 0 ? Colors.white : Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -59,14 +60,16 @@ class _AppbartermsState extends State<Appbarterms> {
             ),
             GestureDetector(
               onTap: () {
-                setState(() {
-                  _selectedTerm = 1;
-                });
+                //  setState(() {
+
+                //   });
+                Navigator.pushNamedAndRemoveUntil(
+                    context, "/SecondTerm", (route) => false);
               },
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: _selectedTerm == 1
+                  color: widget.selectedTerm == 1
                       ? Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
@@ -76,7 +79,8 @@ class _AppbartermsState extends State<Appbarterms> {
                 child: Text(
                   "الفصل الثاني",
                   style: TextStyle(
-                    color: _selectedTerm == 1 ? Colors.white : Colors.black,
+                    color:
+                        widget.selectedTerm == 1 ? Colors.white : Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -84,16 +88,15 @@ class _AppbartermsState extends State<Appbarterms> {
             ),
             GestureDetector(
               onTap: () {
-                setState(() {
-                  _selectedTerm = 2;
-                });
+                Navigator.pushNamedAndRemoveUntil(
+                    context, "/FinalResult", (route) => false);
               },
               child: Container(
                 alignment: Alignment.center,
                 height: 40,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: _selectedTerm == 2
+                  color: widget.selectedTerm == 2
                       ? Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
@@ -101,7 +104,8 @@ class _AppbartermsState extends State<Appbarterms> {
                 child: Text(
                   "النتيجة النهائية",
                   style: TextStyle(
-                    color: _selectedTerm == 2 ? Colors.white : Colors.black,
+                    color:
+                        widget.selectedTerm == 2 ? Colors.white : Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

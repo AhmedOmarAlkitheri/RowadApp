@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
 class Navigationbar extends StatefulWidget {
-  const Navigationbar({super.key});
-
+  const Navigationbar({super.key, required this.selectedTerm});
+  final int selectedTerm;
   @override
   State<Navigationbar> createState() => _AppbartermsState();
 }
 
 class _AppbartermsState extends State<Navigationbar> {
-  int _selectedTerm = 0;
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -34,15 +32,14 @@ class _AppbartermsState extends State<Navigationbar> {
           children: [
             GestureDetector(
               onTap: () {
-                setState(() {
-                  _selectedTerm = 0;
-                });
+                Navigator.pushNamedAndRemoveUntil(
+                    context, "/Homescreen", (route) => false);
               },
               child: Container(
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: _selectedTerm == 0
+                      color: widget.selectedTerm == 0
                           ? Colors.black.withOpacity(0.25)
                           : Colors.transparent,
                       blurRadius: 3,
@@ -51,7 +48,7 @@ class _AppbartermsState extends State<Navigationbar> {
                     ),
                   ],
                   borderRadius: BorderRadius.circular(15),
-                  color: _selectedTerm == 0
+                  color: widget.selectedTerm == 0
                       ? Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
@@ -60,21 +57,20 @@ class _AppbartermsState extends State<Navigationbar> {
                 width: 60,
                 child: Icon(
                   Icons.home,
-                  color: _selectedTerm == 0 ? Colors.white : Colors.black,
+                  color: widget.selectedTerm == 0 ? Colors.white : Colors.black,
                 ),
               ),
             ),
             GestureDetector(
               onTap: () {
-                setState(() {
-                  _selectedTerm = 1;
-                });
+                Navigator.pushNamedAndRemoveUntil(
+                    context, "/Notificationscreen", (route) => false);
               },
               child: Container(
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: _selectedTerm == 1
+                      color: widget.selectedTerm == 1
                           ? Colors.black.withOpacity(0.25)
                           : Colors.transparent,
                       blurRadius: 3,
@@ -83,7 +79,7 @@ class _AppbartermsState extends State<Navigationbar> {
                     ),
                   ],
                   borderRadius: BorderRadius.circular(15),
-                  color: _selectedTerm == 1
+                  color: widget.selectedTerm == 1
                       ? Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
@@ -92,15 +88,14 @@ class _AppbartermsState extends State<Navigationbar> {
                 width: 60, //(MediaQuery.of(context).size.width - 20) / 4,
                 child: Icon(
                   Icons.notifications,
-                  color: _selectedTerm == 1 ? Colors.white : Colors.black,
+                  color: widget.selectedTerm == 1 ? Colors.white : Colors.black,
                 ),
               ),
             ),
             GestureDetector(
               onTap: () {
-                setState(() {
-                  _selectedTerm = 2;
-                });
+                Navigator.pushNamedAndRemoveUntil(
+                    context, "/Evaluationscreen", (route) => false);
               },
               child: Container(
                 alignment: Alignment.center,
@@ -108,7 +103,7 @@ class _AppbartermsState extends State<Navigationbar> {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: _selectedTerm == 2
+                      color: widget.selectedTerm == 2
                           ? Colors.black.withOpacity(0.25)
                           : Colors.transparent,
                       blurRadius: 3,
@@ -117,22 +112,21 @@ class _AppbartermsState extends State<Navigationbar> {
                     ),
                   ],
                   borderRadius: BorderRadius.circular(15),
-                  color: _selectedTerm == 2
+                  color: widget.selectedTerm == 2
                       ? Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
                 width: 60,
                 child: Icon(
                   Icons.assignment,
-                  color: _selectedTerm == 2 ? Colors.white : Colors.black,
+                  color: widget.selectedTerm == 2 ? Colors.white : Colors.black,
                 ),
               ),
             ),
             GestureDetector(
               onTap: () {
-                setState(() {
-                  _selectedTerm = 3;
-                });
+                Navigator.pushNamedAndRemoveUntil(
+                    context, "/Placementscreens", (route) => false);
               },
               child: Container(
                 alignment: Alignment.center,
@@ -140,7 +134,7 @@ class _AppbartermsState extends State<Navigationbar> {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: _selectedTerm == 3
+                      color: widget.selectedTerm == 3
                           ? Colors.black.withOpacity(0.25)
                           : Colors.transparent,
                       blurRadius: 3,
@@ -149,14 +143,14 @@ class _AppbartermsState extends State<Navigationbar> {
                     ),
                   ],
                   borderRadius: BorderRadius.circular(15),
-                  color: _selectedTerm == 3
+                  color: widget.selectedTerm == 3
                       ? Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
                 width: 60,
                 child: Icon(
                   Icons.home_work_sharp,
-                  color: _selectedTerm == 3 ? Colors.white : Colors.black,
+                  color: widget.selectedTerm == 3 ? Colors.white : Colors.black,
                 ),
               ),
             ),
