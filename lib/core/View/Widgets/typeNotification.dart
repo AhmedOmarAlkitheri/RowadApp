@@ -15,14 +15,14 @@ class Typenotification extends StatelessWidget {
           minRadius: radius,
           backgroundColor: Color(color),
         ),
-        Space(
+        const Space(
           width: 10,
         ),
         Text(
           type,
           style: TextStyle(color: Color(color)),
         ),
-        Space(
+        const Space(
           width: 5,
         ),
       ],

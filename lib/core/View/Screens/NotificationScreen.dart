@@ -18,8 +18,8 @@ class _NotificationscreenState extends State<Notificationscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(AppColor.thirdColor),
-        title: Row(
+        backgroundColor: const Color(AppColor.thirdColor),
+        title: const Row(
           children: [
             Icon(
               Icons.notifications_active,
@@ -36,7 +36,7 @@ class _NotificationscreenState extends State<Notificationscreen> {
         children: [
           // Row الخاص بـ Typenotification
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               boxShadow: [
                 BoxShadow(
                     color: Colors.grey, offset: Offset(0, 5), blurRadius: 4),
@@ -45,7 +45,7 @@ class _NotificationscreenState extends State<Notificationscreen> {
             ),
             height: 60,
             width: MediaQuery.of(context).size.width,
-            child: SingleChildScrollView(
+            child: const SingleChildScrollView(
               // إضافة SingleChildScrollView
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -60,12 +60,12 @@ class _NotificationscreenState extends State<Notificationscreen> {
                     radius: 10,
                   ),
                   Typenotification(
-                    type: "سكن",
+                    type: "تسكين أولي",
                     color: AppColor.twoNotification,
                     radius: 10,
                   ),
                   Typenotification(
-                    type: "برامج",
+                    type: "تسكين سنوي",
                     color: AppColor.thereNotification,
                     radius: 10,
                   ),
@@ -91,7 +91,7 @@ class _NotificationscreenState extends State<Notificationscreen> {
                   );
                 },
               ),
-              Positioned(
+              const Positioned(
                 bottom: 20,
                 right: 10,
                 child: Navigationbar(selectedTerm: 1),

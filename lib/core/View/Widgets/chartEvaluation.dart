@@ -12,20 +12,20 @@ List<PieChartSectionData>? showingSections(double Value) {
   sum += Value;
 
   return List.generate(2, (i) {
-    final radius = 15.0;
+    const radius = 15.0;
 
     switch (i) {
       case 0:
         return PieChartSectionData(
-          color: Color(AppColor.primaryColor),
+          color: const Color(AppColor.primaryColor),
           value: Value,
           radius: radius,
-          titleStyle: TextStyle(),
+          titleStyle: const TextStyle(),
         );
 
       case 1:
         return PieChartSectionData(
-          color: Color(AppColor.secondaryColor),
+          color: const Color(AppColor.secondaryColor),
           value: 100 - sum,
           radius: radius,
         );

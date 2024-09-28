@@ -7,37 +7,38 @@ class Widgettextformflied extends StatelessWidget {
   final String? hintText, labelText;
   final Widget? prefixIcon;
   final TextInputType keyboardType;
-  final int? maxLength;
+  final int? maxLength, maxLines;
   final TextInputAction textInputAction;
   final ValueChanged<String>? onChanged;
-  final Color cursorColor;
+
   final InputDecoration decoration;
 
   const Widgettextformflied({
-    Key? key,
+    super.key,
     this.controller,
     this.validator,
     this.hintText,
     this.keyboardType = TextInputType.text,
     this.maxLength,
+    this.maxLines,
     this.textInputAction = TextInputAction.done,
     this.onChanged,
-    this.cursorColor = Colors.blue,
     this.decoration = const InputDecoration(),
     this.labelText,
     this.prefixIcon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: maxLines,
       keyboardType: keyboardType,
       maxLength: maxLength,
       controller: controller,
       validator: validator,
       textInputAction: textInputAction,
       onChanged: onChanged,
-      cursorColor: cursorColor,
+      cursorColor: const Color(AppColor.primaryColor),
 
       decoration: decoration.copyWith(
         fillColor: Colors.grey[300],
@@ -46,17 +47,17 @@ class Widgettextformflied extends StatelessWidget {
         hintText: hintText,
         labelText: labelText,
         prefixIcon: prefixIcon,
-        prefixIconColor: Color(AppColor.primaryColor),
+        prefixIconColor: const Color(AppColor.primaryColor),
 
-        labelStyle: TextStyle(color: Color(AppColor.primaryColor)),
+        labelStyle: const TextStyle(color: Color(AppColor.primaryColor)),
         // icon: Icon(Icons.account_circle_rounded),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
-          borderSide: BorderSide(color: Color(AppColor.primaryColor)),
+          borderSide: const BorderSide(color: Color(AppColor.primaryColor)),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
-          borderSide: BorderSide(color: Colors.grey),
+          borderSide: const BorderSide(color: Colors.grey),
         ),
       ),
 

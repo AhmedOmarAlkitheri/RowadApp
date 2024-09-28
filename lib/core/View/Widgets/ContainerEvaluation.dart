@@ -24,7 +24,7 @@ class _ContainerevaluationState extends State<Containerevaluation> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+      padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
       width: MediaQuery.of(context).size.width,
       height: 450,
       decoration: BoxDecoration(boxShadow: [
@@ -32,7 +32,7 @@ class _ContainerevaluationState extends State<Containerevaluation> {
           color: Colors.black.withOpacity(0.25),
           blurRadius: 3,
           // spreadRadius: 2,
-          offset: Offset(0, 4),
+          offset: const Offset(0, 4),
         ),
       ], borderRadius: BorderRadius.circular(20), color: Colors.white),
       child: Column(
@@ -49,20 +49,20 @@ class _ContainerevaluationState extends State<Containerevaluation> {
               child: Column(
                 children: [
                   Text("% ${widget.finalValue.toInt()}",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20))
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20))
                 ],
               ),
             )
           ]),
           Container(
             alignment: Alignment.topRight,
-            child: Text(
+            child: const Text(
               "الاجمالي",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
           ),
-          Divider(
+          const Divider(
             thickness: 2,
           ),
           SizedBox(
@@ -71,7 +71,7 @@ class _ContainerevaluationState extends State<Containerevaluation> {
             child: LayoutBuilder(builder: (context, constraints) {
               int columnCount = (constraints.maxWidth / 180).floor();
               return GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                   ),
                   itemCount: widget.programValue.length,
@@ -86,8 +86,8 @@ class _ContainerevaluationState extends State<Containerevaluation> {
                               datachart(val: widget.programValue[index]),
                             ),
                           ),
-                          SizedBox(height: 5),
-                          Text("${widget.programName[index]}")
+                          const SizedBox(height: 5),
+                          Text(widget.programName[index])
                         ],
                       ),
                     );

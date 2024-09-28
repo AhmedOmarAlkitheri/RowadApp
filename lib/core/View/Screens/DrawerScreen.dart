@@ -24,10 +24,10 @@ class _DrawerscreenState extends State<Drawerscreen> {
         Align(
             alignment: Alignment.topCenter,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(25),
                   bottomRight: Radius.circular(25),
                 ),
@@ -45,7 +45,7 @@ class _DrawerscreenState extends State<Drawerscreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         "مركز رواد المستقبل",
                         style: TextStyle(
                             color: Color(AppColor.primaryColor),
@@ -55,10 +55,10 @@ class _DrawerscreenState extends State<Drawerscreen> {
                           onTap: () {
                             Navigator.pop(context);
                           },
-                          child: Icon(Icons.close, color: Colors.black)),
+                          child: const Icon(Icons.close, color: Colors.black)),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -68,7 +68,7 @@ class _DrawerscreenState extends State<Drawerscreen> {
                             : Icons.manage_accounts_rounded,
                         color: selectedItem == 0
                             ? Colors.grey.shade200
-                            : Color(AppColor.primaryColor),
+                            : const Color(AppColor.primaryColor),
                         "الملف الشخصي",
                         onTap: () {
                           Navigator.pushNamedAndRemoveUntil(
@@ -88,7 +88,7 @@ class _DrawerscreenState extends State<Drawerscreen> {
                             : Icons.mode_night_rounded,
                         color: selectedItem1 == 0
                             ? Colors.grey.shade200
-                            : Color(AppColor.primaryColor),
+                            : const Color(AppColor.primaryColor),
                         "الوضع",
                         onTap: () {
                           setState(() {
@@ -107,7 +107,7 @@ class _DrawerscreenState extends State<Drawerscreen> {
                             : Icons.exit_to_app_rounded,
                         color: selectedItem2 == 0
                             ? Colors.grey.shade200
-                            : Color(AppColor.primaryColor),
+                            : const Color(AppColor.primaryColor),
                         "خروج",
                         onTap: () {
                           setState(() {
@@ -124,7 +124,7 @@ class _DrawerscreenState extends State<Drawerscreen> {
                       // buildIconButton(Icons.person_outline, "", hasDot: true),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Container(
                     width: 50,
                     height: 5,

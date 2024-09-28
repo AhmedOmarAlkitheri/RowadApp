@@ -4,7 +4,7 @@ import 'package:rowadapp/core/View/Widgets/chartEvaluation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
 class ContainerChartEval extends StatefulWidget {
-  ContainerChartEval(
+  const ContainerChartEval(
       {super.key,
       required this.value,
       required this.semesterResult,
@@ -19,7 +19,7 @@ class ContainerChartEvalState extends State<ContainerChartEval> {
   // int touchedIndex = -1;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         //color: Colors.black,
         height: 100,
         width: MediaQuery.of(context).size.width,
@@ -40,12 +40,12 @@ class ContainerChartEvalState extends State<ContainerChartEval> {
                       Container(
                         width: 20,
                         height: 20,
-                        color: Color(AppColor.primaryColor),
+                        color: const Color(AppColor.primaryColor),
                       ),
-                      Text("${widget.semesterResult}")
+                      Text(widget.semesterResult)
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -53,9 +53,9 @@ class ContainerChartEvalState extends State<ContainerChartEval> {
                       Container(
                         width: 20,
                         height: 20,
-                        color: Color(AppColor.secondaryColor),
+                        color: const Color(AppColor.secondaryColor),
                       ),
-                      Text("${widget.ResidualResult}")
+                      Text(widget.ResidualResult)
                     ],
                   ),
                 ],

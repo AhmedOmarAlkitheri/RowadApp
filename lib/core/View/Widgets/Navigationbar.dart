@@ -21,7 +21,7 @@ class _AppbartermsState extends State<Navigationbar> {
               color: Colors.black.withOpacity(0.25),
               blurRadius: 3,
               // spreadRadius: 2,
-              offset: Offset(0, 4),
+              offset: const Offset(0, 4),
             ),
           ],
         ),
@@ -44,12 +44,12 @@ class _AppbartermsState extends State<Navigationbar> {
                           : Colors.transparent,
                       blurRadius: 3,
                       // spreadRadius: 2,
-                      offset: Offset(0, 4),
+                      offset: const Offset(0, 4),
                     ),
                   ],
                   borderRadius: BorderRadius.circular(15),
                   color: widget.selectedTerm == 0
-                      ? Color(AppColor.primaryColor)
+                      ? const Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
                 alignment: Alignment.center,
@@ -75,18 +75,21 @@ class _AppbartermsState extends State<Navigationbar> {
                           : Colors.transparent,
                       blurRadius: 3,
                       // spreadRadius: 2,
-                      offset: Offset(0, 4),
+                      offset: const Offset(0, 4),
                     ),
                   ],
                   borderRadius: BorderRadius.circular(15),
                   color: widget.selectedTerm == 1
-                      ? Color(AppColor.primaryColor)
+                      ? const Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
                 alignment: Alignment.center,
                 height: 40,
-                width: 60, //(MediaQuery.of(context).size.width - 20) / 4,
-                child: Icon(
+                width:
+                    60, //(MediaQuery.of(context).size.width - 20) / 4,  notif-outlined
+                child:
+                    //  Container(height: 20,width: 30,decoration: BoxDecoration(color: widget.selectedTerm == 1 ? Colors.white : Colors.black,image: DecorationImage(image: AssetImage("assets/images/notif-outlined" ),fit: BoxFit.fill)),),
+                    Icon(
                   Icons.notifications,
                   color: widget.selectedTerm == 1 ? Colors.white : Colors.black,
                 ),
@@ -108,12 +111,12 @@ class _AppbartermsState extends State<Navigationbar> {
                           : Colors.transparent,
                       blurRadius: 3,
                       // spreadRadius: 2,
-                      offset: Offset(0, 4),
+                      offset: const Offset(0, 4),
                     ),
                   ],
                   borderRadius: BorderRadius.circular(15),
                   color: widget.selectedTerm == 2
-                      ? Color(AppColor.primaryColor)
+                      ? const Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
                 width: 60,
@@ -139,12 +142,12 @@ class _AppbartermsState extends State<Navigationbar> {
                           : Colors.transparent,
                       blurRadius: 3,
                       // spreadRadius: 2,
-                      offset: Offset(0, 4),
+                      offset: const Offset(0, 4),
                     ),
                   ],
                   borderRadius: BorderRadius.circular(15),
                   color: widget.selectedTerm == 3
-                      ? Color(AppColor.primaryColor)
+                      ? const Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
                 width: 60,

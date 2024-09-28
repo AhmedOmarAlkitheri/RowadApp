@@ -5,7 +5,7 @@ import 'package:rowadapp/core/View/Widgets/Navigationbar.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
 class WidgetSemester extends StatefulWidget {
-  WidgetSemester(
+  const WidgetSemester(
       {super.key,
       required this.finalValue,
       required this.semesterResult,
@@ -29,23 +29,23 @@ class _WidgetSemesterState extends State<WidgetSemester> {
     return Scaffold(
       // backgroundColor: Colors.green,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           //   color: Colors.black,
           gradient: LinearGradient(
-            colors: [const Color(AppColor.secondaryColor), Colors.white],
+            colors: [Color(AppColor.secondaryColor), Colors.white],
             begin: AlignmentDirectional.topStart,
             end: AlignmentDirectional.bottomStart,
           ),
         ),
         child: Container(
-          margin: EdgeInsets.only(right: 10, left: 10),
+          margin: const EdgeInsets.only(right: 10, left: 10),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Expanded(child: Appbarterms(selectedTerm: widget.selectedTerm)),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Expanded(
@@ -56,14 +56,14 @@ class _WidgetSemesterState extends State<WidgetSemester> {
                       ResidualResult: widget.ResidualResult,
                       programName: widget.programName,
                       programValue: widget.programValue)),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Expanded(
+              const Expanded(
                   child: Navigationbar(
                 selectedTerm: 2,
               )),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
             ],

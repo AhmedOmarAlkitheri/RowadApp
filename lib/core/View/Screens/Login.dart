@@ -16,10 +16,10 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           //   color: Colors.black,
           gradient: LinearGradient(
-            colors: [const Color(AppColor.secondaryColor), Colors.white],
+            colors: [Color(AppColor.secondaryColor), Colors.white],
             begin: AlignmentDirectional.topStart,
             end: AlignmentDirectional.bottomStart,
           ),
@@ -33,7 +33,7 @@ class _LoginState extends State<Login> {
               child: Container(
                 width: 172,
                 height: 185,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(AppColor.secondarythereColor)),
               ),
@@ -41,20 +41,20 @@ class _LoginState extends State<Login> {
             Positioned(
                 // right: -55,
                 top: 55,
-                right: 10,
+                right: 5,
                 child: Container(
-                  width: 100,
+                  width: 110,
                   height: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                          image: AssetImage("assets/images/pictureRowad.jpg"),
+                          image: AssetImage("assets/images/logo.png"),
                           fit: BoxFit.fill)),
                 )),
-            Positioned(
+            const Positioned(
               left: 40,
               top: 80,
-              child: Container(
+              child: SizedBox(
                 height: 50,
                 child: Text(
                   "تسجيل دخول",
@@ -68,10 +68,10 @@ class _LoginState extends State<Login> {
             Positioned(
               top: 170,
               child: Container(
-                padding: EdgeInsets.only(left: 20, right: 30),
+                padding: const EdgeInsets.only(left: 20, right: 30),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height - 180,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Color(AppColor.secondaryTwoColor),
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
@@ -82,45 +82,43 @@ class _LoginState extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Space(
+                      const Space(
                         height: 40,
                       ),
-                      Text(
+                      const Text(
                         "أسم المستخدم",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 18),
                       ),
-                      Space(
+                      const Space(
                         height: 10,
                       ),
-                      Widgettextformflied(
+                      const Widgettextformflied(
                         hintText: "أسم المستخدم",
                         labelText: "أسم المستخدم",
                         prefixIcon: Icon(Icons.account_circle_rounded),
-                        cursorColor: Color(AppColor.primaryColor),
                         keyboardType: TextInputType.phone,
                         textInputAction: TextInputAction.done,
                       ),
-                      Space(
+                      const Space(
                         height: 30,
                       ),
-                      Text(
+                      const Text(
                         "كلمة المرور",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 18),
                       ),
-                      Space(
+                      const Space(
                         height: 10,
                       ),
-                      Widgettextformflied(
+                      const Widgettextformflied(
                         hintText: "كلمة المرور",
                         labelText: "كلمة المرور",
                         prefixIcon: Icon(Icons.password_rounded),
-                        cursorColor: Color(AppColor.primaryColor),
                         keyboardType: TextInputType.name,
                         textInputAction: TextInputAction.done,
                       ),
-                      Space(
+                      const Space(
                         height: 50,
                       ),
                       Center(

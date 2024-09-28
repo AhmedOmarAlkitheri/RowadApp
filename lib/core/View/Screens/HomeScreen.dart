@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rowadapp/core/View/Widgets/WidgetTextFormField.dart';
-import 'package:rowadapp/global/constraints/app_color.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -16,20 +15,19 @@ class Homescreen extends StatelessWidget {
               },
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                  Icon(Icons.close, color: Colors.black),
+                  const Icon(Icons.close, color: Colors.black),
                   Container(
                     width: 300,
                     height: 300,
                     color: Colors.orange,
                   ),
-                  Widgettextformflied(
+                  const Widgettextformflied(
                     hintText: "أسم المستخدم",
                     labelText: "أسم المستخدم",
                     prefixIcon: Icon(Icons.account_circle_rounded),
-                    cursorColor: Color(AppColor.primaryColor),
                     keyboardType: TextInputType.name,
                     textInputAction: TextInputAction.done,
                   )

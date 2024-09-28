@@ -7,8 +7,8 @@ class PercentageCircle extends StatelessWidget {
   const PercentageCircle({
     required this.percentage,
     required this.label,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +23,13 @@ class PercentageCircle extends StatelessWidget {
               child: CircularProgressIndicator(
                 value: percentage / 100,
                 backgroundColor: Colors.grey.shade300,
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
                 strokeWidth: 6,
               ),
             ),
             Text(
               '${percentage.toInt()} %',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Colors.green,
@@ -37,10 +37,10 @@ class PercentageCircle extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,
             color: Colors.black,

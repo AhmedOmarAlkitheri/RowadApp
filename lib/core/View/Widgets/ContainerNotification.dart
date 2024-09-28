@@ -13,12 +13,12 @@ class Containernotification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(5),
+      margin: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(color: Colors.grey, offset: Offset(0, 5), blurRadius: 4)
           ],
-          color: Color(AppColor.secondaryTwoColor),
+          color: const Color(AppColor.secondaryTwoColor),
           borderRadius: BorderRadius.circular(10)),
       child: ListTile(
         leading: Icon(

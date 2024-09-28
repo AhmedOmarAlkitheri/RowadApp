@@ -16,7 +16,7 @@ class _AppbartermsState extends State<Appbarterms> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Colors.white,
-          boxShadow: [
+          boxShadow: const [
             // BoxShadow(
             //   color: Colors.black.withOpacity(0.25),
             //   blurRadius: 10,
@@ -42,7 +42,7 @@ class _AppbartermsState extends State<Appbarterms> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: widget.selectedTerm == 0
-                      ? Color(AppColor.primaryColor)
+                      ? const Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
                 alignment: Alignment.center,
@@ -70,7 +70,7 @@ class _AppbartermsState extends State<Appbarterms> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: widget.selectedTerm == 1
-                      ? Color(AppColor.primaryColor)
+                      ? const Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
                 alignment: Alignment.center,
@@ -97,7 +97,7 @@ class _AppbartermsState extends State<Appbarterms> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: widget.selectedTerm == 2
-                      ? Color(AppColor.primaryColor)
+                      ? const Color(AppColor.primaryColor)
                       : Colors.transparent,
                 ),
                 width: (MediaQuery.of(context).size.width - 20) / 3,

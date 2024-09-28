@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
-import 'package:rowadapp/core/View/Screens/Login.dart';
+import 'package:rowadapp/core/View/Screens/RegistrationInfo.dart';
 import 'package:rowadapp/helpers/RouteManager.dart';
 
 void main() {
@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         supportedLocales: localization.supportedLocales,
         localizationsDelegates: localization.localizationsDelegates,
-        initialRoute: "/Login",
+        initialRoute: "/Registrationinfo",
         onGenerateRoute: (settings) => RouteManager.generateRoute(settings),
-        home: Login());
+        home: const Registrationinfo());
   }
 }

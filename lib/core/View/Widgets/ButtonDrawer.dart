@@ -15,10 +15,10 @@ Widget buildIconButton(String label,
           child: Icon(icon, color: Colors.black),
         ),
       ),
-      SizedBox(height: 5),
+      const SizedBox(height: 5),
       Text(
         label,
-        style: TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.black),
       ),
     ],
   );
