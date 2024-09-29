@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         supportedLocales: localization.supportedLocales,
         localizationsDelegates: localization.localizationsDelegates,
-        initialRoute: "/Registrationinfo",
+        initialRoute: "/Homescreen",
         onGenerateRoute: (settings) => RouteManager.generateRoute(settings),
         home: const Registrationinfo());
   }
