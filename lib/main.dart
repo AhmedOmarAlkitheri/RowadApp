@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
+import 'package:provider/provider.dart';
+import 'package:rowadapp/core/View/Screens/compliants/AllComplaints.dart';
+import 'package:rowadapp/core/View/Screens/compliants/addCompliant_screen.dart';
+import 'package:rowadapp/core/View/Screens/compliants/viewCompliantDetails.dart';
 import 'package:rowadapp/core/View/Widgets/AppBarTerms.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerEvaluation.dart';
 import 'package:rowadapp/core/View/Widgets/Navigationbar.dart';
+import 'package:rowadapp/core/View_models/compliant_vm.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
 void main() {
@@ -22,18 +27,23 @@ class MyApp extends StatelessWidget {
       ],
       initLanguageCode: 'ar',
     );
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      supportedLocales: localization.supportedLocales,
-      localizationsDelegates: localization.localizationsDelegates,
-      //   locale: Locale('ar', 'AE'), // تحديد اللغة العربية
-      // localizationsDelegates: localization.localizationsDelegates
-      //   [
-      //   GlobalMaterialLocalizations.delegate,
-      //   GlobalWidgetsLocalizations.delegate,
-      // ],
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<CompliantVm>(create: (ctx) => CompliantVm()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        supportedLocales: localization.supportedLocales,
+        localizationsDelegates: localization.localizationsDelegates,
+        //   locale: Locale('ar', 'AE'), // تحديد اللغة العربية
+        // localizationsDelegates: localization.localizationsDelegates
+        //   [
+        //   GlobalMaterialLocalizations.delegate,
+        //   GlobalWidgetsLocalizations.delegate,
+        // ],
 
-      home: MyHomePage(),
+        home: Allcomplaints_screen(),
+      ),
     );
   }
 }
