@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
-import 'package:rowadapp/core/View/Screens/RegistrationInfo.dart';
+
+import 'package:rowadapp/core/View/Screens/Login.dart';
+import 'package:rowadapp/core/View/Screens/Profile.dart';
+
 import 'package:rowadapp/helpers/RouteManager.dart';
 
 void main() {
-  runApp(MyApp());
+  main() {
+    //async
+    //  await GetStorage.init();
+    runApp(MyApp());
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -24,8 +31,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         supportedLocales: localization.supportedLocales,
         localizationsDelegates: localization.localizationsDelegates,
-        initialRoute: "/Registrationinfo",
+        initialRoute: "/Profile",
         onGenerateRoute: (settings) => RouteManager.generateRoute(settings),
-        home: const Registrationinfo());
+        home: const Profile());
   }
 }

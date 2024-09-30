@@ -10,6 +10,7 @@ class Widgettextformflied extends StatelessWidget {
   final int? maxLength, maxLines;
   final TextInputAction textInputAction;
   final ValueChanged<String>? onChanged;
+  final AutovalidateMode? autovalidateMode;
 
   final InputDecoration decoration;
 
@@ -26,11 +27,13 @@ class Widgettextformflied extends StatelessWidget {
     this.decoration = const InputDecoration(),
     this.labelText,
     this.prefixIcon,
+    this.autovalidateMode,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autovalidateMode: autovalidateMode,
       maxLines: maxLines,
       keyboardType: keyboardType,
       maxLength: maxLength,

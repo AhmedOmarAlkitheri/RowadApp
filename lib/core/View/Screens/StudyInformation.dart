@@ -4,6 +4,7 @@ import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
 import 'package:rowadapp/core/View/Widgets/Space.dart';
 import 'package:rowadapp/core/View/Widgets/UpperRegistrationContainer.dart';
 import 'package:rowadapp/core/View/Widgets/WidgetTextFormField.dart';
+import 'package:rowadapp/global/components/Validation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
 class Studyinformation extends StatefulWidget {
@@ -15,6 +16,7 @@ class Studyinformation extends StatefulWidget {
 
 class _StudyinformationState extends State<Studyinformation> {
   int check = 1;
+  GlobalKey<FormState> formKey = GlobalKey();
   late String d = "الابداع";
   String classStudent = "التاسع";
   @override
@@ -35,115 +37,128 @@ class _StudyinformationState extends State<Studyinformation> {
               width: MediaQuery.of(context).size.width,
               //  height: MediaQuery.of(context).size.height - 400,
               child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Space(
-                      height: 20,
-                    ),
-                    const Text(
-                      "المدرسة :",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                    const Space(
-                      height: 20,
-                    ),
-                    const Widgettextformflied(
-                      hintText: "أسم المدرسة المتخرج منها",
-                      // labelText: "أسم ولي الأمر",
-                      //  prefixIcon: Icon(Icons.account_circle),
-                      keyboardType: TextInputType.name,
-                      textInputAction: TextInputAction.done,
-                    ),
-                    const Space(
-                      height: 20,
-                    ),
-                    const Text(
-                      "النسبة :",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                    const Space(
-                      height: 20,
-                    ),
-                    const Widgettextformflied(
-                      hintText: "نسبة أخر صف دراسي",
-                      //    labelText: "مكان الميلاد",
-                      //     prefixIcon: Icon(Icons.account_circle),
-                      keyboardType: TextInputType.name,
-                      textInputAction: TextInputAction.done,
-                    ),
-                    const Space(
-                      height: 20,
-                    ),
-                    const Text(
-                      "الصف الطالع إليه :",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                    const Space(
-                      height: 20,
-                    ),
-                    DropdownButton(
-                        menuWidth: MediaQuery.of(context).size.width,
-                        value: classStudent,
-                        items: classes
-                            .map((e) =>
-                                DropdownMenuItem(value: e, child: Text(e)))
-                            .toList(),
-                        onChanged: (val) {
-                          classStudent = val!;
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Space(
+                        height: 20,
+                      ),
+                      const Text(
+                        "المدرسة :",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                      const Space(
+                        height: 20,
+                      ),
+                      Widgettextformflied(
+                        hintText: "أسم المدرسة المتخرج منها",
+                        validator: (p0) => InputValidator.validateArabic(p0),
+                        onChanged: (value) {
                           setState(() {});
-                        }),
-                    const Space(
-                      height: 20,
-                    ),
-                    const Text(
-                      "ماهي المدرسة التي ترغب في الدراسة فيها ؟",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                    DropdownButton(
-                        menuWidth: MediaQuery.of(context).size.width,
-                        value: d,
-                        items: school
-                            .map((e) =>
-                                DropdownMenuItem(value: e, child: Text(e)))
-                            .toList(),
-                        onChanged: (val) {
-                          d = val!;
+                        },
+                        // labelText: "أسم ولي الأمر",
+                        //  prefixIcon: Icon(Icons.account_circle),
+                        keyboardType: TextInputType.name,
+                        textInputAction: TextInputAction.done,
+                      ),
+                      const Space(
+                        height: 20,
+                      ),
+                      const Text(
+                        "النسبة :",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                      const Space(
+                        height: 20,
+                      ),
+                      Widgettextformflied(
+                        hintText: "نسبة أخر صف دراسي",
+                        validator: (p0) => InputValidator.validateNumbers(p0),
+                        onChanged: (value) {
                           setState(() {});
-                        }),
-                    const Space(
-                      height: 30,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Containerbutton(
-                            allBorderRadius: 15,
-                            name: "تراجع",
-                            onPressed: () {
-                              Navigator.pop(context, "/Registrationguardian");
-                            }),
-                        const Space(
-                          width: 10,
-                        ),
-                        Containerbutton(
-                            allBorderRadius: 15,
-                            name: "التالي",
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                  context, "/Contactinformation");
-                            }),
-                      ],
-                    ),
-                    const Space(
-                      height: 20,
-                    ),
-                  ],
+                        },
+                        //    labelText: "مكان الميلاد",
+                        //     prefixIcon: Icon(Icons.account_circle),
+                        keyboardType: TextInputType.name,
+                        textInputAction: TextInputAction.done,
+                      ),
+                      const Space(
+                        height: 20,
+                      ),
+                      const Text(
+                        "الصف الطالع إليه :",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                      const Space(
+                        height: 20,
+                      ),
+                      DropdownButton(
+                          menuWidth: MediaQuery.of(context).size.width,
+                          value: classStudent,
+                          items: classes
+                              .map((e) =>
+                                  DropdownMenuItem(value: e, child: Text(e)))
+                              .toList(),
+                          onChanged: (val) {
+                            classStudent = val!;
+                            setState(() {});
+                          }),
+                      const Space(
+                        height: 20,
+                      ),
+                      const Text(
+                        "ماهي المدرسة التي ترغب في الدراسة فيها ؟",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                      DropdownButton(
+                          menuWidth: MediaQuery.of(context).size.width,
+                          value: d,
+                          items: school
+                              .map((e) =>
+                                  DropdownMenuItem(value: e, child: Text(e)))
+                              .toList(),
+                          onChanged: (val) {
+                            d = val!;
+                            setState(() {});
+                          }),
+                      const Space(
+                        height: 30,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Containerbutton(
+                              allBorderRadius: 15,
+                              name: "تراجع",
+                              onPressed: () {
+                                Navigator.pop(context, "/Registrationguardian");
+                              }),
+                          const Space(
+                            width: 10,
+                          ),
+                          Containerbutton(
+                              allBorderRadius: 15,
+                              name: "التالي",
+                              onPressed: () {
+                                if (formKey.currentState!.validate()) {
+                                  Navigator.pushNamed(
+                                      context, "/Contactinformation");
+                                }
+                              }),
+                        ],
+                      ),
+                      const Space(
+                        height: 20,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

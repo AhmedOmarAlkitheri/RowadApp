@@ -13,6 +13,7 @@ import 'package:rowadapp/core/View/Screens/RegistrationGuardian.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationInfo.dart';
 import 'package:rowadapp/core/View/Screens/Second_Term_Evaluation.dart';
 import 'package:rowadapp/core/View/Screens/StudyInformation.dart';
+import 'package:rowadapp/core/View/Screens/TellAboutYourselfScreen.dart';
 import 'package:rowadapp/core/View/Screens/registrationScreen.dart';
 
 class RouteManager {
@@ -24,10 +25,10 @@ class RouteManager {
         return MaterialPageRoute(builder: (ctx) {
           return const Registrationscreen();
         });
-      case "/Registrationinfo":
-        return MaterialPageRoute(builder: (ctx) {
-          return const Registrationinfo();
-        });
+      // case "/Registrationinfo":
+      //   return MaterialPageRoute(builder: (ctx) {
+      //     return const Registrationinfo();
+      //   });
       case "/Registrationguardian":
         return MaterialPageRoute(builder: (ctx) {
           return const Registrationguardian();
@@ -39,6 +40,10 @@ class RouteManager {
       case "/Studyinformation":
         return MaterialPageRoute(builder: (ctx) {
           return const Studyinformation();
+        });
+      case "/TellAboutYourselfScreen":
+        return MaterialPageRoute(builder: (ctx) {
+          return const TellAboutYourselfScreen();
         });
 
       case "/FirstTerm":
