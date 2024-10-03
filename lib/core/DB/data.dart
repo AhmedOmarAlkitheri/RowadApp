@@ -73,4 +73,4 @@ List<Map<String, String>> datanotification = [
 ];
 
 List<String> classes = ["التاسع", "اول ثانوي", "ثاني ثانوي", "ثالث ثانوي"];
-List<String> school = ["الفقيد بن حميده", "الابداع", "سيف بن ذي يزن"];
+List<String> schools = ["الفقيد بن حميده", "الابداع", "سيف بن ذي يزن"];

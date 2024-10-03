@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TimePickerHelper {
-  static Future<TimeOfDay?> selectTime(
-      BuildContext context, TimeOfDay? initialTime) async {
-    return await showTimePicker(
+class DatePickerHelper {
+  static Future<DateTime?> selectDate(
+      BuildContext context, DateTime? initialDate) async {
+    return await showDatePicker(
       context: context,
-      initialTime: initialTime ?? TimeOfDay.now(),
+      initialDate: initialDate ?? DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2100),
     );
   }
 }

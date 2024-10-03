@@ -1,8 +1,7 @@
 // List<Map<String , dynamic>>
-
+// "code": "200",
+// "message": "Success",
 Map<String, dynamic> registrationData = {
-  "code": "200",
-  "message": "Success",
   "data": [
     {
       "stud_name": "علي محمد",
@@ -11,9 +10,9 @@ Map<String, dynamic> registrationData = {
       "currentplace_residence": "الجيزة",
       "area": "الهرم",
       "disease": "لا يوجد",
-      "school": "مدرسة الأهرام",
-      "ratio": "95%",
-      "classes": "ثانوية عامة",
+      "school_name": "مدرسة الأهرام",
+      "last_grade_percentage": "95%",
+      "next_grade": "ثانوية عامة",
       "skills": "برمجة, تصميم",
       "fav_school": "مدرسة المستقبل",
       "participations": "مسابقة العلوم, دوري كرة القدم",
@@ -24,7 +23,9 @@ Map<String, dynamic> registrationData = {
       "profession": "مهندس",
       "guardian_phone": "01234567890",
       "phone": "09876543210",
-      "whatsapp": "09876543210"
+      "whatsapp": "09876543210",
+      "Directorate": "مديرية التعليم بالقاهرة",
+      "image": "path/to/image1.png"
     },
     {
       "stud_name": "فاطمة علي",
@@ -33,9 +34,9 @@ Map<String, dynamic> registrationData = {
       "currentplace_residence": "الإسكندرية",
       "area": "وسط المدينة",
       "disease": "لا يوجد",
-      "school": "مدرسة النيل",
-      "ratio": "90%",
-      "classes": "ثانوية عامة",
+      "school_name": "مدرسة النيل",
+      "last_grade_percentage": "90%",
+      "next_grade": "ثانوية عامة",
       "skills": "رسم, موسيقى",
       "fav_school": "مدرسة الإبداع",
       "participations": "مسابقة الرسم, الكورال",
@@ -46,7 +47,9 @@ Map<String, dynamic> registrationData = {
       "profession": "معلمة",
       "guardian_phone": "01234567891",
       "phone": "09876543211",
-      "whatsapp": "09876543211"
+      "whatsapp": "09876543211",
+      "Directorate": "مديرية التعليم بالإسكندرية",
+      "image": "path/to/image2.png"
     },
     {
       "stud_name": "أحمد سعيد",
@@ -55,9 +58,9 @@ Map<String, dynamic> registrationData = {
       "currentplace_residence": "المنصورة",
       "area": "حي الجامعة",
       "disease": "لا يوجد",
-      "school": "مدرسة المنصورة",
-      "ratio": "92%",
-      "classes": "ثانوية عامة",
+      "school_name": "مدرسة المنصورة",
+      "last_grade_percentage": "92%",
+      "next_grade": "ثانوية عامة",
       "skills": "رياضيات, كرة سلة",
       "fav_school": "مدرسة النور",
       "participations": "بطولة السلة, مسابقة الرياضيات",
@@ -68,7 +71,9 @@ Map<String, dynamic> registrationData = {
       "profession": "طبيب",
       "guardian_phone": "01234567892",
       "phone": "09876543212",
-      "whatsapp": "09876543212"
+      "whatsapp": "09876543212",
+      "Directorate": "مديرية التعليم بالدقهلية",
+      "image": "path/to/image3.png"
     },
     {
       "stud_name": "سارة خالد",
@@ -77,9 +82,9 @@ Map<String, dynamic> registrationData = {
       "currentplace_residence": "دمياط",
       "area": "وسط المدينة",
       "disease": "لا يوجد",
-      "school": "مدرسة الأمل",
-      "ratio": "88%",
-      "classes": "ثانوية عامة",
+      "school_name": "مدرسة الأمل",
+      "last_grade_percentage": "88%",
+      "next_grade": "ثانوية عامة",
       "skills": "تكنولوجيا المعلومات, كتابة",
       "fav_school": "مدرسة القمة",
       "participations": "مسابقة التكنولوجيا, مهرجان الكتاب",
@@ -90,7 +95,9 @@ Map<String, dynamic> registrationData = {
       "profession": "محامي",
       "guardian_phone": "01234567893",
       "phone": "09876543213",
-      "whatsapp": "09876543213"
+      "whatsapp": "09876543213",
+      "Directorate": "مديرية التعليم بدمياط",
+      "image": "path/to/image4.png"
     },
     {
       "stud_name": "محمد رضا",
@@ -99,9 +106,9 @@ Map<String, dynamic> registrationData = {
       "currentplace_residence": "الأقصر",
       "area": "حي العوامية",
       "disease": "لا يوجد",
-      "school": "مدرسة الأقصر",
-      "ratio": "85%",
-      "classes": "ثانوية عامة",
+      "school_name": "مدرسة الأقصر",
+      "last_grade_percentage": "85%",
+      "next_grade": "ثانوية عامة",
       "skills": "رياضة, رسم",
       "fav_school": "مدرسة الفنون",
       "participations": "بطولة كرة القدم, معرض الرسم",
@@ -112,7 +119,9 @@ Map<String, dynamic> registrationData = {
       "profession": "فنان",
       "guardian_phone": "01234567894",
       "phone": "09876543214",
-      "whatsapp": "09876543214"
+      "whatsapp": "09876543214",
+      "Directorate": "مديرية التعليم بالأقصر",
+      "image": "path/to/image5.png"
     },
     {
       "stud_name": "نور أيمن",
@@ -121,9 +130,9 @@ Map<String, dynamic> registrationData = {
       "currentplace_residence": "السويس",
       "area": "حي العبور",
       "disease": "لا يوجد",
-      "school": "مدرسة السويس",
-      "ratio": "93%",
-      "classes": "ثانوية عامة",
+      "school_name": "مدرسة السويس",
+      "last_grade_percentage": "93%",
+      "next_grade": "ثانوية عامة",
       "skills": "موسيقى, رياضة",
       "fav_school": "مدرسة الإبداع",
       "participations": "فرقة المدرسة الموسيقية, دوري رياضي",
@@ -134,7 +143,9 @@ Map<String, dynamic> registrationData = {
       "profession": "محاسب",
       "guardian_phone": "01234567895",
       "phone": "09876543215",
-      "whatsapp": "09876543215"
+      "whatsapp": "09876543215",
+      "Directorate": "مديرية التعليم بالسويس",
+      "image": "path/to/image6.png"
     },
     {
       "stud_name": "ليلى حسين",
@@ -143,9 +154,9 @@ Map<String, dynamic> registrationData = {
       "currentplace_residence": "بورسعيد",
       "area": "حي الشرق",
       "disease": "لا يوجد",
-      "school": "مدرسة بورسعيد",
-      "ratio": "91%",
-      "classes": "ثانوية عامة",
+      "school_name": "مدرسة بورسعيد",
+      "last_grade_percentage": "91%",
+      "next_grade": "ثانوية عامة",
       "skills": "كتابة, لغات",
       "fav_school": "مدرسة اللغات",
       "participations": "مسابقة الكتابة, مسابقة اللغات",
@@ -156,7 +167,9 @@ Map<String, dynamic> registrationData = {
       "profession": "مستشار قانوني",
       "guardian_phone": "01234567896",
       "phone": "09876543216",
-      "whatsapp": "09876543216"
+      "whatsapp": "09876543216",
+      "Directorate": "مديرية التعليم ببورسعيد",
+      "image": "path/to/image7.png"
     }
   ]
 };

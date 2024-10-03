@@ -3,20 +3,23 @@ import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
 import 'package:rowadapp/core/View/Widgets/Space.dart';
 import 'package:rowadapp/core/View/Widgets/UpperRegistrationContainer.dart';
 import 'package:rowadapp/core/View/Widgets/WidgetTextFormField.dart';
+import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
 import 'package:rowadapp/global/components/Validation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
-class Contactinformation extends StatefulWidget {
-  const Contactinformation({super.key});
+class Contactinformation extends StatelessWidget {
+  Contactinformation({super.key});
 
-  @override
-  State<Contactinformation> createState() => _ContactinformationState();
-}
-
-class _ContactinformationState extends State<Contactinformation> {
   int check = 1;
 
   GlobalKey<FormState> formKey = GlobalKey();
+
+  TextEditingController guardianPhone = TextEditingController();
+
+  TextEditingController phone = TextEditingController();
+
+  TextEditingController whatsapp = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,11 +56,12 @@ class _ContactinformationState extends State<Contactinformation> {
                         height: 15,
                       ),
                       Widgettextformflied(
+                        controller: guardianPhone,
                         hintText: "رقم ولي الأمر",
                         validator: (p0) =>
                             InputValidator.validatePhoneNumber(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          guardianPhone.text = value;
                         },
                         // labelText: "أسم ولي الأمر",
                         prefixIcon: const Icon(Icons.phone_android_rounded),
@@ -76,11 +80,12 @@ class _ContactinformationState extends State<Contactinformation> {
                         height: 20,
                       ),
                       Widgettextformflied(
+                        controller: phone,
                         hintText: "رقم الهاتف",
                         validator: (p0) =>
                             InputValidator.validatePhoneNumber(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          phone.text = value;
                         },
                         //    labelText: "مكان الميلاد",
                         prefixIcon: const Icon(Icons.phone_enabled_rounded),
@@ -99,11 +104,12 @@ class _ContactinformationState extends State<Contactinformation> {
                         height: 20,
                       ),
                       Widgettextformflied(
+                        controller: whatsapp,
                         hintText: "رقم الواتساب",
                         validator: (p0) =>
                             InputValidator.validatePhoneNumber(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          whatsapp.text = value;
                         },
                         //   labelText: "مكان الميلاد",
                         //  prefixIcon: Icon(Icons.wechat_rounded),
@@ -130,6 +136,13 @@ class _ContactinformationState extends State<Contactinformation> {
                               name: "التالي",
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
+                                  RegistrationVm
+                                          .registrationinfo["guardianPhone"] =
+                                      guardianPhone.text;
+                                  RegistrationVm.registrationinfo["phone"] =
+                                      phone.text;
+                                  RegistrationVm.registrationinfo["whatsapp"] =
+                                      whatsapp.text;
                                   Navigator.pushNamed(
                                       context, "/TellAboutYourselfScreen");
                                 }

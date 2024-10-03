@@ -39,6 +39,8 @@ dependencies:
   fl_chart:
   get_storage:
   dio:
+  image_picker: 
+  provider: 
 
 dev_dependencies:
   flutter_test:

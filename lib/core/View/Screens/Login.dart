@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
 import 'package:rowadapp/core/View/Widgets/Space.dart';
 import 'package:rowadapp/core/View/Widgets/WidgetTextFormField.dart';
+import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
+import 'package:rowadapp/core/ViewModel/UserVM.dart';
+import 'package:rowadapp/core/model/User.dart';
 import 'package:rowadapp/global/components/Validation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Login extends StatelessWidget {
+  Login({super.key});
 
-  @override
-  State<Login> createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
   GlobalKey<FormState> formKey = GlobalKey();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  UsersVm uvm = UsersVm();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,10 +99,11 @@ class _LoginState extends State<Login> {
                           height: 10,
                         ),
                         Widgettextformflied(
-                          validator: (p0) =>
-                              InputValidator.validateusername(p0),
+                          // validator: (p0) =>
+                          //     InputValidator.validateusername(p0),
+                          controller: usernameController,
                           onChanged: (value) {
-                            setState(() {});
+                            usernameController.text = value;
                           },
                           hintText: "أسم المستخدم",
                           labelText: "أسم المستخدم",
@@ -120,12 +122,16 @@ class _LoginState extends State<Login> {
                         const Space(
                           height: 10,
                         ),
-                        const Widgettextformflied(
+                        Widgettextformflied(
+                          controller: passwordController,
                           hintText: "كلمة المرور",
                           labelText: "كلمة المرور",
-                          prefixIcon: Icon(Icons.password_rounded),
+                          prefixIcon: const Icon(Icons.password_rounded),
                           keyboardType: TextInputType.name,
                           textInputAction: TextInputAction.done,
+                          onChanged: (value) {
+                            passwordController.text = value;
+                          },
                         ),
                         const Space(
                           height: 50,
@@ -134,9 +140,43 @@ class _LoginState extends State<Login> {
                             child: Containerbutton(
                           name: "تسجيل دخول",
                           allBorderRadius: 15,
-                          onPressed: () {
+                          onPressed: () async {
                             if (formKey.currentState!.validate()) {
-                              Navigator.pushNamed(context, "/Homescreen");
+                              //   RegistrationVm().postRegistration();
+                              showModalBottomSheet(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return SizedBox(
+                                      height: 200,
+                                      child: BottomSheet(
+                                          dragHandleSize: Size.infinite,
+                                          onClosing: () {},
+                                          builder: (ctx) {
+                                            return const Center(
+                                                child:
+                                                    CircularProgressIndicator());
+                                          }),
+                                    );
+                                  });
+
+                              User u = User(
+                                  username: usernameController.text,
+                                  password: passwordController.text);
+                              //     print("${passwordController.text}");
+                              //  User? user =
+                              await uvm.login(u).then((x) {
+                                if (x == "Success") {
+                                  Navigator.pushNamed(context, "/Homescreen");
+                                } else {
+                                  showDialog(
+                                      context: context,
+                                      builder: (ctx) {
+                                        return AlertDialog(
+                                          title: Text("$x"),
+                                        );
+                                      });
+                                }
+                              });
                             }
                           },
                         )),

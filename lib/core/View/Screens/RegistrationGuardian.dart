@@ -3,19 +3,23 @@ import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
 import 'package:rowadapp/core/View/Widgets/Space.dart';
 import 'package:rowadapp/core/View/Widgets/UpperRegistrationContainer.dart';
 import 'package:rowadapp/core/View/Widgets/WidgetTextFormField.dart';
+import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
 import 'package:rowadapp/global/components/Validation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
-class Registrationguardian extends StatefulWidget {
-  const Registrationguardian({super.key});
+class Registrationguardian extends StatelessWidget {
+  Registrationguardian({super.key});
 
-  @override
-  State<Registrationguardian> createState() => _RegistrationguardianState();
-}
-
-class _RegistrationguardianState extends State<Registrationguardian> {
   int check = 1;
+
   GlobalKey<FormState> formKey = GlobalKey();
+
+  TextEditingController guardianName = TextEditingController();
+
+  TextEditingController relationship = TextEditingController();
+
+  TextEditingController profession = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,10 +56,11 @@ class _RegistrationguardianState extends State<Registrationguardian> {
                         height: 15,
                       ),
                       Widgettextformflied(
+                        controller: guardianName,
                         hintText: "أسم ولي الأمر",
                         validator: (p0) => InputValidator.validateArabic(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          guardianName.text = value;
                         },
                         // labelText: "أسم ولي الأمر",
                         //  prefixIcon: Icon(Icons.account_circle),
@@ -74,10 +79,11 @@ class _RegistrationguardianState extends State<Registrationguardian> {
                         height: 20,
                       ),
                       Widgettextformflied(
+                        controller: relationship,
                         hintText: "صلة القرابة",
                         validator: (p0) => InputValidator.validateArabic(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          relationship.text = value;
                         },
                         //    labelText: "مكان الميلاد",
                         //     prefixIcon: Icon(Icons.account_circle),
@@ -93,10 +99,11 @@ class _RegistrationguardianState extends State<Registrationguardian> {
                         height: 10,
                       ),
                       Widgettextformflied(
+                        controller: profession,
                         hintText: "مهنة ولي الامر",
                         validator: (p0) => InputValidator.validateArabic(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          profession.text = value;
                         },
                         //   labelText: "مكان الميلاد",
                         //     prefixIcon: Icon(Icons.account_circle),
@@ -123,6 +130,16 @@ class _RegistrationguardianState extends State<Registrationguardian> {
                               name: "التالي",
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
+                                  RegistrationVm
+                                          .registrationinfo["guardianName"] =
+                                      guardianName.text;
+                                  RegistrationVm
+                                          .registrationinfo["relationship"] =
+                                      relationship.text;
+
+                                  RegistrationVm
+                                          .registrationinfo["profession"] =
+                                      profession.text;
                                   Navigator.pushNamed(
                                       context, "/Studyinformation");
                                 }

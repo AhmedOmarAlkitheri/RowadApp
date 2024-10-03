@@ -1,21 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
+import 'package:rowadapp/core/View/Widgets/ContainerImage.dart';
 import 'package:rowadapp/core/View/Widgets/Space.dart';
 import 'package:rowadapp/core/View/Widgets/UpperRegistrationContainer.dart';
 import 'package:rowadapp/core/View/Widgets/WidgetTextFormField.dart';
+import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
+import 'package:rowadapp/global/components/PickerTime.dart';
 import 'package:rowadapp/global/components/Validation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
-class Registrationinfo extends StatefulWidget {
-  const Registrationinfo({super.key});
+class Registrationinfo extends StatelessWidget {
+  Registrationinfo({super.key});
 
-  @override
-  State<Registrationinfo> createState() => _RegistrationinfoState();
-}
-
-class _RegistrationinfoState extends State<Registrationinfo> {
   int check = 1;
+
+  String? img;
+
+  DateTime? selectedDate;
+
   GlobalKey<FormState> formKey = GlobalKey();
+
+  TextEditingController studName = TextEditingController();
+
+  TextEditingController placeOfBirth = TextEditingController();
+
+  TextEditingController currentplaceResidence = TextEditingController();
+
+  TextEditingController area = TextEditingController();
+
+  TextEditingController Directorate = TextEditingController();
+
+  TextEditingController disease = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +57,30 @@ class _RegistrationinfoState extends State<Registrationinfo> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Consumer<RegistrationVm>(
+                            builder: (context, o, child) {
+                              if (o.image?.path == null) {
+                                img = "assets/images/personprofile.png";
+                              } else {
+                                img = o.image?.path;
+                              }
+                              return ImageContainer(
+                                image: o.image,
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                      const Space(
+                        height: 20,
+                      ),
+                      const Text("أضف صورتك",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20)),
                       const Space(
                         height: 20,
                       ),
@@ -52,6 +93,7 @@ class _RegistrationinfoState extends State<Registrationinfo> {
                         height: 15,
                       ),
                       Widgettextformflied(
+                        controller: studName,
                         hintText: "من فضلك أدخل أسمك الرباعي",
                         labelText: "أسمك الرباعي",
                         //  prefixIcon: Icon(Icons.account_circle),
@@ -61,24 +103,44 @@ class _RegistrationinfoState extends State<Registrationinfo> {
                         validator: (p0) =>
                             InputValidator.validateArabicName(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          studName.text = value;
                         },
                       ),
                       const Space(
                         height: 20,
                       ),
-                      const Row(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             "تاريخ الميلاد :",
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Color(AppColor.colorBlack),
+                            ),
                           ),
-                          Text(
-                            "التاريخ",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
-                          )
+                          Consumer<RegistrationVm>(
+                            builder: (context, value, child) => InkWell(
+                              child: Text(
+                                value.currentDate != null
+                                    ? '${value.currentDate?.day}/${value.currentDate?.month}/${value.currentDate?.year}'
+                                    : '      لم تحدد تاريخ ميلادك',
+                                style: const TextStyle(fontSize: 20),
+                              ),
+                              onTap: () async {
+                                selectedDate = (await showDatePicker(
+                                  context: context,
+                                  initialDate: selectedDate ?? DateTime.now(),
+                                  firstDate: DateTime(1900),
+                                  lastDate: DateTime(2100),
+                                ));
+                                if (selectedDate != null) {
+                                  value.updateDate(selectedDate!);
+                                }
+                              },
+                            ),
+                          ),
                         ],
                       ),
                       const Space(
@@ -102,12 +164,13 @@ class _RegistrationinfoState extends State<Registrationinfo> {
                                     height: 10,
                                   ),
                                   Widgettextformflied(
+                                    controller: placeOfBirth,
                                     validator: (p0) =>
                                         InputValidator.validateArabic(p0),
                                     hintText: "المحافظة",
                                     labelText: "مكان الميلاد",
                                     onChanged: (value) {
-                                      setState(() {});
+                                      placeOfBirth.text = value;
                                     },
                                     //     prefixIcon: Icon(Icons.account_circle),
                                     keyboardType: TextInputType.name,
@@ -136,12 +199,13 @@ class _RegistrationinfoState extends State<Registrationinfo> {
                                     height: 10,
                                   ),
                                   Widgettextformflied(
+                                    controller: Directorate,
                                     hintText: "أدخل المديرية",
                                     labelText: "المديرية",
                                     validator: (p0) =>
                                         InputValidator.validateArabic(p0),
                                     onChanged: (value) {
-                                      setState(() {});
+                                      Directorate.text = value;
                                     },
                                     //     prefixIcon: Icon(Icons.account_circle),
                                     keyboardType: TextInputType.name,
@@ -157,11 +221,12 @@ class _RegistrationinfoState extends State<Registrationinfo> {
                         height: 15,
                       ),
                       Widgettextformflied(
+                        controller: area,
                         hintText: "المنطقة , الحي",
                         labelText: "المنطقة",
                         validator: (p0) => InputValidator.validateArabic(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          area.text = value;
                         },
                         //     prefixIcon: Icon(Icons.account_circle),
                         keyboardType: TextInputType.name,
@@ -171,11 +236,12 @@ class _RegistrationinfoState extends State<Registrationinfo> {
                         height: 15,
                       ),
                       Widgettextformflied(
+                        controller: currentplaceResidence,
                         hintText: "المحافظة",
                         labelText: "مكان الاقامة الحالي",
                         validator: (p0) => InputValidator.validateArabic(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          currentplaceResidence.text = value;
                         },
                         //     prefixIcon: Icon(Icons.account_circle),
                         keyboardType: TextInputType.name,
@@ -193,6 +259,7 @@ class _RegistrationinfoState extends State<Registrationinfo> {
                         height: 10,
                       ),
                       Widgettextformflied(
+                        controller: disease,
                         hintText: "لا",
                         maxLines: check,
                         //  labelText: "",
@@ -200,12 +267,13 @@ class _RegistrationinfoState extends State<Registrationinfo> {
                         keyboardType: TextInputType.name,
                         textInputAction: TextInputAction.done,
                         onChanged: (val) {
-                          if (val == "نعم") {
-                            check = 10;
-                          } else {
-                            check = 1;
-                          }
-                          setState(() {});
+                          disease.text = val;
+                          // if (val == "نعم") {
+                          //   check = 10;
+                          // } else {
+                          //   check = 1;
+                          // }
+                          // setState(() {});
                         },
                       ),
                       const Space(
@@ -219,6 +287,31 @@ class _RegistrationinfoState extends State<Registrationinfo> {
                               name: "التالي",
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
+                                  RegistrationVm.registrationinfo["image"] =
+                                      img;
+                                  RegistrationVm
+                                          .registrationinfo["dateOfBirth"] =
+                                      selectedDate.toString().split(' ')[0];
+
+                                  RegistrationVm.registrationinfo["studName"] =
+                                      studName.text;
+                                  RegistrationVm
+                                          .registrationinfo["placeOfBirth"] =
+                                      placeOfBirth.text;
+                                  RegistrationVm.registrationinfo[
+                                          "currentplaceResidence"] =
+                                      currentplaceResidence.text;
+                                  RegistrationVm.registrationinfo["area"] =
+                                      area.text;
+                                  RegistrationVm
+                                          .registrationinfo["Directorate"] =
+                                      Directorate.text;
+                                  RegistrationVm.registrationinfo["disease"] =
+                                      disease.text;
+
+                                  print(
+                                      "fdgghgh ${RegistrationVm.registrationinfo}");
+
                                   Navigator.pushNamed(
                                       context, "/Registrationguardian");
                                 }

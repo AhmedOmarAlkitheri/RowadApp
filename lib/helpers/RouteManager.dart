@@ -20,30 +20,30 @@ class RouteManager {
   static Route<dynamic>? generateRoute(RouteSettings setting) {
     switch (setting.name) {
       case "/Login":
-        return MaterialPageRoute(builder: (ctx) => const Login());
+        return MaterialPageRoute(builder: (ctx) => Login());
       case "/Registrationscreen":
         return MaterialPageRoute(builder: (ctx) {
           return const Registrationscreen();
         });
-      // case "/Registrationinfo":
-      //   return MaterialPageRoute(builder: (ctx) {
-      //     return const Registrationinfo();
-      //   });
+      case "/Registrationinfo":
+        return MaterialPageRoute(builder: (ctx) {
+          return Registrationinfo();
+        });
       case "/Registrationguardian":
         return MaterialPageRoute(builder: (ctx) {
-          return const Registrationguardian();
+          return Registrationguardian();
         });
       case "/Contactinformation":
         return MaterialPageRoute(builder: (ctx) {
-          return const Contactinformation();
+          return Contactinformation();
         });
       case "/Studyinformation":
         return MaterialPageRoute(builder: (ctx) {
-          return const Studyinformation();
+          return Studyinformation();
         });
       case "/TellAboutYourselfScreen":
         return MaterialPageRoute(builder: (ctx) {
-          return const TellAboutYourselfScreen();
+          return TellAboutYourselfScreen();
         });
 
       case "/FirstTerm":
@@ -58,7 +58,7 @@ class RouteManager {
       case "/Evaluationscreen":
         return MaterialPageRoute(builder: (ctx) => const Evaluationscreen());
       case "/Homescreen":
-        return MaterialPageRoute(builder: (ctx) => const Homescreen());
+        return MaterialPageRoute(builder: (ctx) => Homescreen());
       case "/Notificationscreen":
         return MaterialPageRoute(builder: (ctx) => const Notificationscreen());
       case "/Placementscreens":

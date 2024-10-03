@@ -4,19 +4,23 @@ import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
 import 'package:rowadapp/core/View/Widgets/Space.dart';
 import 'package:rowadapp/core/View/Widgets/UpperRegistrationContainer.dart';
 import 'package:rowadapp/core/View/Widgets/WidgetTextFormField.dart';
+import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
 import 'package:rowadapp/global/components/Validation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
-class TellAboutYourselfScreen extends StatefulWidget {
-  const TellAboutYourselfScreen({super.key});
+class TellAboutYourselfScreen extends StatelessWidget {
+  TellAboutYourselfScreen({super.key});
 
-  @override
-  State<TellAboutYourselfScreen> createState() =>
-      _TellAboutYourselfScreenState();
-}
-
-class _TellAboutYourselfScreenState extends State<TellAboutYourselfScreen> {
   GlobalKey<FormState> formKey = GlobalKey();
+
+  TextEditingController skills = TextEditingController();
+
+  TextEditingController participations = TextEditingController();
+
+  TextEditingController futureAmbitions = TextEditingController();
+
+  TextEditingController joinSchool = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,10 +59,11 @@ class _TellAboutYourselfScreenState extends State<TellAboutYourselfScreen> {
                       scrollbarOrientation: ScrollbarOrientation.right,
                       thickness: 10,
                       child: Widgettextformflied(
+                        controller: skills,
                         validator: (p0) =>
                             InputValidator.validateMixedInput(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          skills.text = value;
                         },
                         hintText: "المهارات و المواهب و الهوايات",
                         maxLines: 3,
@@ -85,10 +90,11 @@ class _TellAboutYourselfScreenState extends State<TellAboutYourselfScreen> {
                       scrollbarOrientation: ScrollbarOrientation.right,
                       thickness: 10,
                       child: Widgettextformflied(
+                        controller: participations,
                         validator: (p0) =>
                             InputValidator.validateMixedInput(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          participations.text = value;
                         },
                         hintText: "أبرز المشاركات و الانجازات",
                         maxLines: 3,
@@ -115,10 +121,11 @@ class _TellAboutYourselfScreenState extends State<TellAboutYourselfScreen> {
                       scrollbarOrientation: ScrollbarOrientation.right,
                       thickness: 10,
                       child: Widgettextformflied(
+                        controller: futureAmbitions,
                         validator: (p0) =>
                             InputValidator.validateMixedInput(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          futureAmbitions.text = value;
                         },
                         hintText: "ماهو طموحك في المستقبل",
                         maxLines: 3,
@@ -145,17 +152,15 @@ class _TellAboutYourselfScreenState extends State<TellAboutYourselfScreen> {
                       scrollbarOrientation: ScrollbarOrientation.right,
                       thickness: 10,
                       child: Widgettextformflied(
+                        controller: joinSchool,
                         validator: (p0) =>
                             InputValidator.validateMixedInput(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          joinSchool.text = value;
                         },
                         hintText: "لماذا تريد الالتحاق بالمركز",
                         maxLines: 3,
-                        //  maxLength: 10,
                         labelText: "لدي",
-                        //     prefixIcon: Icon(Icons.account_circle),
-                        //    keyboardType: TextInputType.name,
                         keyboardType: TextInputType.name,
                         textInputAction: TextInputAction.newline,
                       ),
@@ -181,6 +186,18 @@ class _TellAboutYourselfScreenState extends State<TellAboutYourselfScreen> {
                             name: "إرسال",
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
+                                RegistrationVm.registrationinfo["skills"] =
+                                    skills.text;
+                                RegistrationVm
+                                        .registrationinfo["participations"] =
+                                    participations.text;
+                                RegistrationVm
+                                        .registrationinfo["futureAmbitions"] =
+                                    futureAmbitions.text;
+                                RegistrationVm.registrationinfo["joinSchool"] =
+                                    joinSchool.text;
+                                print(RegistrationVm.registrationinfo);
+                                RegistrationVm().postRegistration();
                                 Navigator.pushNamed(context, "/Login");
                               }
                             }),

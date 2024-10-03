@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rowadapp/core/DB/data.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
 import 'package:rowadapp/core/View/Widgets/Space.dart';
 import 'package:rowadapp/core/View/Widgets/UpperRegistrationContainer.dart';
 import 'package:rowadapp/core/View/Widgets/WidgetTextFormField.dart';
+import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
 import 'package:rowadapp/global/components/Validation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
-class Studyinformation extends StatefulWidget {
-  const Studyinformation({super.key});
+class Studyinformation extends StatelessWidget {
+  Studyinformation({super.key});
 
-  @override
-  State<Studyinformation> createState() => _StudyinformationState();
-}
-
-class _StudyinformationState extends State<Studyinformation> {
   int check = 1;
+
   GlobalKey<FormState> formKey = GlobalKey();
-  late String d = "الابداع";
-  String classStudent = "التاسع";
+
+  late String favSchool;
+
+  late String next_grade;
+
+  TextEditingController school_name = TextEditingController();
+
+  TextEditingController last_grade_percentage = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,10 +60,11 @@ class _StudyinformationState extends State<Studyinformation> {
                         height: 20,
                       ),
                       Widgettextformflied(
+                        controller: school_name,
                         hintText: "أسم المدرسة المتخرج منها",
                         validator: (p0) => InputValidator.validateArabic(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          school_name.text = value;
                         },
                         // labelText: "أسم ولي الأمر",
                         //  prefixIcon: Icon(Icons.account_circle),
@@ -77,10 +83,11 @@ class _StudyinformationState extends State<Studyinformation> {
                         height: 20,
                       ),
                       Widgettextformflied(
+                        controller: last_grade_percentage,
                         hintText: "نسبة أخر صف دراسي",
                         validator: (p0) => InputValidator.validateNumbers(p0),
                         onChanged: (value) {
-                          setState(() {});
+                          last_grade_percentage.text = value;
                         },
                         //    labelText: "مكان الميلاد",
                         //     prefixIcon: Icon(Icons.account_circle),
@@ -98,17 +105,19 @@ class _StudyinformationState extends State<Studyinformation> {
                       const Space(
                         height: 20,
                       ),
-                      DropdownButton(
-                          menuWidth: MediaQuery.of(context).size.width,
-                          value: classStudent,
-                          items: classes
-                              .map((e) =>
-                                  DropdownMenuItem(value: e, child: Text(e)))
-                              .toList(),
-                          onChanged: (val) {
-                            classStudent = val!;
-                            setState(() {});
-                          }),
+                      Consumer<RegistrationVm>(
+                        builder: (context, value, child) => DropdownButton(
+                            menuWidth: MediaQuery.of(context).size.width,
+                            value: value.next_grade,
+                            items: classes
+                                .map((e) =>
+                                    DropdownMenuItem(value: e, child: Text(e)))
+                                .toList(),
+                            onChanged: (val) {
+                              next_grade = val!;
+                              value.updateNextGrade(val);
+                            }),
+                      ),
                       const Space(
                         height: 20,
                       ),
@@ -117,17 +126,20 @@ class _StudyinformationState extends State<Studyinformation> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
-                      DropdownButton(
-                          menuWidth: MediaQuery.of(context).size.width,
-                          value: d,
-                          items: school
-                              .map((e) =>
-                                  DropdownMenuItem(value: e, child: Text(e)))
-                              .toList(),
-                          onChanged: (val) {
-                            d = val!;
-                            setState(() {});
-                          }),
+                      Consumer<RegistrationVm>(
+                        builder: (context, registration, child) =>
+                            DropdownButton(
+                                menuWidth: MediaQuery.of(context).size.width,
+                                value: registration.school,
+                                items: schools
+                                    .map((e) => DropdownMenuItem(
+                                        value: e, child: Text(e)))
+                                    .toList(),
+                                onChanged: (val) {
+                                  favSchool = val!;
+                                  registration.updateSchool(val);
+                                }),
+                      ),
                       const Space(
                         height: 30,
                       ),
@@ -148,6 +160,19 @@ class _StudyinformationState extends State<Studyinformation> {
                               name: "التالي",
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
+                                  RegistrationVm
+                                          .registrationinfo["school_name"] =
+                                      school_name.text;
+                                  RegistrationVm.registrationinfo[
+                                          "last_grade_percentage"] =
+                                      last_grade_percentage.text;
+
+                                  RegistrationVm
+                                          .registrationinfo["next_grade"] =
+                                      next_grade;
+                                  RegistrationVm.registrationinfo["favSchool"] =
+                                      favSchool;
+                                  print(RegistrationVm.registrationinfo);
                                   Navigator.pushNamed(
                                       context, "/Contactinformation");
                                 }

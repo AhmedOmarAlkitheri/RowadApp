@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class AppColor {
   static const int primaryColor = 0xFF6BBF44; //5BAD35
   static const int firstColorbutton = 0xFF6BBF44;
@@ -13,4 +15,5 @@ class AppColor {
   static const int fourNotification = 0xFF06BDFF;
   static const int colorBlack = 0xFF000000;
   static const int colorWelcome = 0xFF891F1D;
+  static const Color graycolor = Colors.grey;
 }
