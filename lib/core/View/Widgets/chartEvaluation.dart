@@ -25,10 +25,10 @@ List<PieChartSectionData>? showingSections(double Value) {
 
       case 1:
         return PieChartSectionData(
-          color: const Color(AppColor.secondaryColor),
-          value: 100 - sum,
-          radius: radius,
-        );
+            color: const Color(AppColor.secondaryTwoColor),
+            value: 100 - sum,
+            radius: radius,
+            title: "");
       default:
         throw Error();
     }

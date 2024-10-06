@@ -158,13 +158,20 @@ class Login extends StatelessWidget {
                                           }),
                                     );
                                   });
+                              Map<String, String>? loginInfos;
 
-                              User u = User(
-                                  username: usernameController.text,
-                                  password: passwordController.text);
+                              User.loginInfo?["username"] =
+                                  usernameController.text;
+                              User.loginInfo?["password"] =
+                                  passwordController.text;
+
+                              loginInfos = User.loginInfo;
+                              // User u = User(
+                              //     username: usernameController.text,
+                              //     password: passwordController.text);
                               //     print("${passwordController.text}");
                               //  User? user =
-                              await uvm.login(u).then((x) {
+                              await uvm.login(loginInfos).then((x) {
                                 if (x == "Success") {
                                   Navigator.pushNamed(context, "/Homescreen");
                                 } else {

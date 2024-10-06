@@ -16,9 +16,9 @@ class Studyinformation extends StatelessWidget {
 
   GlobalKey<FormState> formKey = GlobalKey();
 
-  late String favSchool;
+  String favSchool = "الابداع";
 
-  late String next_grade;
+  String next_grade = "التاسع";
 
   TextEditingController school_name = TextEditingController();
 
@@ -108,7 +108,7 @@ class Studyinformation extends StatelessWidget {
                       Consumer<RegistrationVm>(
                         builder: (context, value, child) => DropdownButton(
                             menuWidth: MediaQuery.of(context).size.width,
-                            value: value.next_grade,
+                            value: value.next_grade ?? "التاسع",
                             items: classes
                                 .map((e) =>
                                     DropdownMenuItem(value: e, child: Text(e)))
@@ -130,7 +130,7 @@ class Studyinformation extends StatelessWidget {
                         builder: (context, registration, child) =>
                             DropdownButton(
                                 menuWidth: MediaQuery.of(context).size.width,
-                                value: registration.school,
+                                value: registration.school ?? "الابداع",
                                 items: schools
                                     .map((e) => DropdownMenuItem(
                                         value: e, child: Text(e)))
@@ -161,16 +161,17 @@ class Studyinformation extends StatelessWidget {
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   RegistrationVm
-                                          .registrationinfo["school_name"] =
+                                          .registrationinfo['school_name'] =
                                       school_name.text;
                                   RegistrationVm.registrationinfo[
-                                          "last_grade_percentage"] =
+                                          'last_grade_percentage'] =
                                       last_grade_percentage.text;
 
                                   RegistrationVm
-                                          .registrationinfo["next_grade"] =
+                                          .registrationinfo['next_grade'] =
                                       next_grade;
-                                  RegistrationVm.registrationinfo["favSchool"] =
+                                  RegistrationVm
+                                          .registrationinfo['desired_school'] =
                                       favSchool;
                                   print(RegistrationVm.registrationinfo);
                                   Navigator.pushNamed(

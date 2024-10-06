@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerImage.dart';
@@ -15,8 +18,8 @@ class Registrationinfo extends StatelessWidget {
 
   int check = 1;
 
-  String? img;
-
+  // var img;
+  // static XFile? image_person;
   DateTime? selectedDate;
 
   GlobalKey<FormState> formKey = GlobalKey();
@@ -30,8 +33,8 @@ class Registrationinfo extends StatelessWidget {
   TextEditingController area = TextEditingController();
 
   TextEditingController Directorate = TextEditingController();
-
   TextEditingController disease = TextEditingController();
+  TextEditingController current_residence_details = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -57,30 +60,32 @@ class Registrationinfo extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Consumer<RegistrationVm>(
-                            builder: (context, o, child) {
-                              if (o.image?.path == null) {
-                                img = "assets/images/personprofile.png";
-                              } else {
-                                img = o.image?.path;
-                              }
-                              return ImageContainer(
-                                image: o.image,
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                      const Space(
-                        height: 20,
-                      ),
-                      const Text("أضف صورتك",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20)),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   crossAxisAlignment: CrossAxisAlignment.center,
+                      //   children: [
+                      //     Consumer<RegistrationVm>(
+                      //       builder: (context, o, child) {
+                      //         if (o.image?.path == null) {
+                      //           img = "assets/images/personprofile.png";
+                      //           image_person = XFile(img.path);
+                      //         } else {
+                      //           img = o.image?.path;
+                      //           image_person = XFile(img.path);
+                      //         }
+                      //         return ImageContainer(
+                      //           image: o.image,
+                      //         );
+                      //       },
+                      //     ),
+                      //   ],
+                      // ),
+                      // const Space(
+                      //   height: 20,
+                      // ),
+                      // const Text("أضف صورتك",
+                      //     style: TextStyle(
+                      //         fontWeight: FontWeight.bold, fontSize: 20)),
                       const Space(
                         height: 20,
                       ),
@@ -250,6 +255,21 @@ class Registrationinfo extends StatelessWidget {
                       const Space(
                         height: 15,
                       ),
+                      Widgettextformflied(
+                        controller: current_residence_details,
+                        hintText: "المديرية",
+                        labelText: "مكان الاقامة الحالي/المديرية,المنطقة",
+                        validator: (p0) => InputValidator.validateArabic(p0),
+                        onChanged: (value) {
+                          current_residence_details.text = value;
+                        },
+                        //     prefixIcon: Icon(Icons.account_circle),
+                        keyboardType: TextInputType.name,
+                        textInputAction: TextInputAction.done,
+                      ),
+                      const Space(
+                        height: 15,
+                      ),
                       const Text(
                         "هل تعاني من أي مرض ؟",
                         style: TextStyle(
@@ -267,6 +287,7 @@ class Registrationinfo extends StatelessWidget {
                         keyboardType: TextInputType.name,
                         textInputAction: TextInputAction.done,
                         onChanged: (val) {
+                          disease.text = "لا";
                           disease.text = val;
                           // if (val == "نعم") {
                           //   check = 10;
@@ -287,27 +308,32 @@ class Registrationinfo extends StatelessWidget {
                               name: "التالي",
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
-                                  RegistrationVm.registrationinfo["image"] =
-                                      img;
+                                  // RegistrationVm.registrationinfo["image"] =
+                                  //     image_person!.path;
                                   RegistrationVm
-                                          .registrationinfo["dateOfBirth"] =
+                                          .registrationinfo['date_of_birth'] =
                                       selectedDate.toString().split(' ')[0];
 
-                                  RegistrationVm.registrationinfo["studName"] =
+                                  RegistrationVm.registrationinfo['full_name'] =
                                       studName.text;
                                   RegistrationVm
-                                          .registrationinfo["placeOfBirth"] =
+                                          .registrationinfo['place_of_birth'] =
                                       placeOfBirth.text;
                                   RegistrationVm.registrationinfo[
-                                          "currentplaceResidence"] =
+                                          'current_residence'] =
                                       currentplaceResidence.text;
-                                  RegistrationVm.registrationinfo["area"] =
+                                  RegistrationVm.registrationinfo[
+                                          'current_residence_details'] =
+                                      current_residence_details.text;
+
+                                  RegistrationVm.registrationinfo['area'] =
                                       area.text;
                                   RegistrationVm
-                                          .registrationinfo["Directorate"] =
+                                          .registrationinfo['governorate'] =
                                       Directorate.text;
-                                  RegistrationVm.registrationinfo["disease"] =
-                                      disease.text;
+                                  RegistrationVm.registrationinfo[
+                                          'health_conditions'] =
+                                      disease.text ?? "لا";
 
                                   print(
                                       "fdgghgh ${RegistrationVm.registrationinfo}");

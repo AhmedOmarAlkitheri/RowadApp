@@ -8,14 +8,14 @@ class WidgetSemester extends StatefulWidget {
   const WidgetSemester(
       {super.key,
       required this.finalValue,
-      required this.semesterResult,
-      required this.ResidualResult,
       required this.programName,
       required this.programValue,
+      required this.semesterResult,
       required this.selectedTerm});
 
+  //  required this.ResidualResult,
   final double finalValue;
-  final String semesterResult, ResidualResult;
+  final String semesterResult;
   final List<String> programName;
   final List<double> programValue;
   final int selectedTerm;
@@ -51,11 +51,11 @@ class _WidgetSemesterState extends State<WidgetSemester> {
               Expanded(
                   flex: 8,
                   child: Containerevaluation(
-                      finalValue: widget.finalValue,
-                      semesterResult: widget.semesterResult,
-                      ResidualResult: widget.ResidualResult,
-                      programName: widget.programName,
-                      programValue: widget.programValue)),
+                    finalValue: widget.finalValue,
+                    programName: widget.programName,
+                    programValue: widget.programValue,
+                    semesterResult: widget.semesterResult,
+                  )),
               const SizedBox(
                 height: 15,
               ),

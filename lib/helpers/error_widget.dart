@@ -14,7 +14,7 @@ class ErrorWidgetView extends StatelessWidget {
     return RefreshIndicator(
       color: const Color(AppColor.primaryColor),
       onRefresh: () async {
-        await registrationVm.refershData();
+        //   await registrationVm();
         // await categoryVm.refershData();
       },
       child: SingleChildScrollView(

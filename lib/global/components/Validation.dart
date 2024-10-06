@@ -3,8 +3,18 @@ class InputValidator {
     final regex = RegExp(r'^[\u0600-\u06FF\s]{1,30}$');
     final parts = value!.trim().split(' ');
 
-    if (!regex.hasMatch(value) || value.isEmpty || parts.length != 4) {
+    if (!regex.hasMatch(value) || value.isEmpty || parts.length < 4) {
       return 'أدخل أسمك الرباعي بالشكل المطلوب';
+    }
+    return null;
+  }
+
+  static String? validateGuardianName(String? value) {
+    final regex = RegExp(r'^[\u0600-\u06FF\s]{1,30}$');
+    final parts = value!.trim().split(' ');
+
+    if (!regex.hasMatch(value) || value.isEmpty || parts.length < 3) {
+      return 'أدخل أسم ولي امرك الثلاثي وما فوق بالشكل المطلوب';
     }
     return null;
   }

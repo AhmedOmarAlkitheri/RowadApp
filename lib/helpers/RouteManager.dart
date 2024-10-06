@@ -9,6 +9,7 @@ import 'package:rowadapp/core/View/Screens/Login.dart';
 import 'package:rowadapp/core/View/Screens/NotificationScreen.dart';
 import 'package:rowadapp/core/View/Screens/PlacementScreens.dart';
 import 'package:rowadapp/core/View/Screens/Profile.dart';
+import 'package:rowadapp/core/View/Screens/RegistrationFinash.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationGuardian.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationInfo.dart';
 import 'package:rowadapp/core/View/Screens/Second_Term_Evaluation.dart';
@@ -46,6 +47,11 @@ class RouteManager {
           return TellAboutYourselfScreen();
         });
 
+      case "/RegistrationFinash":
+        return MaterialPageRoute(builder: (ctx) {
+          return const RegistrationFinash();
+        });
+
       case "/FirstTerm":
         return MaterialPageRoute(builder: (ctx) {
           return FirstTermEvaluation();
@@ -60,14 +66,14 @@ class RouteManager {
       case "/Homescreen":
         return MaterialPageRoute(builder: (ctx) => Homescreen());
       case "/Notificationscreen":
-        return MaterialPageRoute(builder: (ctx) => const Notificationscreen());
+        return MaterialPageRoute(builder: (ctx) => Notificationscreen());
       case "/Placementscreens":
         return MaterialPageRoute(builder: (ctx) => const Placementscreens());
 
-      case "/DrawerScreen":
-        return MaterialPageRoute(builder: (ctx) => const Drawerscreen());
+      // case "/DrawerScreen":
+      //   return MaterialPageRoute(builder: (ctx) => const Drawerscreen());
       case "/Profile":
-        return MaterialPageRoute(builder: (ctx) => const Profile());
+        return MaterialPageRoute(builder: (ctx) => Profile());
 
       default:
     }

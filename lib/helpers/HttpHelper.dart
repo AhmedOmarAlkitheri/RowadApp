@@ -10,7 +10,10 @@ class Httphelper {
     return httphelper!;
   }
 
-  Future<Response> getRequest({required String url, Options? options}) async {
+  Future<Response> getRequest(
+      {required String url,
+      Options? options,
+      Map<String, dynamic>? queryParameters}) async {
     return await d.get(url, options: options);
   }
 

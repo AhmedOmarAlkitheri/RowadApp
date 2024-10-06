@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rowadapp/core/View/Widgets/drawerwidget.dart';
 import 'package:rowadapp/helpers/Getstorage_helper.dart';
 import '../../../global/constraints/app_color.dart';
 import '../Widgets/Navigationbar.dart';
@@ -13,10 +14,15 @@ class Homescreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: const Text("مركز رواد المستقبل"),
-        actions: const [
-          Icon(
-            Icons.menu,
-            size: 50,
+        actions: [
+          InkWell(
+            child: const Icon(
+              Icons.menu,
+              size: 50,
+            ),
+            onTap: () {
+              showTopSheet(context);
+            },
           )
         ],
         leading: Container(),

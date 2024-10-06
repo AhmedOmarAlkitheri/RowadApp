@@ -18,6 +18,7 @@ class Containerstep extends StatelessWidget {
             : const Color(AppColor.secondaryTwoColor),
         border: Border.all(color: Colors.black),
       ),
+      child: isActive ? Icon(Icons.check, color: Colors.white) : null,
     );
   }
 }

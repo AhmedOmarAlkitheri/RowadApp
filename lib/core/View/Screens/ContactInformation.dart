@@ -137,11 +137,13 @@ class Contactinformation extends StatelessWidget {
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   RegistrationVm
-                                          .registrationinfo["guardianPhone"] =
+                                          .registrationinfo["guardian_mobile"] =
                                       guardianPhone.text;
-                                  RegistrationVm.registrationinfo["phone"] =
+                                  RegistrationVm
+                                          .registrationinfo["phone_number"] =
                                       phone.text;
-                                  RegistrationVm.registrationinfo["whatsapp"] =
+                                  RegistrationVm
+                                          .registrationinfo["mobile_number"] =
                                       whatsapp.text;
                                   Navigator.pushNamed(
                                       context, "/TellAboutYourselfScreen");

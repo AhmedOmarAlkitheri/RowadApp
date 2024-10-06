@@ -10,7 +10,7 @@ class FirstTermEvaluation extends StatelessWidget {
     return WidgetSemester(
       finalValue: semesterevaluation['finalValue'],
       semesterResult: semesterevaluation['semesterResult'],
-      ResidualResult: semesterevaluation['ResidualResult'],
+      // ResidualResult: semesterevaluation['ResidualResult'],
       programName: semesterevaluation['programName'],
       programValue: semesterevaluation['programValue'],
       selectedTerm: selectedTerm,

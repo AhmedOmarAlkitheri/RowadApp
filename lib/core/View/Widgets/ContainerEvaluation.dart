@@ -8,12 +8,11 @@ class Containerevaluation extends StatefulWidget {
       {super.key,
       required this.finalValue,
       required this.semesterResult,
-      required this.ResidualResult,
       required this.programName,
       required this.programValue});
 
   final double finalValue;
-  final String semesterResult, ResidualResult;
+  final String semesterResult;
   final List<String> programName;
   final List<double> programValue;
   @override
@@ -40,20 +39,20 @@ class _ContainerevaluationState extends State<Containerevaluation> {
           Stack(children: [
             Positioned(
                 child: ContainerChartEval(
-                    value: widget.finalValue,
-                    semesterResult: widget.semesterResult,
-                    ResidualResult: widget.ResidualResult)),
-            Positioned(
-              left: 48,
-              top: 36,
-              child: Column(
-                children: [
-                  Text("% ${widget.finalValue.toInt()}",
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20))
-                ],
-              ),
-            )
+              value: widget.finalValue,
+              semesterResult: widget.semesterResult,
+            )),
+            // Positioned(
+            //   left: 48,
+            //   top: 36,
+            //   child: Column(
+            //     children: [
+            //       Text("% ${widget.finalValue.toInt()}",
+            //           style: const TextStyle(
+            //               fontWeight: FontWeight.bold, fontSize: 20))
+            //     ],
+            //   ),
+            // )
           ]),
           Container(
             alignment: Alignment.topRight,

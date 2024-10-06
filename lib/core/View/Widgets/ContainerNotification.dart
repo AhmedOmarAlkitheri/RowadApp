@@ -7,9 +7,9 @@ class Containernotification extends StatelessWidget {
       {super.key,
       required this.title,
       required this.subtitle,
-      required this.typeNotification});
-  final String title, subtitle, typeNotification;
-
+      required this.date});
+  final String title, subtitle, date;
+//  required this.typeNotification,
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,16 +21,30 @@ class Containernotification extends StatelessWidget {
           color: const Color(AppColor.secondaryTwoColor),
           borderRadius: BorderRadius.circular(10)),
       child: ListTile(
-        leading: Icon(
+        leading: const Icon(
           Icons.notification_add_sharp,
-          color: type(typeNotification),
+          color: Color(AppColor.primaryColor),
+          // color: type(typeNotification),
         ),
-        title: Text(title,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: type(typeNotification),
-            )),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color(AppColor.primaryColor),
+                  //  color: type(typeNotification),
+                )),
+            Text(date,
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+          ],
+        ),
         subtitle: Text(subtitle),
+        // trailing: Text(date,
+        //     style: const TextStyle(
+        //       fontWeight: FontWeight.bold,
+        //     )),
       ),
     );
   }

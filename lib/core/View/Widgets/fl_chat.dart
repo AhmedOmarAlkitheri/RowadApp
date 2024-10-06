@@ -4,13 +4,13 @@ import 'package:rowadapp/core/View/Widgets/chartEvaluation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
 class ContainerChartEval extends StatefulWidget {
-  const ContainerChartEval(
-      {super.key,
-      required this.value,
-      required this.semesterResult,
-      required this.ResidualResult});
+  const ContainerChartEval({
+    super.key,
+    required this.value,
+    required this.semesterResult,
+  });
   final double value;
-  final String semesterResult, ResidualResult;
+  final String semesterResult;
   @override
   State<StatefulWidget> createState() => ContainerChartEvalState();
 }
@@ -24,8 +24,8 @@ class ContainerChartEvalState extends State<ContainerChartEval> {
         height: 100,
         width: MediaQuery.of(context).size.width,
         child: Row(
-          //  crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               child: Column(
@@ -45,19 +45,19 @@ class ContainerChartEvalState extends State<ContainerChartEval> {
                       Text(widget.semesterResult)
                     ],
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        width: 20,
-                        height: 20,
-                        color: const Color(AppColor.secondaryColor),
-                      ),
-                      Text(widget.ResidualResult)
-                    ],
-                  ),
+                  //       const SizedBox(
+                  //         height: 10,
+                  //       ),
+                  //       Row(
+                  //         children: [
+                  //           Container(
+                  //             width: 20,
+                  //             height: 20,
+                  //             color: const Color(AppColor.secondaryColor),
+                  //           ),
+                  //           Text(widget.ResidualResult)
+                  //         ],
+                  //       ),
                 ],
               ),
             ),

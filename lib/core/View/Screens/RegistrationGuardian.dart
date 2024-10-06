@@ -58,7 +58,8 @@ class Registrationguardian extends StatelessWidget {
                       Widgettextformflied(
                         controller: guardianName,
                         hintText: "أسم ولي الأمر",
-                        validator: (p0) => InputValidator.validateArabic(p0),
+                        validator: (p0) =>
+                            InputValidator.validateGuardianName(p0),
                         onChanged: (value) {
                           guardianName.text = value;
                         },
@@ -131,15 +132,14 @@ class Registrationguardian extends StatelessWidget {
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   RegistrationVm
-                                          .registrationinfo["guardianName"] =
+                                          .registrationinfo['guardian_name'] =
                                       guardianName.text;
                                   RegistrationVm
-                                          .registrationinfo["relationship"] =
+                                          .registrationinfo['relationship'] =
                                       relationship.text;
 
-                                  RegistrationVm
-                                          .registrationinfo["profession"] =
-                                      profession.text;
+                                  RegistrationVm.registrationinfo[
+                                      'guardian_occupation'] = profession.text;
                                   Navigator.pushNamed(
                                       context, "/Studyinformation");
                                 }

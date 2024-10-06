@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rowadapp/core/View/Screens/RegistrationInfo.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
 //import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
 import 'package:rowadapp/core/View/Widgets/Space.dart';
@@ -184,21 +185,24 @@ class TellAboutYourselfScreen extends StatelessWidget {
                         Containerbutton(
                             allBorderRadius: 15,
                             name: "إرسال",
-                            onPressed: () {
+                            onPressed: () async {
                               if (formKey.currentState!.validate()) {
-                                RegistrationVm.registrationinfo["skills"] =
-                                    skills.text;
                                 RegistrationVm
-                                        .registrationinfo["participations"] =
+                                        .registrationinfo['skills_hobbies'] =
+                                    skills.text;
+                                RegistrationVm.registrationinfo[
+                                        'achievements_participations'] =
                                     participations.text;
                                 RegistrationVm
-                                        .registrationinfo["futureAmbitions"] =
+                                        .registrationinfo['future_ambitions'] =
                                     futureAmbitions.text;
-                                RegistrationVm.registrationinfo["joinSchool"] =
-                                    joinSchool.text;
+                                RegistrationVm.registrationinfo[
+                                    'reason_for_joining'] = joinSchool.text;
                                 print(RegistrationVm.registrationinfo);
-                                RegistrationVm().postRegistration();
-                                Navigator.pushNamed(context, "/Login");
+                                await RegistrationVm().postRegistration();
+
+                                Navigator.pushNamed(
+                                    context, "/RegistrationFinash");
                               }
                             }),
                       ],
