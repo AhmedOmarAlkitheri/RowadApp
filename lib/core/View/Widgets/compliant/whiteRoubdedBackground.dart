@@ -17,7 +17,7 @@ class Whiteroubdedbackground extends StatelessWidget {
     return Container(
         //  padding: EdgeInsets.only(left: 15, right: 15),
         width: width ?? MediaQuery.of(context).size.width - 40,
-        height: height ?? 610,
+        height: height ?? 480,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15), color: Colors.white),
         child: Padding(

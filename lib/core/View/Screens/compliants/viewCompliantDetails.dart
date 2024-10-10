@@ -5,37 +5,40 @@ import 'package:rowadapp/core/Models/compliant.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
 class Viewcompliantdetails extends StatelessWidget {
-  late Compliant c = Compliant(
-      title: 'عدم توفر خدمة الإنترنت بشكل مستمر ',
-      content:
-          " السلام عليكم\n \n أود أن أقدم شكوى بخصوص مشكلة عدم توفر خدمة الإنترنت بشكل مستمر في غرفتنا منذ فترة، أصبحت الإشارة ضعيفة جداً، مما يؤثر سلباً على قدرتي على الدراسة عبر الإنترنت  على الرغم من محاولتي الاتصال بالدعم الفني عدة مرات، إلا أن المشكلة لم تُحل.\n شكرا لتفهمكم خالص التحية،\n الطالب: علي أنيس .",
-      responseStatuse: true,
-      response:
-          'شكرًا لتواصلكم معنا\n . نعتذر عن مشكلة انقطاع الإنترنت ونؤكد أن فريقنا يعمل على حلها بأسرع وقت. سنبقيكم على اطلاع بالتحديثات. صبركم.\n تحياتنا، إدارة مركز رواد المستقبل .  ');
+  late Compliant c;
+  //  = Compliant(
+  //     title: 'عدم توفر خدمة الإنترنت بشكل مستمر ',
+  //     content:
+  //         " السلام عليكم\n \n أود أن أقدم شكوى بخصوص مشكلة عدم توفر خدمة الإنترنت بشكل مستمر في غرفتنا منذ فترة، أصبحت الإشارة ضعيفة جداً، مما يؤثر سلباً على قدرتي على الدراسة عبر الإنترنت  على الرغم من محاولتي الاتصال بالدعم الفني عدة مرات، إلا أن المشكلة لم تُحل.\n شكرا لتفهمكم خالص التحية،\n الطالب: علي أنيس .",
+  //     responseStatuse: true,
+  //     response:
+  //         'شكرًا لتواصلكم معنا\n . نعتذر عن مشكلة انقطاع الإنترنت ونؤكد أن فريقنا يعمل على حلها بأسرع وقت. سنبقيكم على اطلاع بالتحديثات. صبركم.\n تحياتنا، إدارة مركز رواد المستقبل .  ');
+
   late List<Message> messages = [];
-  Viewcompliantdetails({super.key});
+  Viewcompliantdetails({super.key, required this.c});
 
   @override
   Widget build(BuildContext context) {
     messages.add(Message(text: c.content, isSentByme: true));
-    if (c.responseStatuse == true)
+    if (c.responseStatuse == true) {
       messages.add(Message(text: c.response, isSentByme: false));
+    }
 
     return Scaffold(
         body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
-                  colors: [const Color(AppColor.secondaryColor), Colors.white],
+                  colors: [Color(AppColor.secondaryColor), Colors.white],
                   begin: AlignmentDirectional.topStart,
                   end: AlignmentDirectional.bottomEnd),
             ),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
+                const Padding(
+                  padding: EdgeInsets.only(left: 20.0),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Icon(
@@ -44,7 +47,7 @@ class Viewcompliantdetails extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Expanded(
@@ -61,14 +64,14 @@ class Viewcompliantdetails extends StatelessWidget {
                                   text: messages[index].text!,
                                   isSender: messages[index].isSentByme,
                                   color: Colors.white,
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                     fontSize: 20,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal,
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 100,
                               )
                             ],

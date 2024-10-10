@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 class Header extends StatelessWidget {
   String title;
   String imagePath;
-
-  Header({super.key, required this.title, required this.imagePath});
+  GestureTapCallback? event;
+  Header(
+      {super.key,
+      required this.title,
+      required this.imagePath,
+      required this.event});
 
   @override
   Widget build(BuildContext context) {
@@ -12,17 +16,20 @@ class Header extends StatelessWidget {
         // margin: EdgeInsets.only(right: 10, left: 10),
         child: ListTile(
       leading: Image.asset(
-        this.imagePath,
-        width: 36,
-        height: 38,
+        imagePath,
+        width: 30,
+        height: 32,
       ),
       title: Text(
-        this.title,
-        style: TextStyle(fontSize: 24),
+        title,
+        style: const TextStyle(fontSize: 20),
       ),
-      trailing: Icon(
-        Icons.arrow_forward_ios_sharp,
-        size: 30,
+      trailing: InkWell(
+        onTap: event,
+        child: const Icon(
+          Icons.arrow_forward_ios_sharp,
+          size: 25,
+        ),
       ),
     ));
   }

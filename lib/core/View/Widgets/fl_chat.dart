@@ -16,7 +16,7 @@ class ContainerChartEvalState extends State {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         //color: Colors.black,
         height: 100,
         width: MediaQuery.of(context).size.width,
@@ -37,12 +37,12 @@ class ContainerChartEvalState extends State {
                       Container(
                         width: 20,
                         height: 20,
-                        color: Color(AppColor.primaryColor),
+                        color: const Color(AppColor.primaryColor),
                       ),
-                      Text("النتيجة التي حصلت عليها")
+                      const Text("النتيجة التي حصلت عليها")
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -50,9 +50,9 @@ class ContainerChartEvalState extends State {
                       Container(
                         width: 20,
                         height: 20,
-                        color: Color(AppColor.secondaryColor),
+                        color: const Color(AppColor.secondaryColor),
                       ),
-                      Text("النتيجة التي لم يحصل عليها")
+                      const Text("النتيجة التي لم يحصل عليها")
                     ],
                   ),
                 ],
@@ -103,17 +103,17 @@ List<PieChartSectionData>? showingSections(
 
   return List.generate(Value.length + 1, (i) {
     final isTouched = i == -1;
-    final fontSize = 10.0;
-    final radius = 15.0;
+    const fontSize = 10.0;
+    const radius = 15.0;
     //   const shadows = [Shadow(color: Colors.black, blurRadius: 2)];
     switch (i) {
       case 0:
         return PieChartSectionData(
-          color: Color(AppColor.primaryColor),
+          color: const Color(AppColor.primaryColor),
           value: Value[i],
           //    title: '15%',
           radius: radius,
-          titleStyle: TextStyle(),
+          titleStyle: const TextStyle(),
           // titleStyle: TextStyle(
           //   fontSize: fontSize,
           //   fontWeight: FontWeight.bold,
@@ -124,7 +124,7 @@ List<PieChartSectionData>? showingSections(
 
       case 1:
         return PieChartSectionData(
-          color: Color(AppColor.secondaryColor),
+          color: const Color(AppColor.secondaryColor),
           value: 100 - sum,
           //   title: '15%',
           radius: radius,

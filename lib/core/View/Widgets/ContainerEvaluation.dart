@@ -12,7 +12,7 @@ class _ContainerevaluationState extends State<Containerevaluation> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+      padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
       width: MediaQuery.of(context).size.width,
       height: 450,
       decoration: BoxDecoration(boxShadow: [
@@ -20,12 +20,12 @@ class _ContainerevaluationState extends State<Containerevaluation> {
           color: Colors.black.withOpacity(0.25),
           blurRadius: 3,
           // spreadRadius: 2,
-          offset: Offset(0, 4),
+          offset: const Offset(0, 4),
         ),
       ], borderRadius: BorderRadius.circular(20), color: Colors.white),
       child: Column(
         children: [
-          Stack(children: [
+          const Stack(children: [
             Positioned(child: ContainerChartEval()),
             Positioned(
               left: 37,
@@ -37,9 +37,9 @@ class _ContainerevaluationState extends State<Containerevaluation> {
           ]),
           Container(
             alignment: Alignment.topRight,
-            child: Text("الاجمالي"),
+            child: const Text("الاجمالي"),
           ),
-          Divider(
+          const Divider(
             thickness: 2,
           )
 

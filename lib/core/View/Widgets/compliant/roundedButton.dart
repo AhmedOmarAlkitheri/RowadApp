@@ -20,24 +20,24 @@ class Roundedbutton extends StatelessWidget {
     return InkWell(
       onTap: event,
       child: Container(
-        height: height ?? 43,
-        width: width ?? 137,
+        height: height ?? 33,
+        width: width ?? 110,
         decoration: BoxDecoration(
-          color: Color(AppColor.primaryColor),
+          color: const Color(AppColor.primaryColor),
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.25),
               blurRadius: 3,
               // spreadRadius: 2,
-              offset: Offset(0, 4),
+              offset: const Offset(0, 4),
             ),
           ],
         ),
         child: Center(
           child: Text(
             text,
-            style: TextStyle(fontSize: fontSize ?? 20, color: Colors.white),
+            style: TextStyle(fontSize: fontSize ?? 18, color: Colors.white),
           ),
         ),
       ),

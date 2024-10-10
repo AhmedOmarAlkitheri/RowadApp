@@ -10,7 +10,7 @@ class Roundetextbox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: height ?? 65,
-        margin: margin ?? EdgeInsets.symmetric(horizontal: 10),
+        margin: margin ?? const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 255, 255, 255),
           borderRadius: BorderRadius.circular(15),
@@ -19,7 +19,7 @@ class Roundetextbox extends StatelessWidget {
               color: Colors.black.withOpacity(0.25),
               blurRadius: 3,
               // spreadRadius: 2,
-              offset: Offset(0, 4),
+              offset: const Offset(0, 4),
             ),
           ],
         ),
