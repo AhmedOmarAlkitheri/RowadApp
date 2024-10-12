@@ -9,7 +9,7 @@ class IconContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 60,
+      width: 90,
       child: Column(
         children: [
           Container(
@@ -21,10 +21,12 @@ class IconContainer extends StatelessWidget {
             ),
             child: const Icon(Icons.person_outline_outlined),
           ),
+
           Text(
             '$text',
             softWrap: true,
             textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 12),
           ),
         ],
       ),

@@ -9,12 +9,18 @@ import 'package:rowadapp/helper/api_exception.dart';
 import 'package:rowadapp/helper/http_helper.dart';
 
 class RoomVM with ChangeNotifier {
-  bool isLoading = false;
-  bool error = false;
+  bool _isLoading = false;
+  bool _error = false;
   late String errorMessage;
 
+
+  bool get isLoading => _isLoading;
+  bool get error => _error;
+
+
+
   RoomVM() {
-    getData();
+    fetchRoomData();
   }
 
   Room? room;
@@ -28,9 +34,9 @@ class RoomVM with ChangeNotifier {
 //   notifyListeners();
 // }
 
-  void getData() async {
-    error = false;
-    isLoading = true;
+  Future<void> fetchRoomData() async {
+    _error = false;
+    _isLoading = true;
     notifyListeners();
     User u = User();
     FormData data = FormData.fromMap({"token": u.getToken, "id": u.getId});
@@ -41,24 +47,25 @@ class RoomVM with ChangeNotifier {
       Response response =
           await dhelper.postRequest(url: Apiurls.roomData, data: data);
 
-      print('Response: ${jsonDecode(response.data)}');
+      // print('Response: ${jsonDecode(response.data)}');
       // print('Response: ${response.data['statuse']}');
 
       if (response.statusCode == 200) {
 
-          Map<String, dynamic> roomData = jsonDecode(response.data['data']);
-          print("hhhhhhhhhhh");
+          var jsonResponse = jsonDecode(response.data);
+          Map<String, dynamic> roomData = jsonResponse['data'];
+          print( jsonResponse['data']);
           room = Room.fromJson(roomData);
         }
     } on DioException catch (e) {
-      error = true;
+      _error = true;
       errorMessage = ApiException.exceptionHandler(e);
     } catch (e) {
-      error = true;
+      _error = true;
       errorMessage = e.toString();
       print(e.toString());
     } finally {
-      isLoading = false;
+      _isLoading = false;
       notifyListeners();
     }
   }

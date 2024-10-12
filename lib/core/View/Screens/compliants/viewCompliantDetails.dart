@@ -20,7 +20,7 @@ class Viewcompliantdetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     messages.add(Message(text: c.content, isSentByme: true));
-    if (c.responseStatuse == true) {
+    if (c.response != null) {
       messages.add(Message(text: c.response, isSentByme: false));
     }
 

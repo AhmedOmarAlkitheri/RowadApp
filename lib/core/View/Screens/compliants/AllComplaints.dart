@@ -41,13 +41,16 @@ class Allcomplaints_screen extends StatelessWidget {
                   Header(
                     title: 'صندوق الشكاوي',
                     imagePath: 'assets/cbox.png',
-                    event: () {},
+                    event: () {
+                                      Navigator.pushNamed(context, '/housing');
+
+                    },
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   SizedBox(
-                    // height: 534,
+                    height: 534,
                     child: Consumer<CompliantVm>(
                       builder: (ctx, c, child) {
                         if (c.isLoading) {

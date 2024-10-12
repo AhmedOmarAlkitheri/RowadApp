@@ -22,9 +22,9 @@ class HouseScreen extends StatelessWidget {
            return Center(child: CircularProgressIndicator());
            }
 
-           if (roomVM.error) {
-           return Center(child: Text('Error: ${roomVM.errorMessage}'));
-           }
+          //  if (roomVM.error) {
+          //  return Center(child: Text('Error: ${roomVM.errorMessage}'));
+          //  }
 
       // Use null-aware operators to safely access room properties
            final room = roomVM.room;
@@ -77,7 +77,7 @@ class HouseScreen extends StatelessWidget {
                                 ),
                                 Text('الدور ${room?.floor}'),
                                 const SizedBox(
-                                  width: 120,
+                                  width: 104,
                                 ),
                                 Text('الغرفة ${room?.roomNo}'),
                                 const SizedBox(
@@ -107,7 +107,7 @@ class HouseScreen extends StatelessWidget {
                                     scrollDirection: Axis.horizontal,
                                     itemCount: room?.roomMates.length,
                                     itemBuilder: (ctx, index) => IconContainer(
-                                        text: room?.roomMates[index])),
+                                        text: room?.roomMates[0])),
                               ))
                         ],
                       ),
@@ -116,25 +116,27 @@ class HouseScreen extends StatelessWidget {
                   //  SizedBox(height: 10,),
                   Expanded(
                     flex: 3,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ContainerButton(
-                          //     onTaputton: ,
-                          text: 'أشعارات الدفع',
-                        ),
-                        const SizedBox(
-                          height: 25,
-                        ),
-                        ContainerButton(
-                          onTaputton: () {
-                            Navigator.pushReplacementNamed(
-                                context, '/allCompliants');
-                          },
-                          text: 'الشكاوي',
-                        ),
-                      ],
+                    child: Center(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ContainerButton(
+                            //     onTaputton: ,
+                            text: 'أشعارات الدفع',
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          ContainerButton(
+                            onTaputton: () {
+                              Navigator.pushReplacementNamed(
+                                  context, '/allCompliants');
+                            },
+                            text: 'الشكاوي',
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   const Expanded(child: Navigationbar()),

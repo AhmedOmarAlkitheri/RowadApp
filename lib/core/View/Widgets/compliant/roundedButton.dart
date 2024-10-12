@@ -7,12 +7,14 @@ class Roundedbutton extends StatelessWidget {
   double? width;
   double? fontSize;
   late String text;
+  bool condition;
   Roundedbutton(
       {super.key,
       this.event,
       this.fontSize,
       this.height,
       this.width,
+     required this.condition,
       required this.text});
 
   @override
@@ -34,8 +36,16 @@ class Roundedbutton extends StatelessWidget {
             ),
           ],
         ),
-        child: Center(
-          child: Text(
+        child: Center( 
+          child: condition?
+         SizedBox(
+          height: 15,
+          width: 15,
+           child: CircularProgressIndicator(
+                          color: Colors.white,
+                        ),
+         )
+          :Text(
             text,
             style: TextStyle(fontSize: fontSize ?? 18, color: Colors.white),
           ),

@@ -3,7 +3,7 @@ class Compliant {
   String? title;
   String? content;
   // String? sendDate;
-  bool? responseStatuse;
+  String? responseStatuse;
   String? response;
 
   Compliant(

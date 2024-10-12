@@ -5,20 +5,26 @@ import 'package:rowadapp/core/Models/compliant.dart';
 import 'package:rowadapp/core/Models/user.dart';
 import 'package:rowadapp/helper/api_exception.dart';
 import 'package:rowadapp/helper/http_helper.dart';
+import 'dart:convert';
+
 
 class CompliantVm with ChangeNotifier {
   List<Compliant> Compliants = [];
-  bool isLoading = false;
-  bool error = false;
-  late String message;
+  bool _isLoading = false;
+  bool _error = false;
+  late String _message;
+
+  bool get isLoading => _isLoading;
+  bool get error => _error;
+  String get message => _message;
 
   CompliantVm() {
-    getData();
+    fetchCompliantData();
   }
 
-  void getData() async {
-    error = false;
-    isLoading = true;
+  Future<void> fetchCompliantData() async {
+    _error = false;
+    _isLoading = true;
     notifyListeners();
 
     User u = User();
@@ -26,27 +32,31 @@ class CompliantVm with ChangeNotifier {
 
     try {
       HttpHelper dhelper = HttpHelper.instance;
-      Response res =
+      Response response =
           await dhelper.postRequest(url: Apiurls.allCompliants, data: data);
-      List<dynamic> allCompliant = res.data["data"];
-      Compliants =
-          allCompliant.map((element) => Compliant.fromJson(element)).toList();
-      if (res.data['status'] == 200) message = 'success';
+
+      if (response.statusCode == 200) {
+        var jsonResponse = jsonDecode(response.data);
+        List<dynamic> allCompliant = jsonResponse['data'];
+        Compliants =
+            allCompliant.map((element) => Compliant.fromJson(element)).toList();
+        _message = 'success';
+      }
     } on DioException catch (e) {
-      error = true;
-      message = ApiException.exceptionHandler(e);
+      _error = true;
+      _message = ApiException.exceptionHandler(e);
     } catch (e) {
-      error = true;
-      message = e.toString();
+      _error = true;
+      _message = e.toString();
     } finally {
-      isLoading = false;
+      _isLoading = false;
       notifyListeners();
     }
   }
 
-  addCompliant(Compliant c) async {
-    error = false;
-    isLoading = true;
+   Future<void>  addCompliant(Compliant c) async {
+    _error = false;
+    _isLoading = true;
     notifyListeners();
 
     try {
@@ -59,24 +69,25 @@ class CompliantVm with ChangeNotifier {
         "content": c.content,
       });
       // print(data);
-      Response res =
+      Response response =
           await dhelper.postRequest(url: Apiurls.sendCompliant, data: data);
-      if (res.data['status'] == 200) {
-        message = 'تم إرسال الشكوى';
+      if (response.statusCode == 200) {
+        _message = 'تم إرسال الشكوى';
       } else {
-        message = 'يوجد خطأ';
+        _message = 'يوجد خطأ';
       }
     } on DioException catch (e) {
-      error = true;
-      message = ApiException.exceptionHandler(e);
+      _error = true;
+      _message = ApiException.exceptionHandler(e);
     } catch (e) {
-      error = true;
-      message = e.toString();
+      _error = true;
+      _message = e.toString();
     } finally {
-      isLoading = false;
+      _isLoading = false;
       notifyListeners();
     }
   }
+  
 }
 
 
