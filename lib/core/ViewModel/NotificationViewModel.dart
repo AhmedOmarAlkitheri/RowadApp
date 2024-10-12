@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:rowadapp/core/model/NotificationModel%20.dart';
+import 'package:rowadapp/helpers/Dio_Exception.dart';
+import 'package:rowadapp/helpers/Getstorage_helper.dart';
 
 import 'package:rowadapp/helpers/HttpHelper.dart';
 
@@ -10,21 +14,42 @@ class NotificationViewModel extends ChangeNotifier {
   bool isLoading = false;
   String? errorMessage;
   Httphelper httphelper = Httphelper.instance;
-  Future<void> fetchNotifications(String studentId) async {
+  Getstorage_helper getstorageHelper = Getstorage_helper.instance;
+
+  Future<void> fetchNotifications(String studentId, String token) async {
     isLoading = true;
     notifyListeners();
-
+//https://dummyjson.com/c/91c9-ea69-40d8-8cb2
     try {
-      var response = await httphelper.getRequest(
-        url: 'https://dummyjson.com/c/91c9-ea69-40d8-8cb2',
-        queryParameters: {'studentId': studentId},
-      );
+      Options? headers = Options();
+      headers.headers = {
+        'Content-Type': 'application/json',
+      };
+      // 'Accept': 'application/json',
+// 'Authorization': "Bearer $token"
+      // Options? headers = Options();
+      // headers.headers = {
+      //   'Content-Type': 'application/json',
+      //   'Accept': 'application/json',
+
+      // };
+
+      //  headers.headers!["Authorization"] =
+      //   "Bearer ${getstorageHelper.readFrmFile("token")}";
+      print("$token kl; oik;");
+      print("$studentId ghfdsfghj");
+      FormData fromdata = FormData.fromMap({'token': token, 'id': studentId});
+      //  Map<String, String> D = {'token': token, 'id': studentId};
+      var response = await httphelper.postRequest(
+          url: 'https://rowad.actnow-ye.com/apis/notification.php',
+          data: fromdata,
+          options: headers);
 
       if (response.statusCode == 200) {
-        apiResponse = ApiResponse.fromJson(response.data);
-        filteredNotifications = apiResponse?.data
-            ?.where((notification) => notification.studentId == studentId)
-            .toList();
+        apiResponse = ApiResponse.fromJson(jsonDecode(response.data));
+        filteredNotifications = apiResponse?.data;
+        // ?.where((notification) => notification.student_id == studentId)
+        // .toList();
 
         if (filteredNotifications == null || filteredNotifications!.isEmpty) {
           errorMessage = 'لا توجد إشعارات متاحة لهذا الطالب';
@@ -32,8 +57,10 @@ class NotificationViewModel extends ChangeNotifier {
           errorMessage = null;
         }
       } else {
-        errorMessage = 'فشل في تحميل الإشعارات';
+        errorMessage = response.data['message'];
       }
+    } on DioException catch (x) {
+      errorMessage = Dioexception.handleException(x);
     } catch (error) {
       errorMessage = 'حدث خطأ: $error';
     }

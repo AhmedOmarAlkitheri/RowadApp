@@ -57,31 +57,31 @@
 // }
 
 import 'package:rowadapp/core/model/StudentInformation.dart';
-
 class User {
   String? token;
-  List<StuedntInformation>? stuedntInformation;
+  StuedntInformation? stuedntInformation;
   static Map<String, String>? loginInfo;
-
+  
   User({this.token, this.stuedntInformation});
 
   User.fromJson(Map<String, dynamic> json) {
     token = json['token'];
-    if (json['stuednt_Information'] != null) {
-      stuedntInformation = <StuedntInformation>[];
-      json['stuednt_Information'].forEach((v) {
-        stuedntInformation!.add(new StuedntInformation.fromJson(v));
-      });
+
+    if (json['student_Information'] != null && json['student_Information'].isNotEmpty) {
+      stuedntInformation = StuedntInformation.fromJson(json['student_Information']);
+    } else {
+      print('student_Information is null or empty');
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['token'] = this.token;
-    if (this.stuedntInformation != null) {
-      data['stuednt_Information'] =
-          this.stuedntInformation!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['token'] = token;
+
+    if (stuedntInformation != null) {
+      data['student_Information'] = stuedntInformation!.toJson();
     }
+    
     return data;
   }
 }

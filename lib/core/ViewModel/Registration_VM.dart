@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+
 
 import 'package:image_picker/image_picker.dart';
 import 'package:rowadapp/core/model/Registration_M.dart';
@@ -95,16 +95,16 @@ class RegistrationVm with ChangeNotifier {
       print(registrationdata);
       Response response = await httphelper.postRequest(
         url:
-            "http://10.0.2.2/AL_RWAD/kaiadmin-lite-1.2.0/api/register_student.php",
+            "https://rowad.actnow-ye.com/apis/register_student.php",
         options: headers,
         data: registrationinfo,
       );
-      print("vhgjhj");
+
       if (response.statusCode == 200) {
-        SnackBar(content: Text('${response.data['message']}'));
+
         print('تم إرسال البيانات بنجاح');
       } else {
-        SnackBar(content: Text('حدث خطأ: ${response.data['message']}'));
+       
         print('فشل في إرسال البيانات: ${response.statusCode}');
       }
     } on DioException catch (x) {

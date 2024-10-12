@@ -85,30 +85,45 @@ class _ContainerregistrationState extends State<Containerregistration> {
                 ),
               ],
             ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  "معلومات\nشخصية",
-                  // style: TextStyle(fontSize: 17),
-                ),
-                Text(
-                  "معلومات\nولي الامر",
-                  // style: TextStyle(fontSize: 15),
-                ),
-                Text(
-                  "معلومات\nالدراسة",
-                  // style: TextStyle(fontSize: 15),
-                ),
-                Text(
-                  "معلومات\nالتواصل",
-                  // style: TextStyle(fontSize: 15),
-                ),
-                Text(
-                  "حدثنا\nعنك",
-                  // style: TextStyle(fontSize: 15),
-                ),
-              ],
+            Container(
+              padding: const EdgeInsets.only(left: 0, right: 0),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    "معلومات\nشخصية",
+                    // style: TextStyle(fontSize: 17),
+                  ),
+                  SizedBox(
+                    width: 25,
+                  ),
+                  Text(
+                    "معلومات\nولي الامر",
+                    // style: TextStyle(fontSize: 15),
+                  ),
+                  SizedBox(
+                    width: 25,
+                  ),
+                  Text(
+                    "معلومات\nالدراسة",
+                    // style: TextStyle(fontSize: 15),
+                  ),
+                  SizedBox(
+                    width: 25,
+                  ),
+                  Text(
+                    "معلومات\nالتواصل",
+                    // style: TextStyle(fontSize: 15),
+                  ),
+                  SizedBox(
+                    width: 33,
+                  ),
+                  Text(
+                    "حدثنا\n عنك",
+                    // style: TextStyle(fontSize: 15),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rowadapp/core/View/Widgets/AppBarTerms.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerEvaluation.dart';
 import 'package:rowadapp/core/View/Widgets/Navigationbar.dart';
+import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
+import 'package:rowadapp/global/components/Skeletonizer.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
 class WidgetSemester extends StatefulWidget {
@@ -10,14 +13,14 @@ class WidgetSemester extends StatefulWidget {
       required this.finalValue,
       required this.programName,
       required this.programValue,
-      required this.semesterResult,
-      required this.selectedTerm});
+      required this.selectedTerm,
+      this.dropdownmenu});
 
   //  required this.ResidualResult,
-  final double finalValue;
-  final String semesterResult;
+  final double? finalValue;
+  final Widget? dropdownmenu;
   final List<String> programName;
-  final List<double> programValue;
+  final List<double?> programValue;
   final int selectedTerm;
   @override
   State<WidgetSemester> createState() => _WidgetSemesterState();
@@ -32,7 +35,7 @@ class _WidgetSemesterState extends State<WidgetSemester> {
         decoration: const BoxDecoration(
           //   color: Colors.black,
           gradient: LinearGradient(
-            colors: [Color(AppColor.secondaryColor), Colors.white],
+            colors: [Color(AppColor.secondaryColor), Color(AppColor.secondaryTwoColor)],
             begin: AlignmentDirectional.topStart,
             end: AlignmentDirectional.bottomStart,
           ),
@@ -46,19 +49,31 @@ class _WidgetSemesterState extends State<WidgetSemester> {
               ),
               Expanded(child: Appbarterms(selectedTerm: widget.selectedTerm)),
               const SizedBox(
-                height: 15,
+                height: 10,
               ),
+              widget.dropdownmenu ?? const Text(""),
               Expanded(
                   flex: 8,
-                  child: Containerevaluation(
+                  child:Consumer<Evaluationvm>(builder: (context, evaluationvm, child) {
+                   if (evaluationvm.errorMessage != null) {
+        return Center(child: Text(evaluationvm.errorMessage!));
+      }
+                  
+             return Skeletonizer(
+        enabled: evaluationvm.isLoading,
+        child:
+           Containerevaluation(
                     finalValue: widget.finalValue,
                     programName: widget.programName,
                     programValue: widget.programValue,
-                    semesterResult: widget.semesterResult,
-                  )),
+                  ));
+                  })
+              ),
+
               const SizedBox(
                 height: 15,
               ),
+              
               const Expanded(
                   child: Navigationbar(
                 selectedTerm: 2,

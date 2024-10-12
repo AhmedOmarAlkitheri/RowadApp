@@ -40,7 +40,8 @@ dependencies:
   get_storage:
   dio:
   image_picker: 
-  provider: 
+  provider:
+  skeletonizer:
 
 dev_dependencies:
   flutter_test:

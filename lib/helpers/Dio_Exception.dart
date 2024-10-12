@@ -26,7 +26,7 @@ class Dioexception {
 
       default:
         {
-          return const ErrorWidgetView(error: "لا توجد استجابة من الخادم");
+          return "لا توجد استجابة من الخادم";
         }
     }
   }

@@ -13,6 +13,7 @@ import 'package:rowadapp/core/View/Screens/RegistrationFinash.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationGuardian.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationInfo.dart';
 import 'package:rowadapp/core/View/Screens/Second_Term_Evaluation.dart';
+import 'package:rowadapp/core/View/Screens/SplashScreen.dart';
 import 'package:rowadapp/core/View/Screens/StudyInformation.dart';
 import 'package:rowadapp/core/View/Screens/TellAboutYourselfScreen.dart';
 import 'package:rowadapp/core/View/Screens/registrationScreen.dart';
@@ -62,7 +63,7 @@ class RouteManager {
       case "/FinalResult":
         return MaterialPageRoute(builder: (ctx) => Finalresult());
       case "/Evaluationscreen":
-        return MaterialPageRoute(builder: (ctx) => const Evaluationscreen());
+        return MaterialPageRoute(builder: (ctx) =>  Evaluationscreen());
       case "/Homescreen":
         return MaterialPageRoute(builder: (ctx) => Homescreen());
       case "/Notificationscreen":
@@ -74,7 +75,10 @@ class RouteManager {
       //   return MaterialPageRoute(builder: (ctx) => const Drawerscreen());
       case "/Profile":
         return MaterialPageRoute(builder: (ctx) => Profile());
-
+  case "/splash":
+        return MaterialPageRoute(builder: (ctx) {
+          return Splashscreen();
+        });
       default:
     }
     return null;

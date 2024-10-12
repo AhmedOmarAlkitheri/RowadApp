@@ -15,6 +15,7 @@ class Login extends StatelessWidget {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   UsersVm uvm = UsersVm();
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,56 +138,54 @@ class Login extends StatelessWidget {
                           height: 50,
                         ),
                         Center(
-                            child: Containerbutton(
-                          name: "تسجيل دخول",
-                          allBorderRadius: 15,
-                          onPressed: () async {
-                            if (formKey.currentState!.validate()) {
-                              //   RegistrationVm().postRegistration();
-                              showModalBottomSheet(
-                                  context: context,
-                                  builder: (ctx) {
-                                    return SizedBox(
-                                      height: 200,
-                                      child: BottomSheet(
-                                          dragHandleSize: Size.infinite,
-                                          onClosing: () {},
-                                          builder: (ctx) {
-                                            return const Center(
-                                                child:
-                                                    CircularProgressIndicator());
-                                          }),
-                                    );
+                          child: Containerbutton(
+                              name: "تسجيل دخول",
+                              allBorderRadius: 15,
+                              onPressed: () async {
+                                if (formKey.currentState!.validate()) {
+                                      showModalBottomSheet(
+                    context: context,
+                    builder: (ctx) {
+                      return Container(
+                        height: 200,
+                        child: BottomSheet(
+                            dragHandleSize: Size.infinite,
+                            onClosing: () {},
+                            builder: (ctx) {
+                              return Center(child: CircularProgressIndicator());
+                            }),
+                      );
+                    });
+                                  // isLoading = true;
+                                  print(" JHGFD   JHGFDS");
+                                  Map<String, String> loginInfos = {};
+
+                                  loginInfos["username"] =
+                                      usernameController.text;
+                                  loginInfos["password"] =
+                                      passwordController.text;
+
+                                  print(" JHGFD ${loginInfos}  JHGFDS");
+                                  uvm.login(loginInfos).then((x) {
+                                    isLoading = false;
+
+                                    if (x == "Success") {
+                                      Navigator.pushNamed(
+                                          context, "/Homescreen");
+                                    } else {
+                                      showDialog(
+                                        context: context,
+                                        builder: (ctx) {
+                                          return AlertDialog(
+                                            title: Text("$x"),
+                                          );
+                                        },
+                                      );
+                                    }
                                   });
-                              Map<String, String>? loginInfos;
-
-                              User.loginInfo?["username"] =
-                                  usernameController.text;
-                              User.loginInfo?["password"] =
-                                  passwordController.text;
-
-                              loginInfos = User.loginInfo;
-                              // User u = User(
-                              //     username: usernameController.text,
-                              //     password: passwordController.text);
-                              //     print("${passwordController.text}");
-                              //  User? user =
-                              await uvm.login(loginInfos).then((x) {
-                                if (x == "Success") {
-                                  Navigator.pushNamed(context, "/Homescreen");
-                                } else {
-                                  showDialog(
-                                      context: context,
-                                      builder: (ctx) {
-                                        return AlertDialog(
-                                          title: Text("$x"),
-                                        );
-                                      });
                                 }
-                              });
-                            }
-                          },
-                        )),
+                              }),
+                        ),
                       ],
                     ),
                   ),
@@ -199,3 +198,67 @@ class Login extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //     child: Containerbutton(
+                        //   name: "تسجيل دخول",
+                        //   allBorderRadius: 15,
+                        //   onPressed: () async {
+                        //     Map<String, String> loginInfos = {
+                        //       "username": usernameController.text,
+                        //       "password": passwordController.text,
+                        //     };
+
+                        //     try {
+                        //       // استدعاء دالة تسجيل الدخول
+                        //       String result = await uvm.login(
+                        //           loginInfos); // تأكد من أن هذه الدالة تُرجع String فقط
+                        //       print(result);
+                        //       if (result == "Success") {
+                        //         // الانتقال إلى الصفحة الرئيسية
+                        //         Navigator.pushNamed(context, "/Homescreen");
+                        //       } else {
+                        //         // عرض رسالة الخطأ
+                        //         showDialog(
+                        //           context: context,
+                        //           builder: (ctx) {
+                        //             return AlertDialog(
+                        //               title: Text(
+                        //                   result), // تأكد أن النص هنا هو String فقط
+                        //             );
+                        //           },
+                        //         );
+                        //       }
+                        //     } catch (e) {
+                        //       // في حالة وجود استثناء غير متوقع، عرض رسالة الخطأ
+                        //       showDialog(
+                        //         context: context,
+                        //         builder: (ctx) {
+                        //           return AlertDialog(
+                        //             title: const Text("خطأ"),
+                        //             content: Text("حدث خطأ: $e"),
+                        //           );
+                        //         },
+                        //       );
+                        //     }
+                        //   },
+                        // )

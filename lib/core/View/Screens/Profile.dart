@@ -16,11 +16,11 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String id = getstorage_helper.readFrmFile("id").toString();
-    print(id);
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      // Provider.of<RegistrationVm>(context, listen: false).fetchRegistration(id);
-    });
+    // String id = getstorage_helper.readFrmFile("id").toString();
+    // print(id);
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   // Provider.of<RegistrationVm>(context, listen: false).fetchRegistration(id);
+    // });
 
     return Scaffold(
       backgroundColor: const Color(0xffD8FFC6),
@@ -44,161 +44,167 @@ class Profile extends StatelessWidget {
         ],
         // leading: Container(),
       ),
-      body: Consumer<RegistrationVm>(builder: (context, registration, child) {
-        // if (registration.isLoading) {
-        //   return const Center(child: CircularProgressIndicator());
-        // }
+      body:
+          // Consumer<RegistrationVm>(builder: (context, registration, child) {
+          //   // if (registration.isLoading) {
+          //   //   return const Center(child: CircularProgressIndicator());
+          //   // }
 
-        // if (registration.errorMessage != null) {
-        //   return Center(child: Text(registration.errorMessage!));
-        // }
+          //   // if (registration.errorMessage != null) {
+          //   //   return Center(child: Text(registration.errorMessage!));
+          //   // }
 
-        // if (registration.profileData == null) {
-        //   return const Center(child: Text('لا يوجد ملف شخصي خاص بك'));
-        // }
+          //   // if (registration.profileData == null) {
+          //   //   return const Center(child: Text('لا يوجد ملف شخصي خاص بك'));
+          //   // }
 
-        return Column(
-          children: [
-            Container(
-              height: 250,
-              width: double.infinity,
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                borderRadius:
-                    const BorderRadius.vertical(bottom: Radius.circular(25)),
-                color: const Color(AppColor.secondaryColor),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const SizedBox(height: 10),
-
-                  Container(
-                    width: 140,
-                    height: 140,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                '{registration.profileData?.image}' ??
-                                    "assets/images/personprofile.png"),
-                            fit: BoxFit.fill),
-                        shape: BoxShape.circle),
-                  ),
-
-                  const SizedBox(height: 20),
-                  Text(
-                    '{registration.profileData?.studName}',
-                    style: const TextStyle(
-                        fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-
-                  // Text(
-                  //   'طالب',
-                  //   style: TextStyle(fontSize: 20),
-                  // ),
-                ],
-              ),
+          //   return
+          Column(
+        children: [
+          Container(
+            height: 250,
+            width: double.infinity,
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              borderRadius:
+                  const BorderRadius.vertical(bottom: Radius.circular(25)),
+              color: const Color(AppColor.secondaryColor),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: const Offset(0, 3),
+                ),
+              ],
             ),
-            SizedBox(
-                height: MediaQuery.of(context).size.height - 250,
-                // width: 200,
-                child: SingleChildScrollView(
-                  // scrollDirection: Axis.vertical,
-                  child: Column(
-                    children: [
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Containerprofile(columnwidget: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                'معلوماتك الشخصية',
-                                style: TextStyle(
-                                    fontSize: 22, fontWeight: FontWeight.bold),
-                              ),
-                              const SizedBox(height: 10),
-                              const Text(
-                                'تاريخ الميلاد',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ),
-                              Text('{registration.profileData?.dateOfBirth}'),
-                              const Divider(
-                                thickness: 1.5,
-                              ),
-                              const Text(
-                                'مكان الاقامة الحالي',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                  '{registration.profileData?.currentplaceResidence}'),
-                              const Divider(
-                                thickness: 1.5,
-                              ),
-                              const Text(
-                                'رقم جوال ولي الامر',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ),
-                              Text('{registration.profileData?.guardianPhone}')
-                            ],
-                          ),
-                        ]),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Containerprofile(columnwidget: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                'معلوماتك الدراسية',
-                                style: TextStyle(
-                                    fontSize: 22, fontWeight: FontWeight.bold),
-                              ),
-                              const SizedBox(height: 10),
-                              const Text(
-                                "المرحلة الدراسية",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ), // Replace with actual academic year
-                              Text('{registration.profileData?.next_grade}'),
-                              const Divider(
-                                thickness: 1.5,
-                              ),
-                              const Text(
-                                "المدرسة الحالية",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ), // Replace with actual academic year
-                              Text(
-                                  '{registration.profileData?.favSchool}'), // Replace with actual specialization
-                            ],
-                          ),
-                        ]),
-                      ),
-                    ],
-                  ),
-                ))
-          ],
-        );
-      }),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const SizedBox(height: 10),
+
+                Container(
+                  width: 140,
+                  height: 140,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          //'{registration.profileData?.image}' ??
+                          image:
+                              AssetImage("assets/images/personprofile.png"),
+                          fit: BoxFit.fill),
+                      shape: BoxShape.circle),
+                ),
+
+                const SizedBox(height: 20),
+                //{registration.profileData?.studName}
+                Text(
+                  '${getstorage_helper.readFrmFile("student_name")}',
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+
+                // Text(
+                //   'طالب',
+                //   style: TextStyle(fontSize: 20),
+                // ),
+              ],
+            ),
+          ),
+          SizedBox(
+              height: MediaQuery.of(context).size.height - 250,
+              // width: 200,
+              child: SingleChildScrollView(
+                // scrollDirection: Axis.vertical,
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Containerprofile(columnwidget: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'معلوماتك الشخصية',
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(height: 10),
+                            const Text(
+                              'تاريخ الميلاد',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                                '${getstorage_helper.readFrmFile("date_of_berth")}'),
+                            const Divider(
+                              thickness: 1.5,
+                            ),
+                            const Text(
+                              'مكان الاقامة الحالي',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                                '${getstorage_helper.readFrmFile("directorate")}'),
+                            const Divider(
+                              thickness: 1.5,
+                            ),
+                            const Text(
+                              'رقم جوال ولي الامر',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                                '${getstorage_helper.readFrmFile("guardian_phone")}')
+                          ],
+                        ),
+                      ]),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Containerprofile(columnwidget: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'معلوماتك الدراسية',
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(height: 10),
+                            const Text(
+                              "المرحلة الدراسية",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ), // Replace with actual academic year
+                            Text(
+                                '${getstorage_helper.readFrmFile("classroom")}'),
+
+                            const Divider(
+                              thickness: 1.5,
+                            ),
+                            const Text(
+                              "المدرسة الحالية",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                            Text('${getstorage_helper.readFrmFile("school")}'),
+                          ],
+                        ),
+                      ]),
+                    ),
+                  ],
+                ),
+              ))
+        ],
+      ),
+      // }),
     );
   }
 }

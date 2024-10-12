@@ -1,88 +1,81 @@
 import 'package:flutter/material.dart';
+import 'package:rowadapp/core/View/Screens/ContactInformation.dart';
+import 'package:rowadapp/core/View/Screens/RegistrationGuardian.dart';
+import 'package:rowadapp/core/View/Screens/RegistrationInfo.dart';
+import 'package:rowadapp/core/View/Screens/StudyInformation.dart';
+import 'package:rowadapp/core/View/Screens/TellAboutYourselfScreen.dart';
 
-class CustomStepper extends StatelessWidget {
-  final int currentStep;
+class StepperDemo extends StatefulWidget {
+  @override
+  _StepperDemoState createState() => _StepperDemoState();
+}
 
-  CustomStepper({required this.currentStep});
+class _StepperDemoState extends State<StepperDemo> {
+  int _currentStep = 0;
+
+  // استخدم List لتحديد الصفحات التي سيتم التنقل بينها
+  List<Widget> getPages() {
+    return [
+      Registrationinfo(),
+      Registrationguardian(),
+      Studyinformation(),
+      Contactinformation(),
+      TellAboutYourselfScreen(),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _buildStep(context, "معلومات\nشخصية", 4),
-        _buildDivider(),
-        _buildStep(context, "ولي الأمر", 3),
-        _buildDivider(),
-        _buildStep(context, "الدراسة", 2),
-        _buildDivider(),
-        _buildStep(context, "التواصل", 1),
-        _buildDivider(),
-        _buildStep(context, "حدثنا عنك", 0),
-      ],
-    );
-  }
+    final screenHeight = MediaQuery.of(context).size.height; // الحصول على ارتفاع الشاشة
+    final steps = getPages();
 
-  Widget _buildStep(BuildContext context, String label, int step) {
-    bool isActive = currentStep >= step;
-    return Column(
-      children: [
-        CircleAvatar(
-          radius: 20,
-          backgroundColor: isActive ? Colors.green : Colors.white,
-          child: isActive
-              ? Icon(Icons.check, color: Colors.white)
-              : CircleAvatar(
-                  radius: 18,
-                  backgroundColor: Colors.white,
-                  child: Text(""), // Leave it empty
-                ),
-        ),
-        SizedBox(height: 8),
-        Text(
-          label,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 12,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildDivider() {
-    return Expanded(
-      child: Container(
-        height: 2,
-        color: Colors.black,
-      ),
-    );
-  }
-}
-
-class StepperExample extends StatefulWidget {
-  @override
-  _StepperExampleState createState() => _StepperExampleState();
-}
-
-class _StepperExampleState extends State<StepperExample> {
-  int currentStep = 4;
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Custom Stepper")),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Center(
-          child: CustomStepper(currentStep: currentStep),
-        ),
+      appBar: AppBar(
+        title: Text('Stepper بدون شريط التنقل'),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              height: screenHeight * 0.7, // نسبة المحتوى المعروض
+              child: steps[_currentStep], // عرض الصفحة الحالية فقط
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                if (_currentStep > 0)
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        _currentStep -= 1;
+                      });
+                    },
+                    child: Text('السابق'),
+                  ),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_currentStep < steps.length - 1) {
+                      setState(() {
+                        _currentStep += 1;
+                      });
+                    } else {
+                      print('تم الانتهاء من التسجيل');
+                    }
+                  },
+                  child: Text(_currentStep == steps.length - 1 ? 'إنهاء' : 'التالي'),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
 void main() => runApp(MaterialApp(
-      home: StepperExample(),
+      home: StepperDemo(),
     ));

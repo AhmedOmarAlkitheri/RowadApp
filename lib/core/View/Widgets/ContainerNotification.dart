@@ -7,8 +7,9 @@ class Containernotification extends StatelessWidget {
       {super.key,
       required this.title,
       required this.subtitle,
-      required this.date});
-  final String title, subtitle, date;
+       this.date});
+  final String title, subtitle ;
+  final String? date;
 //  required this.typeNotification,
   @override
   Widget build(BuildContext context) {
@@ -35,9 +36,9 @@ class Containernotification extends StatelessWidget {
                   color: Color(AppColor.primaryColor),
                   //  color: type(typeNotification),
                 )),
-            Text(date,
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+            // Text(date,
+            //     style:
+            //         const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
           ],
         ),
         subtitle: Text(subtitle),

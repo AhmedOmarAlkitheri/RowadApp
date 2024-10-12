@@ -8,6 +8,7 @@ import 'package:rowadapp/core/ViewModel/NotificationViewModel.dart';
 import 'package:rowadapp/global/components/scroll_BottomBar.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 import 'package:rowadapp/helpers/Getstorage_helper.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class Notificationscreen extends StatelessWidget {
   // final String studentId;
@@ -17,11 +18,13 @@ class Notificationscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String id = getstorage_helper.readFrmFile("id").toString();
-
+    String id = getstorage_helper.readFrmFile("student_id");
+    String token = getstorage_helper.readFrmFile("token");
+    print(id);
+    print(token);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<NotificationViewModel>(context, listen: false)
-          .fetchNotifications(id);
+          .fetchNotifications(id, token);
     });
 
     return Scaffold(
@@ -46,45 +49,65 @@ class Notificationscreen extends StatelessWidget {
             child: Stack(
               children: [
                 NotificationListener<ScrollNotification>(
-                  onNotification: (scrollNotification) {
-                    final provider =
-                        Provider.of<scroll_BottomBar>(context, listen: false);
-                    if (scrollNotification.metrics.pixels > 100) {
-                      provider.setVisibility(false);
-                    } else {
-                      provider.setVisibility(true);
-                    }
-                    return true;
-                  },
-                  child: Consumer<NotificationViewModel>(
-                      builder: (context, viewModel, child) {
-                    if (viewModel.isLoading) {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-
-                    if (viewModel.errorMessage != null) {
-                      return Center(child: Text(viewModel.errorMessage!));
-                    }
-
-                    if (viewModel.apiResponse == null ||
-                        viewModel.apiResponse!.data!.isEmpty) {
-                      return const Center(child: Text('لا توجد إشعارات متاحة'));
-                    }
-
-                    return ListView.builder(
-                      itemCount: viewModel.filteredNotifications!.length,
+                    onNotification: (scrollNotification) {
+                  final provider =
+                      Provider.of<scroll_BottomBar>(context, listen: false);
+                  if (scrollNotification.metrics.pixels > 100) {
+                    provider.setVisibility(false);
+                  } else {
+                    provider.setVisibility(true);
+                  }
+                  return true;
+                }, child: Consumer<NotificationViewModel>(
+                        builder: (context, viewModel, child) {
+                  if (viewModel.errorMessage != null) {
+                    return Center(child: Text(viewModel.errorMessage!));
+                  }  if (viewModel.apiResponse == null ||
+                      viewModel.apiResponse!.data!.isEmpty) {
+                    return const Center(child: Text('لا توجد إشعارات متاحة'));
+                  }
+                //  if (viewModel.isLoading) {
+//                       return const Center(child: CircularProgressIndicator());
+//                     }
+                  
+                  
+  return ListView.builder(
+                      itemCount: viewModel.filteredNotifications?.length,
                       itemBuilder: (ctx, index) {
-                        var notification =
-                            viewModel.filteredNotifications![index];
-                        return Containernotification(
-                          title: notification.title!,
-                          subtitle: notification.subtitle!,
-                          date: notification.date!,
+                         var notification =
+                            viewModel.filteredNotifications?[index];
+                        return Skeletonizer(
+                          enabled: viewModel.isLoading,
+                          child: Containernotification(
+                            title: notification!.title!,
+                            subtitle: notification.content!,
+                          ),
                         );
                       },
                     );
-                  }),
-                ),
+                
+               //   return  Text("");
+                })
+                    //  if (viewModel.isLoading) {
+                    //     return const Center(child: CircularProgressIndicator());
+                    //   }
+                    //   return ListView.builder(
+                    //     itemCount: viewModel.filteredNotifications!.length,
+                    //     itemBuilder: (ctx, index) {
+                    //       var notification =
+                    //           viewModel.filteredNotifications![index];
+                    //       return Skeletonizer(
+                    //         enabled: viewModel.isLoading ? false : true ,
+                    //         child: Containernotification(
+                    //           title: notification.title!,
+                    //           subtitle: notification.content!,
+                    //           // date: notification.date!,
+                    //         ),
+                    //       );
+                    //     },
+                    //   );
+                    // }),
+                    ),
                 Consumer<scroll_BottomBar>(
                   builder: (context, provider, child) {
                     return AnimatedPositioned(

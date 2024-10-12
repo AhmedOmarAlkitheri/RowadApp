@@ -7,11 +7,12 @@ import 'package:rowadapp/core/View/Screens/EvaluationScreen.dart';
 import 'package:rowadapp/core/View/Screens/HomeScreen.dart';
 import 'package:rowadapp/core/View/Screens/Login.dart';
 import 'package:rowadapp/core/View/Screens/NotificationScreen.dart';
-
 import 'package:rowadapp/core/View/Screens/Profile.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationFinash.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationInfo.dart';
+import 'package:rowadapp/core/View/Screens/SplashScreen.dart';
 import 'package:rowadapp/core/View/Screens/StudyInformation.dart';
+import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
 import 'package:rowadapp/core/ViewModel/NotificationViewModel.dart';
 import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
 import 'package:rowadapp/global/components/BottomSheet.dart';
@@ -43,15 +44,16 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => RegistrationVm()),
         ChangeNotifierProvider(create: (ctx) => scroll_BottomBar()),
         ChangeNotifierProvider(create: (ctx) => NotificationViewModel()),
+        ChangeNotifierProvider(create: (ctx) => Evaluationvm()),
         ChangeNotifierProvider(create: (ctx) => BottomSheetMenu()),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           supportedLocales: localization.supportedLocales,
           localizationsDelegates: localization.localizationsDelegates,
-          initialRoute: "/Login",
+          initialRoute: "/Homescreen",
           onGenerateRoute: (settings) => RouteManager.generateRoute(settings),
-          home: Login()),
+          home: Homescreen()),
     );
   }
 }

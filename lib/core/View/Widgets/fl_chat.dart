@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:rowadapp/core/View/Widgets/Space.dart';
 import 'package:rowadapp/core/View/Widgets/chartEvaluation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
@@ -7,10 +8,10 @@ class ContainerChartEval extends StatefulWidget {
   const ContainerChartEval({
     super.key,
     required this.value,
-    required this.semesterResult,
+    
   });
-  final double value;
-  final String semesterResult;
+  final double ? value;
+
   @override
   State<StatefulWidget> createState() => ContainerChartEvalState();
 }
@@ -35,14 +36,26 @@ class ContainerChartEvalState extends State<ContainerChartEval> {
                   // SizedBox(
                   //   height: 20,
                   // ),
-                  Row(
+                  Column(
                     children: [
-                      Container(
-                        width: 20,
-                        height: 20,
-                        color: const Color(AppColor.primaryColor),
-                      ),
-                      Text(widget.semesterResult)
+ Container(
+            alignment: Alignment.topRight,
+            child: const Text(
+              "الاجمالي",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+          ),
+          Space(height: 20,),
+
+                         Text("% ${widget.value?.toDouble().toStringAsFixed(2)}",
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20))
+                      // Container(
+                      //   width: 20,
+                      //   height: 20,
+                      //   color: const Color(AppColor.primaryColor),
+                      // ),
+                      // Text(widget.semesterResult)
                     ],
                   ),
                   //       const SizedBox(

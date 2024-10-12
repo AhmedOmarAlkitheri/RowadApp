@@ -108,7 +108,7 @@ class Studyinformation extends StatelessWidget {
                       Consumer<RegistrationVm>(
                         builder: (context, value, child) => DropdownButton(
                             menuWidth: MediaQuery.of(context).size.width,
-                            value: value.next_grade ?? "التاسع",
+                            value: value.next_grade ,
                             items: classes
                                 .map((e) =>
                                     DropdownMenuItem(value: e, child: Text(e)))
@@ -130,7 +130,7 @@ class Studyinformation extends StatelessWidget {
                         builder: (context, registration, child) =>
                             DropdownButton(
                                 menuWidth: MediaQuery.of(context).size.width,
-                                value: registration.school ?? "الابداع",
+                                value: registration.school ,
                                 items: schools
                                     .map((e) => DropdownMenuItem(
                                         value: e, child: Text(e)))

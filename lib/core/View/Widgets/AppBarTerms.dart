@@ -49,11 +49,12 @@ class _AppbartermsState extends State<Appbarterms> {
                 height: 40,
                 width: (MediaQuery.of(context).size.width - 20) / 3,
                 child: Text(
-                  "الفصل الأول",
+                  "الشهري",
                   style: TextStyle(
                     color:
                         widget.selectedTerm == 0 ? Colors.white : Colors.black,
                     fontWeight: FontWeight.bold,
+                     fontSize: 15
                   ),
                 ),
               ),
@@ -77,12 +78,13 @@ class _AppbartermsState extends State<Appbarterms> {
                 height: 40,
                 width: (MediaQuery.of(context).size.width - 20) / 3,
                 child: Text(
-                  "الفصل الثاني",
+                  "الفصلي",
                   style: TextStyle(
-                    color:
-                        widget.selectedTerm == 1 ? Colors.white : Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      color: widget.selectedTerm == 1
+                          ? Colors.white
+                          : Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
                 ),
               ),
             ),
@@ -107,6 +109,7 @@ class _AppbartermsState extends State<Appbarterms> {
                     color:
                         widget.selectedTerm == 2 ? Colors.white : Colors.black,
                     fontWeight: FontWeight.bold,
+                     fontSize: 15
                   ),
                 ),
               ),

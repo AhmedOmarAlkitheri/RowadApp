@@ -8,13 +8,14 @@ class Splashscreen extends StatelessWidget {
   Getstorage_helper getstorage_helper = Getstorage_helper.instance;
   @override
   Widget build(BuildContext context) {
-    //   Future.delayed(Duration(seconds: 3), () {
-    //   if (getstorage_helper.readFrmFile("token") == null) {
-    //     Navigator.pushNamed(context, "/Login");
-    //   } else {
-    //     Navigator.pushNamed(context, "/Homescreen");
-    //   }
-    // });
+    print(getstorage_helper.readFrmFile('token'));
+    Future.delayed(Duration(seconds: 3), () {
+      if (getstorage_helper.readFrmFile("token") == null) {
+        Navigator.pushNamed(context, "/Login");
+      } else {
+        Navigator.pushNamed(context, "/Homescreen");
+      }
+    });
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,

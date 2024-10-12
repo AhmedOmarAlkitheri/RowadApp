@@ -9,7 +9,8 @@ import 'package:rowadapp/helpers/Getstorage_helper.dart';
 import 'package:rowadapp/helpers/HttpHelper.dart';
 
 class UsersVm {
-  Future<String?> login(Map<String, String>? loginInfo) async {
+
+  Future<String> login(Map<String, String>? loginInfo) async {
     Httphelper httphelper = Httphelper.instance;
     Options? headers = Options();
     headers.headers = {
@@ -20,36 +21,40 @@ class UsersVm {
     try {
       //   print(user.authData());
       Response res = await httphelper.postRequest(
-          url: "http://10.0.2.2/AL_RWAD/kaiadmin-lite-1.2.0/api/login.php",
+          url: "https://rowad.actnow-ye.com/apis/login.php",
           options: headers,
-          data: jsonEncode(loginInfo));
-      print(loginInfo);
-      if (res.statusCode == 200) {
-        User u = User.fromJson(res.data["data"]);
+          data: loginInfo);
+      // Map<String, dynamic> f = await res.data;
+      // print(f);
+     //if (res.statusCode == 200) {
+      print(res.data["data"]);
+      User u = await User.fromJson(res.data["data"]);
 
-        // print(u);
-        print(u.token);
-        print(u.stuedntInformation);
-        List<StuedntInformation>? stuedntInformationList = u.stuedntInformation;
+      //  print(res.data["data"]["student_Information"][0]);
+      // print(u);
+      print(u.token);
+      print(u.stuedntInformation);
+      StuedntInformation? stuedntInformation = u.stuedntInformation;
+      print(stuedntInformation);
+      // StuedntInformation stuedntInformations = stuedntInformationList![0];
 
-        StuedntInformation stuedntInformations = StuedntInformation.fromJson(
-            stuedntInformationList?[0] as Map<String, dynamic>);
-        // StuedntInformation stuedntInformations =
-        //     StuedntInformation.frommap(stuedntInformationList?[0]);
-        insertData(stuedntInformations, u);
-        return "Success";
-      }
+      insertData(stuedntInformation!, u);
+      return "Success";
+   //    }
     } on DioException catch (x) {
       return Dioexception.handleException(x);
     } catch (e) {
       return "Error is $e";
     }
-    return null;
+    // return "null";
   }
 
   insertData(StuedntInformation stuedntInformation, User u) {
     Getstorage_helper getstorageHelper = Getstorage_helper.instance;
+    print(u.token);
     getstorageHelper.writeToFile(key: "token", value: u.token!);
+    getstorageHelper.writeToFile(
+        key: "student_id", value: stuedntInformation.studentId!);
     getstorageHelper.writeToFile(
         key: "student_name", value: stuedntInformation.studentName!);
 

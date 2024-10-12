@@ -28,34 +28,34 @@ class ApiResponse {
 }
 
 class Notification_M {
-  int? notificationId;
-  String? studentId;
-  String? date;
+ // int? notificationId;
+  String? student_id;
+ // String? date;
   String? title;
-  String? subtitle;
+  String? content;
 
   Notification_M(
-      {this.notificationId,
-      this.studentId,
-      this.date,
+      {
+      this.student_id,
+ 
       this.title,
-      this.subtitle});
+      this.content});
 
   Notification_M.fromJson(Map<String, dynamic> json) {
-    notificationId = json['notificationId'];
-    studentId = json['studentId'];
-    date = json['date'];
+   // notificationId = json['notificationId'];
+    student_id = json['student_id'];
+   // date = json['date'];
     title = json['title'];
-    subtitle = json['subtitle'];
+    content = json['content'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['notificationId'] = notificationId;
-    data['studentId'] = studentId;
-    data['date'] = date;
+   // data['notificationId'] = notificationId;
+    data['student_id'] = student_id;
+   // data['date'] = date;
     data['title'] = title;
-    data['subtitle'] = subtitle;
+    data['content'] = content;
     return data;
   }
 }
