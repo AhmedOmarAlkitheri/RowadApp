@@ -2,16 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
-import 'package:rowadapp/core/View/Screens/DrawerScreen.dart';
-import 'package:rowadapp/core/View/Screens/EvaluationScreen.dart';
+
 import 'package:rowadapp/core/View/Screens/HomeScreen.dart';
-import 'package:rowadapp/core/View/Screens/Login.dart';
-import 'package:rowadapp/core/View/Screens/NotificationScreen.dart';
-import 'package:rowadapp/core/View/Screens/Profile.dart';
-import 'package:rowadapp/core/View/Screens/RegistrationFinash.dart';
-import 'package:rowadapp/core/View/Screens/RegistrationInfo.dart';
-import 'package:rowadapp/core/View/Screens/SplashScreen.dart';
-import 'package:rowadapp/core/View/Screens/StudyInformation.dart';
+import 'package:rowadapp/core/View/Screens/house_screen.dart';
+
 import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
 import 'package:rowadapp/core/ViewModel/NotificationViewModel.dart';
 import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
@@ -30,6 +24,7 @@ class MyApp extends StatelessWidget {
   MyApp({super.key});
 
   final FlutterLocalization localization = FlutterLocalization.instance;
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +46,9 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           supportedLocales: localization.supportedLocales,
           localizationsDelegates: localization.localizationsDelegates,
-          initialRoute: "/Homescreen",
+          initialRoute: "/housing",
           onGenerateRoute: (settings) => RouteManager.generateRoute(settings),
-          home: Homescreen()),
+          home: HouseScreen()),
     );
   }
 }

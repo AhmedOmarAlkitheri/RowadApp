@@ -60,7 +60,7 @@ class _NavigationbarState extends State<Navigationbar> {
               isSelected: widget.selectedTerm == 3,
               onTap: () {
                 Navigator.pushNamedAndRemoveUntil(
-                    context, "/Placementscreens", (route) => false);
+                    context, "/housing", (route) => false);
               },
             ),
           ],

@@ -55,15 +55,17 @@ class Evaluationvm extends ChangeNotifier {
 
       var response = await httphelper.getRequest(
           url: 'https://dummyjson.com/c/6d47-b49a-4c67-96f2',
-         // data: fromdata,
+          // data: fromdata,
           options: headers);
 
       if (response.statusCode == 200) {
-        print("ahmed");
+      //  print("ahmed");
         print(response.data['data']);
         Evaluation eval = Evaluation.fromJson(response.data['data']);
-        print(response.data['data']);
-        month = eval.moths;
+     //   print(response.data['data']);
+         month = eval.moths;
+      //   print("ddffggf ${eval.moths?[0].madoubleainingPrayer} ahmed");
+      //      print("ddffggf ${eval.moths?[0].madoubleainingTheVoluntaryPrayers} ahmeds");
         divideMonthIntoPrograms(month);
         programs ??= [];
 
@@ -72,7 +74,8 @@ class Evaluationvm extends ChangeNotifier {
         programs?.add(eval.road!);
         programs?.add(eval.yearresult!);
         sumValues(eval);
-       yearResultTotal= (eval.yearresult?.sem1 ?? 0) + (eval.yearresult?.sem2 ?? 0);
+        yearResultTotal =
+            (eval.yearresult?.sem1 ?? 0) + (eval.yearresult?.sem2 ?? 0);
       } else {
         errorMessage = response.data['message'];
       }
@@ -110,6 +113,9 @@ class Evaluationvm extends ChangeNotifier {
       alquran?.addAll(values.sublist(6, 8));
       activities?.addAll(values.sublist(8, 11));
     }
+    print(behavior);
+    print(alquran);
+    print(activities);
   }
 
   sumValues(Evaluation eval) {

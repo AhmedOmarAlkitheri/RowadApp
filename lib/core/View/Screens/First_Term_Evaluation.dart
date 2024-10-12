@@ -60,7 +60,20 @@ class FirstTermEvaluation extends StatelessWidget {
                     if (evaluationvm.errorMessage != null) {
                       return Center(child: Text(evaluationvm.errorMessage!));
                     }
-                    return CustomMonthlyBehaviorScreen();
+                    if (evaluationvm.isLoading) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                    if (evaluationvm.month == null) {
+                      return const Center(child: Text('لا توجد بيانات متاحة.'));
+                    }
+
+                    //  if (evaluationvm.programs == null ||
+                    //                     evaluationvm.!.data!.isEmpty) {
+                    //                   return const Center(child: Text('لا توجد إشعارات متاحة'));
+                    //                 }
+                    return Skeletonizer(
+                        enabled: evaluationvm.isLoading,
+                        child: MonthEvaluation());
                   }),
                 ),
                 Consumer<scroll_BottomBar>(

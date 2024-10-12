@@ -5,8 +5,7 @@ class Skeletonizer extends StatelessWidget {
   final bool enabled;
   final Widget child;
 
-  const Skeletonizer({Key? key, required this.enabled, required this.child})
-      : super(key: key);
+  const Skeletonizer({super.key, required this.enabled, required this.child});
 
   @override
   Widget build(BuildContext context) {

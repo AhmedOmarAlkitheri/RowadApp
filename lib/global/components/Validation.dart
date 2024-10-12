@@ -62,4 +62,11 @@ class InputValidator {
     }
     return null;
   }
+    static String? validateNotEmpty(String? value) {
+   
+    if (value == null || value.isEmpty) {
+      return '';
+    }
+    return null;
+  }
 }

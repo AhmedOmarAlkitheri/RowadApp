@@ -1,3 +1,54 @@
+
+
+
+
+class Apidata {
+  int? status;
+  String? message;
+  dynamic data;
+
+  Apidata({this.status, this.message, this.data});
+
+  Apidata.fromJson(Map<String, dynamic> json) {
+    status = json['status'];
+    message = json['message'];
+    data = json['data'];
+  
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['status'] = this.status;
+    data['message'] = this.message;
+    if (this.data != null) {
+      data['data'] = this.data!.toJson();
+    }
+    return data;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // class Registration {
 //   String? code;
 //   String? message;
@@ -26,30 +77,3 @@
 //     return data;
 //   }
 // }
-
-import 'package:rowadapp/core/model/User.dart';
-
-class Apidata {
-  int? status;
-  String? message;
-  dynamic data;
-
-  Apidata({this.status, this.message, this.data});
-
-  Apidata.fromJson(Map<String, dynamic> json) {
-    status = json['status'];
-    message = json['message'];
-    data = json['data'];
-    //!= null ? new User.fromJson(json['data']) : null;
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    data['message'] = this.message;
-    if (this.data != null) {
-      data['data'] = this.data!.toJson();
-    }
-    return data;
-  }
-}

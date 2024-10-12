@@ -26,15 +26,15 @@ class Moths {
       this.initiativeAndPositivity});
 
   Moths.fromJson(Map<String, dynamic> json) {
-    madoubleainingPrayer = json['Madoubleaining prayer']?.toDouble();
-    madoubleainingTheVoluntaryPrayers = json['Madoubleaining the voluntary prayers']?.toDouble();
+    madoubleainingPrayer = json['Maintaining prayer']?.toDouble();
+    madoubleainingTheVoluntaryPrayers = json['Maintaining the voluntary prayers']?.toDouble();
     weeklyScientificSession = json['Weekly scientific session']?.toDouble();
     goodDealingWithManagement = json['Good dealing with management']?.toDouble();
     cleanlinessAndOrder = json['Cleanliness and order']?.toDouble();
     appearancesAndBehaviors = json['Appearances and behaviors']?.toDouble();
     alquranAlkarim = json['alquran alkarim']?.toDouble();
     accompanyingCurriculum = json['Accompanying curriculum']?.toDouble();
-    doubleeractionInActivities = json['doubleeraction in activities']?.toDouble();
+    doubleeractionInActivities = json['Interaction in activities']?.toDouble();
     excellenceAndCreativity = json['Excellence and creativity']?.toDouble();
     initiativeAndPositivity = json['Initiative and positivity']?.toDouble();
   }

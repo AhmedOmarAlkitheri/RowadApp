@@ -5,6 +5,8 @@ class AppColor {
   static const int firstColorbutton = 0xFF6BBF44;
   static const int secondColorbutton = 0xFFB9F29E;
   static const int secondarythereColor = 0xFF5BAD35;
+
+
   static const int secondaryColor = 0xFFC4FFA9; //98FF67
   static const int secondaryTwoColor = 0xFFFFFFFF;
   static const int ShadowColor = 0xFFA79F9F;

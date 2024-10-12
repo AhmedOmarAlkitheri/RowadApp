@@ -12,7 +12,7 @@ class Evaluation {
       {this.computer, this.english, this.road, this.yearresult, this.moths});
 
  Evaluation.fromJson(Map<String, dynamic> json) {
-  // تأكد من تحويل كل حقل إلى كائن Program باستخدام Program.fromJson
+
   computer = json['computer'] != null ? Program.fromJson(json['computer']) : null;
   english = json['english'] != null ? Program.fromJson(json['english']) : null;
   road = json['road'] != null ? Program.fromJson(json['road']) : null;

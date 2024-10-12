@@ -62,16 +62,35 @@ class Notificationscreen extends StatelessWidget {
                         builder: (context, viewModel, child) {
                   if (viewModel.errorMessage != null) {
                     return Center(child: Text(viewModel.errorMessage!));
-                  }  if (viewModel.apiResponse == null ||
+                  }  
+                
+                  if (viewModel.apiResponse == null ||
                       viewModel.apiResponse!.data!.isEmpty) {
                     return const Center(child: Text('لا توجد إشعارات متاحة'));
                   }
-                //  if (viewModel.isLoading) {
-//                       return const Center(child: CircularProgressIndicator());
+               
+//                      if (viewModel.isLoading) {
+//                   return ListView.builder(
+//                       itemCount: viewModel.filteredNotifications?.length,
+//                       itemBuilder: (ctx, index) {
+//                          var notification =
+//                             viewModel.filteredNotifications?[index];
+//                         return Skeletonizer(
+//                           enabled: true,
+//                           child: Containernotification(
+//                             title: notification!.title!,
+//                             subtitle: notification.content!,
+//                           ),
+//                         );
+//                       },
+//                     );
+                
+// //                       return const Center(child: CircularProgressIndicator());
 //                     }
                   
-                  
-  return ListView.builder(
+  return  
+  
+  ListView.builder(
                       itemCount: viewModel.filteredNotifications?.length,
                       itemBuilder: (ctx, index) {
                          var notification =

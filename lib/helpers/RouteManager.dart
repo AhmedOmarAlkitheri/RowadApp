@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rowadapp/core/model/compliant.dart';
 import 'package:rowadapp/core/View/Screens/ContactInformation.dart';
-import 'package:rowadapp/core/View/Screens/DrawerScreen.dart';
+
 import 'package:rowadapp/core/View/Screens/EvaluationScreen.dart';
 import 'package:rowadapp/core/View/Screens/Final_Result.dart';
 import 'package:rowadapp/core/View/Screens/First_Term_Evaluation.dart';
@@ -16,6 +17,10 @@ import 'package:rowadapp/core/View/Screens/Second_Term_Evaluation.dart';
 import 'package:rowadapp/core/View/Screens/SplashScreen.dart';
 import 'package:rowadapp/core/View/Screens/StudyInformation.dart';
 import 'package:rowadapp/core/View/Screens/TellAboutYourselfScreen.dart';
+import 'package:rowadapp/core/View/Screens/compliants/AllComplaints.dart';
+import 'package:rowadapp/core/View/Screens/compliants/addCompliant_screen.dart';
+import 'package:rowadapp/core/View/Screens/compliants/viewCompliantDetails.dart';
+import 'package:rowadapp/core/View/Screens/house_screen.dart';
 import 'package:rowadapp/core/View/Screens/registrationScreen.dart';
 
 class RouteManager {
@@ -71,14 +76,29 @@ class RouteManager {
       case "/Placementscreens":
         return MaterialPageRoute(builder: (ctx) => const Placementscreens());
 
-      // case "/DrawerScreen":
-      //   return MaterialPageRoute(builder: (ctx) => const Drawerscreen());
+    
       case "/Profile":
         return MaterialPageRoute(builder: (ctx) => Profile());
   case "/splash":
         return MaterialPageRoute(builder: (ctx) {
           return Splashscreen();
         });
+          case '/housing':
+        return MaterialPageRoute(
+          builder: (ctx) => const HouseScreen(),
+        );
+      case '/allCompliants':
+        return MaterialPageRoute(
+          builder: (ctx) => const Allcomplaints_screen(),
+        );
+      case '/sendCompliant':
+        return MaterialPageRoute(builder: (ctx) => AddcompliantScreen());
+      case '/viewCompliant':
+        Compliant C = setting.arguments as Compliant;
+        return MaterialPageRoute(
+            builder: (ctx) => Viewcompliantdetails(
+                  c: C,
+                ));
       default:
     }
     return null;
