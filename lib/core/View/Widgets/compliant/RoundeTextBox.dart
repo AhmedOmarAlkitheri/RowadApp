@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Roundetextbox extends StatelessWidget {
   EdgeInsets? margin;
   double? height;
@@ -17,7 +19,7 @@ class Roundetextbox extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.25),
+              color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
               blurRadius: 3,
               // spreadRadius: 2,
               offset: const Offset(0, 4),

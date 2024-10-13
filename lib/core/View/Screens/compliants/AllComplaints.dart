@@ -8,6 +8,8 @@ import 'package:rowadapp/global/components/Skeletonizer.dart';
 
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Allcomplaints_screen extends StatelessWidget {
   Allcomplaints_screen({super.key});
   int counter = 0;
@@ -18,7 +20,7 @@ class Allcomplaints_screen extends StatelessWidget {
       create: (context) => CompliantVm(),
       child: Scaffold(
           floatingActionButton: FloatingActionButton(
-              backgroundColor: const Color(AppColor.primaryColor),
+              backgroundColor: const Color(Appcolorlightmode.lightGreen),
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/sendCompliant');
               },
@@ -30,7 +32,7 @@ class Allcomplaints_screen extends StatelessWidget {
           body: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                  colors: [Color(AppColor.secondaryColor), Colors.white],
+                  colors: [Color(Appcolorlightmode.backgroundTopColor), Color(Appcolorlightmode.backgroundBottomColor)],
                   begin: AlignmentDirectional.topStart,
                   end: AlignmentDirectional.bottomEnd),
             ),

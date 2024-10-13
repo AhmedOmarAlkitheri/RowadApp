@@ -10,6 +10,8 @@ import 'package:rowadapp/core/ViewModel/NotificationViewModel.dart';
 import 'package:rowadapp/global/components/Skeletonizer.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class SecondTermEvaluation extends StatelessWidget {
   SecondTermEvaluation({super.key});
 
@@ -19,65 +21,66 @@ class SecondTermEvaluation extends StatelessWidget {
   List<double?> programvalue = [];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Consumer<Evaluationvm>(builder: (context, evaluationvm, child) {
-      print(evaluationvm.programs);
-      //   programvalue =  evaluationvm.programs!.sublist(0, evaluationvm.programs!.length - 1) .map((program) => program.sem1).toList();
-      if (evaluationvm.errorMessage != null) {
-        return Center(child: Text(evaluationvm.errorMessage!));
-      }
-      if (evaluationvm.isLoading ) {
-        return Containereval(selectedTerm:selectedTerm);
-      }
-     
-      return Skeletonizer(
-        enabled: evaluationvm.isLoading,
-        child: WidgetSemester(
-          finalValue: evaluationvm.termname
-              ? evaluationvm.programs![3].sem1
-              : evaluationvm
-                  .programs![3].sem2, //semesterevaluation1['finalValue'],
-          programName: programName,
-          programValue: evaluationvm.termname
-              ? evaluationvm.programs!
-                  .sublist(0, evaluationvm.programs!.length - 1)
-                  .map((program) => program.sem1)
-                  .toList()
-              : evaluationvm.programs!
-                  .sublist(0, evaluationvm.programs!.length - 1)
-                  .map((program) => program.sem2)
-                  .toList(), // semesterevaluation1['programValue'],
-          selectedTerm: selectedTerm,
-          dropdownmenu: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.only(left: 5, right: 5),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: const Color(AppColor.secondaryTwoColor)),
-                child: DropdownButton(
-                    borderRadius: BorderRadius.circular(15),
-                    // menuWidth: MediaQuery.of(context).size.width,
-                    value: evaluationvm.currentTerm,
-                    items: terms
-                        .map((e) => DropdownMenuItem(value: e, child: Text(
-                          e,
-                          style: TextStyle(fontFamily: 'vazir-light'),
+    return SafeArea(
+      child: Scaffold(
+          body: Consumer<Evaluationvm>(builder: (context, evaluationvm, child) {
+        print(evaluationvm.programs);
+        //   programvalue =  evaluationvm.programs!.sublist(0, evaluationvm.programs!.length - 1) .map((program) => program.sem1).toList();
+        if (evaluationvm.errorMessage != null) {
+          return Center(child: Text(evaluationvm.errorMessage!));
+        }
+        if (evaluationvm.isLoading ) {
+          return Containereval(selectedTerm:selectedTerm);
+        }
+       
+        return Skeletonizer(
+          enabled: evaluationvm.isLoading,
+          child: WidgetSemester(
+            finalValue: evaluationvm.termname
+                ? evaluationvm.programs![3].sem1
+                : evaluationvm
+                    .programs![3].sem2, //semesterevaluation1['finalValue'],
+            programName: programName,
+            programValue: evaluationvm.termname
+                ? evaluationvm.programs!
+                    .sublist(0, evaluationvm.programs!.length - 1)
+                    .map((program) => program.sem1)
+                    .toList()
+                : evaluationvm.programs!
+                    .sublist(0, evaluationvm.programs!.length - 1)
+                    .map((program) => program.sem2)
+                    .toList(), // semesterevaluation1['programValue'],
+            selectedTerm: selectedTerm,
+            dropdownmenu: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(left: 5, right: 5),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: const Color(Appcolorlightmode.colorWelcome)),
+                  child: DropdownButton(
+                      borderRadius: BorderRadius.circular(15),
+                      // menuWidth: MediaQuery.of(context).size.width,
+                      value: evaluationvm.currentTerm,
+                      items: terms
+                          .map((e) => DropdownMenuItem(value: e, child: Text(e,
+                          style: TextStyle(fontFamily: 'vazir-light')
                           )))
-                        .toList(),
-                    onChanged: (val) {
-                      evaluationvm.updateTerm(val!);
-
-                      //value.updateNextGrade(val);
-                    }),
-              ),
-              const Space(
-                height: 15,
-              )
-            ],
+                          .toList(),
+                      onChanged: (val) {
+                        evaluationvm.updateTerm(val!);
+      
+                        //value.updateNextGrade(val);
+                      }),
+                ),
+                const Space(
+                  height: 15,
+                )
+              ],
+            ),
           ),
-        ),
-      );
-    }));
+        );
+      })),
+    );
   }
 }

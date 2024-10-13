@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Widgettextformflied extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
@@ -41,22 +43,21 @@ class Widgettextformflied extends StatelessWidget {
       validator: validator,
       textInputAction: textInputAction,
       onChanged: onChanged,
-      cursorColor: const Color(AppColor.primaryColor),
+      cursorColor: const Color(Appcolorlightmode.lightGreen),
 
       decoration: decoration.copyWith(
-        fillColor: Colors.grey[300],
+        fillColor: Color(Appcolorlightmode.whiteColor),
         filled: true,
-
         hintText: hintText,
         labelText: labelText,
         prefixIcon: prefixIcon,
-        prefixIconColor: const Color(AppColor.primaryColor),
+        prefixIconColor: const Color(Appcolorlightmode.lightGreen),
 
-        labelStyle: const TextStyle(color: Color(AppColor.primaryColor)),
+        labelStyle: const TextStyle(color: Color(Appcolorlightmode.lightGreen)),
         // icon: Icon(Icons.account_circle_rounded),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
-          borderSide: const BorderSide(color: Color(AppColor.primaryColor)),
+          borderSide: const BorderSide(color: Color(Appcolorlightmode.lightGreen)),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),

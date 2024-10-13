@@ -5,6 +5,8 @@ import 'package:rowadapp/core/View/Widgets/chartEvaluation.dart';
 import 'package:rowadapp/core/View/Widgets/fl_chat.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Containerevaluation extends StatefulWidget {
   const Containerevaluation(
       {super.key,
@@ -29,12 +31,12 @@ class _ContainerevaluationState extends State<Containerevaluation> {
       height: 450,
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
-          color: Colors.black.withOpacity(0.25),
+          color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
           blurRadius: 3,
           // spreadRadius: 2,
           offset: const Offset(0, 4),
         ),
-      ], borderRadius: BorderRadius.circular(20), color: Colors.white),
+      ], borderRadius: BorderRadius.circular(20), color: Color(Appcolorlightmode.whiteColor)),
       child: Column(
         children: [
           Stack(children: [
@@ -93,8 +95,7 @@ class _ContainerevaluationState extends State<Containerevaluation> {
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
-                                  color: Color(AppColor.primaryColor)
-                                  ))
+                                  color: Color(Appcolorlightmode.lightGreen)))
                         ],
                       );
                       // );

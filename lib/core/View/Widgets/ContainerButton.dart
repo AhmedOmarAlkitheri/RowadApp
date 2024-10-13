@@ -1,46 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
-class Containerbutton extends StatefulWidget {
-  const Containerbutton(
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
+class Containerbutton extends StatelessWidget {
+  Containerbutton(
       {super.key,
+      this.dwidth,
+      this.dheight,
       required this.allBorderRadius,
       required this.name,
       required this.onPressed});
   final double allBorderRadius;
   final String name;
   final Function()? onPressed;
-
-  @override
-  State<Containerbutton> createState() => _ContainerbuttonState();
-}
-
-class _ContainerbuttonState extends State<Containerbutton> {
+  double? dheight, dwidth;
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: dwidth ?? 87,
+      height: dheight ?? 50,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(widget.allBorderRadius),
+        boxShadow: [
+          BoxShadow(
+            color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
+            blurRadius: 4,
+            offset: Offset(0, 4),
+          )
+        ],
+        borderRadius: BorderRadius.circular(allBorderRadius),
         gradient: const LinearGradient(
-          colors: [Color(AppColor.primaryColor), Color(AppColor.primaryColor)],
-          begin: AlignmentDirectional.bottomEnd,
-          end: AlignmentDirectional.topStart,
+          colors: [
+            Color(Appcolorlightmode.buttonFirstColor),
+            Color(Appcolorlightmode.buttonSecondColor)
+          ],
+          begin: AlignmentDirectional.topStart,
+          end: AlignmentDirectional.bottomCenter,
         ),
       ),
       child: MaterialButton(
         //  color: Colors.blue,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(widget.allBorderRadius),
+          borderRadius: BorderRadius.circular(allBorderRadius),
         ),
-        onPressed: widget.onPressed,
+        onPressed: onPressed,
         child: Text(
-          widget.name,
+          name,
           style: const TextStyle(
-              color: Color(AppColor.secondaryTwoColor),
- fontFamily: 'vazir-medium',
-
-                              // fontWeight: FontWeight.bold, 
-              ),
+              fontFamily: 'vazir-medium',
+              color: Color(Appcolorlightmode.whiteColor),
+              fontWeight: FontWeight.bold,
+              fontSize: 18),
         ),
       ),
     );

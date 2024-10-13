@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class ListOf extends StatelessWidget {
   // String? sendDate;
   String? title;
@@ -24,10 +26,10 @@ class ListOf extends StatelessWidget {
             margin: const EdgeInsets.only(right: 10, left: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
+              color: Color(Appcolorlightmode.whiteColor),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.25),
+                  color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
                   blurRadius: 3,
                   // spreadRadius: 2,
                   offset: const Offset(0, 4),
@@ -43,7 +45,7 @@ class ListOf extends StatelessWidget {
                   width: 10,
                   height: 10,
                   decoration: BoxDecoration(
-                      color: const Color(AppColor.primaryColor),
+                      color: const Color(Appcolorlightmode.lightGreen),
                       borderRadius: BorderRadius.circular(5)),
                 ),
                 title: Text(

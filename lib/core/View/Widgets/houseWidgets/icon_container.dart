@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 
 class IconContainer extends StatelessWidget {
   IconContainer({super.key, this.text});
@@ -17,7 +19,7 @@ class IconContainer extends StatelessWidget {
             height: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
-              color: const Color(0xffC4FFA9),
+              color: const Color(Appcolorlightmode.backgroundTopColor),
             ),
             child: const Icon(Icons.person_outline_outlined),
           ),

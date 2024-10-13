@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class ImageContainer extends StatelessWidget {
   const ImageContainer({
     super.key,
@@ -27,7 +29,7 @@ class ImageContainer extends StatelessWidget {
           height: 150,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
-            color: AppColor.graycolor,
+            color: Color(Appcolorlightmode.greyColor),
           ),
           clipBehavior: Clip.antiAlias,
           child: image != null
@@ -41,7 +43,7 @@ class ImageContainer extends StatelessWidget {
           bottom: 0,
           right: -10,
           child: IconButton(
-              color: const Color(AppColor.primaryColor),
+              color: const Color(Appcolorlightmode.lightGreen),
               onPressed: registrationVm.getPicture,
               icon: const Icon(Icons.photo_camera_back)),
         )

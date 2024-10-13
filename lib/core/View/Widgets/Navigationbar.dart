@@ -22,11 +22,11 @@ class _NavigationbarState extends State<Navigationbar> {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color:  ColorMethod(context , AppcolorDarkmode.secondarythereColor  ,Appcolorlightmode.colorWhite),
+          color:  ColorMethod(context , AppcolorDarkmode.secondarythereColor  ,Appcolorlightmode.whiteColor),
         
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.25),
+              color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
               blurRadius: 3,
               offset: const Offset(0, 4),
             ),

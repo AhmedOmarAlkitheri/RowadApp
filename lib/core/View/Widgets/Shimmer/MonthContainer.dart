@@ -3,6 +3,8 @@ import 'package:rowadapp/core/View/Widgets/Shimmer/buildprogramshimmer.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Monthcontainer extends StatelessWidget {
   const Monthcontainer({super.key});
 
@@ -34,7 +36,7 @@ class Monthcontainer extends StatelessWidget {
     ),
   ),
               const Divider(
-                color: Color(AppColor.primaryColor),
+                color: Color(Appcolorlightmode.lightGreen),
                 thickness: 2,
               ),
            buildProgramSectionShimmer(),
