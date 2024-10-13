@@ -9,7 +9,7 @@ class IconContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 80,
+      width: 76,
       child: Column(
         children: [
           Container(

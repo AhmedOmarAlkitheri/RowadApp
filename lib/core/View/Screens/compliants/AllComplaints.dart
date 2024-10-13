@@ -8,7 +8,8 @@ import 'package:rowadapp/global/components/Skeletonizer.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
 class Allcomplaints_screen extends StatelessWidget {
-  const Allcomplaints_screen({super.key});
+  Allcomplaints_screen({super.key});
+  int counter = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -64,15 +65,15 @@ class Allcomplaints_screen extends StatelessWidget {
                         return ListView.builder(
                             itemCount: c.Compliants.length,
                             itemBuilder: (ctx, index) {
+                           int reversedIndex = c.Compliants.length - 1 - index;
                               return InkWell(
                                 onTap: () => Navigator.pushReplacementNamed(
                                     context, '/viewCompliant',
-                                    arguments: c.Compliants[index]),
-                                child:  ListOf(
-                                    // sendDate: c.Compliants[index].sendDate,
-                                    title: c.Compliants[index].title,
-                                  ),
-                                
+                                    arguments: c.Compliants[reversedIndex]),
+                                child: ListOf(
+                                  // sendDate: c.Compliants[index].sendDate,
+                                  title: c.Compliants[reversedIndex].title,
+                                ),
                               );
                             });
                       },

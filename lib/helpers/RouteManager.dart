@@ -89,7 +89,7 @@ class RouteManager {
         );
       case '/allCompliants':
         return MaterialPageRoute(
-          builder: (ctx) => const Allcomplaints_screen(),
+          builder: (ctx) =>  Allcomplaints_screen(),
         );
       case '/sendCompliant':
         return MaterialPageRoute(builder: (ctx) => AddcompliantScreen());

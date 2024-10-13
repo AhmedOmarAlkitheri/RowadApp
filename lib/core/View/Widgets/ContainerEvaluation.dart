@@ -92,7 +92,8 @@ class _ContainerevaluationState extends State<Containerevaluation> {
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
-                                  color: Color(AppColor.primaryColor)))
+                                  color: Color(AppColor.primaryColor)
+                                  ))
                         ],
                       );
                       // );

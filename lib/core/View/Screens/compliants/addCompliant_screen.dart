@@ -40,7 +40,7 @@ class AddcompliantScreen extends StatelessWidget {
                       ),
                       Header(
                         title: 'اضافة شكوى',
-                        imagePath: 'assets/images/personprofile.png',
+                        imagePath: 'assets/images/add.png',
                         event: () {
                           Navigator.pushReplacementNamed(
                               context, '/allCompliants');
