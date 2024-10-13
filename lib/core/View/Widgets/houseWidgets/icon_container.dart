@@ -26,7 +26,9 @@ class IconContainer extends StatelessWidget {
             '$text',
             softWrap: true,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 12),
+            style: TextStyle(
+                 fontFamily: 'vazir-light',
+              fontSize: 12),
           ),
         ],
       ),

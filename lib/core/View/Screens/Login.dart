@@ -66,7 +66,9 @@ class Login extends StatelessWidget {
                     "تسجيل دخول",
                     style: TextStyle(
                         color: Color(AppColor.colorBlack),
-                        fontWeight: FontWeight.bold,
+ fontFamily: 'vazir-light',
+
+                               fontWeight: FontWeight.w500,                         
                         fontSize: 28),
                   ),
                 ),
@@ -94,7 +96,12 @@ class Login extends StatelessWidget {
                         const Text(
                           "أسم المستخدم",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
+                           
+                           
+                        fontFamily: 'vazir-light',
+
+                               fontWeight: FontWeight.w500, 
+                              fontSize: 18),
                         ),
                         const Space(
                           height: 10,
@@ -118,7 +125,10 @@ class Login extends StatelessWidget {
                         const Text(
                           "كلمة المرور",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
+                       fontFamily: 'vazir-light',
+
+                               fontWeight: FontWeight.w500, 
+                              fontSize: 18),
                         ),
                         const Space(
                           height: 10,

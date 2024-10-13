@@ -55,14 +55,22 @@ class RegistrationFinash extends StatelessWidget {
               ),
               const Text(
                 "نشكرك على التسجيل في مركز رواد المستقبل",
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 15,
+                  fontFamily: 'almarai',
+                  fontWeight: FontWeight.w500,
+                ),
               ),
               const Space(
                 height: 15,
               ),
               const Text(
                 "سوف يتم التواصل معكم قريبا...",
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 15,
+                  fontFamily: 'almarai',
+                  fontWeight: FontWeight.w500,
+                ),
               ),
               const Space(
                 height: 20,

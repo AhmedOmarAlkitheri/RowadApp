@@ -81,7 +81,8 @@ class _ContainerevaluationState extends State<Containerevaluation> {
                           Text(
                             widget.programName[index],
                             style: const TextStyle(
-                              fontWeight: FontWeight.bold,
+                               fontFamily: 'vazir-medium',
+                              // fontWeight: FontWeight.bold,
                               fontSize: 18,
                             ),
                           ),

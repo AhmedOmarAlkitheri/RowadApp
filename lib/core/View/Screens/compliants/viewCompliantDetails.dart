@@ -43,7 +43,10 @@ class Viewcompliantdetails extends StatelessWidget {
                     child: ListTile(
                   title: Text(
                     ' ${c.title}',
-                    style: const TextStyle(fontSize: 20),
+                    style: const TextStyle(
+                         fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                      fontSize: 15),
                   ),
                   trailing: InkWell(
                     onTap: () => Navigator.pushReplacementNamed(
@@ -89,6 +92,7 @@ class Viewcompliantdetails extends StatelessWidget {
                                       child: Text(
                                         "${messages[index].text}",
                                         style: TextStyle(
+                                             fontFamily: 'vazir-light',
                                           color: const Color.fromARGB(
                                               255, 0, 0, 0),
                                         ),

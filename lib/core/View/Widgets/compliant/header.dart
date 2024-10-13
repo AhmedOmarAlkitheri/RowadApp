@@ -22,7 +22,8 @@ class Header extends StatelessWidget {
       ),
       title: Text(
         title,
-        style: const TextStyle(fontSize: 20),
+        style: const TextStyle(
+            fontFamily: 'almarai', fontWeight: FontWeight.w500, fontSize: 18),
       ),
       trailing: InkWell(
         onTap: event,

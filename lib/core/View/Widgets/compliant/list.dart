@@ -49,7 +49,10 @@ class ListOf extends StatelessWidget {
                 title: Text(
                   '$title',
                   style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.bold),
+                      fontSize: 15,
+                         fontFamily: 'vazir-medium',
+                      //  fontWeight: FontWeight.bold
+                       ),
                 ),
               ),
             ),

@@ -53,7 +53,8 @@ class _AppbartermsState extends State<Appbarterms> {
                   style: TextStyle(
                     color:
                         widget.selectedTerm == 0 ? Colors.white : Colors.black,
-                    fontWeight: FontWeight.bold,
+                         fontFamily: 'vazir-light',
+                    // fontWeight: FontWeight.bold,
                      fontSize: 15
                   ),
                 ),
@@ -83,7 +84,8 @@ class _AppbartermsState extends State<Appbarterms> {
                       color: widget.selectedTerm == 1
                           ? Colors.white
                           : Colors.black,
-                      fontWeight: FontWeight.bold,
+                           fontFamily: 'vazir-light',
+                      // fontWeight: FontWeight.bold,
                       fontSize: 15),
                 ),
               ),
@@ -108,7 +110,8 @@ class _AppbartermsState extends State<Appbarterms> {
                   style: TextStyle(
                     color:
                         widget.selectedTerm == 2 ? Colors.white : Colors.black,
-                    fontWeight: FontWeight.bold,
+                         fontFamily: 'vazir-light',
+                    // fontWeight: FontWeight.bold,
                      fontSize: 15
                   ),
                 ),

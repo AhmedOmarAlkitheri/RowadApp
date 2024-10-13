@@ -58,7 +58,9 @@ class _RegistrationinfoState extends State<Upperregistrationcontainer> {
                   "تسجيل",
                   style: TextStyle(
                       color: Color(AppColor.colorBlack),
-                      fontWeight: FontWeight.bold,
+                     fontFamily: 'vazir-light',
+
+                               fontWeight: FontWeight.w500, 
                       fontSize: 28),
                 ),
               ),

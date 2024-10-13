@@ -43,7 +43,7 @@ class Allcomplaints_screen extends StatelessWidget {
                   ),
                   Header(
                     title: 'صندوق الشكاوي',
-                    imagePath: 'assets/images/personprofile.png',
+                    imagePath: 'assets/images/cbox.png',
                     event: () {
                       Navigator.pushNamed(context, '/housing');
                     },
@@ -70,10 +70,10 @@ class Allcomplaints_screen extends StatelessWidget {
                               return InkWell(
                                 onTap: () => Navigator.pushReplacementNamed(
                                     context, '/viewCompliant',
-                                    arguments: c.Compliants[index]),
+                                    arguments: c.Compliants[reversedIndex]),
                                 child: ListOf(
                                   // sendDate: c.Compliants[index].sendDate,
-                                  title: c.Compliants[index].title,
+                                  title: c.Compliants[reversedIndex].title,
                                 ),
                               );
                             });

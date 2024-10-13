@@ -92,7 +92,9 @@ class Registrationinfo extends StatelessWidget {
                       const Text(
                         " أسمك الرباعي :",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                            fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15),
                       ),
                       const Space(
                         height: 15,
@@ -120,7 +122,8 @@ class Registrationinfo extends StatelessWidget {
                           const Text(
                             "تاريخ الميلاد :",
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'almarai',
+                              fontWeight: FontWeight.w500,
                               fontSize: 15,
                               color: Color(AppColor.colorBlack),
                             ),
@@ -131,7 +134,10 @@ class Registrationinfo extends StatelessWidget {
                                 value.currentDate != null
                                     ? '${value.currentDate?.day}/${value.currentDate?.month}/${value.currentDate?.year}'
                                     : '      لم تحدد تاريخ ميلادك',
-                                style: const TextStyle(fontSize: 20),
+                                style: const TextStyle(
+                                    fontFamily: 'almarai',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 15),
                               ),
                               onTap: () async {
                                 selectedDate = (await showDatePicker(
@@ -162,7 +168,8 @@ class Registrationinfo extends StatelessWidget {
                                   const Text(
                                     "مكان الميلاد :",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'almarai',
+                                        fontWeight: FontWeight.w500,
                                         fontSize: 15),
                                   ),
                                   const Space(
@@ -197,7 +204,8 @@ class Registrationinfo extends StatelessWidget {
                                   const Text(
                                     "المديرية :",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'almarai',
+                                        fontWeight: FontWeight.w500,
                                         fontSize: 15),
                                   ),
                                   const Space(
@@ -273,7 +281,9 @@ class Registrationinfo extends StatelessWidget {
                       const Text(
                         "هل تعاني من أي مرض ؟",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                            fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15),
                       ),
                       const Space(
                         height: 10,

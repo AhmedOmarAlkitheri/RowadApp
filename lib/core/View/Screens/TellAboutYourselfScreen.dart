@@ -50,8 +50,10 @@ class TellAboutYourselfScreen extends StatelessWidget {
                     ),
                     const Text(
                       "المهارات و المواهب و الهوايات :",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                      style: TextStyle(
+                          fontFamily: 'almarai',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15),
                     ),
                     const Space(
                       height: 20,
@@ -81,8 +83,10 @@ class TellAboutYourselfScreen extends StatelessWidget {
                     ),
                     const Text(
                       "أبرز المشاركات و الانجازات :",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                      style: TextStyle(
+                          fontFamily: 'almarai',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15),
                     ),
                     const Space(
                       height: 20,
@@ -112,8 +116,10 @@ class TellAboutYourselfScreen extends StatelessWidget {
                     ),
                     const Text(
                       "ماهو طموحك في المستقبل :",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                      style: TextStyle(
+                          fontFamily: 'almarai',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15),
                     ),
                     const Space(
                       height: 20,
@@ -143,8 +149,10 @@ class TellAboutYourselfScreen extends StatelessWidget {
                     ),
                     const Text(
                       "لماذا تريد الالتحاق بالمركز:",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                      style: TextStyle(
+                          fontFamily: 'almarai',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15),
                     ),
                     const Space(
                       height: 20,

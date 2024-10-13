@@ -21,7 +21,11 @@ class ContainerButton extends StatelessWidget {
             offset: const Offset(0,4),
           )],
         ),
-        child: Text('$text',style:const TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold,fontFamily:'Janna'),),
+        child: Text('$text',style:const TextStyle(color: Colors.white,fontSize: 20,
+           fontFamily: 'vazir-medium',
+        // fontWeight: FontWeight.bold,
+        // fontFamily:'Janna'
+        ),),
       ),
     );
   }

@@ -44,11 +44,8 @@ dependencies:
   skeletonizer:
   grouped_list: ^6.0.0
   chat_bubbles: ^1.6.0
-<<<<<<< HEAD
-  flutter_chat_bubble: ^2.0.2
-=======
   shimmer:
->>>>>>> caafc695495718d123910969d0c0edcdbe35289c
+  flutter_chat_bubble: ^2.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -87,10 +84,25 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-fonts:
-      - family: Janna
-        fonts:
-          - asset: assets/fonts/Janna LT Bold.ttf
+  fonts:
+    - family: Janna
+      fonts:
+        - asset: assets/fonts/Janna LT Bold.ttf
+    - family: vazir-bold
+      fonts:
+        - asset: assets/fonts/vazir_bold.ttf
+    - family: vazir-medium
+      fonts:
+        - asset: assets/fonts/vazir_medium.ttf
+    - family: vazir-light
+      fonts:
+        - asset: assets/fonts/vazir_light.ttf
+    - family: vazir-thin
+      fonts:
+        - asset: assets/fonts/vazir_thin.ttf
+    - family: almarai
+      fonts:
+        - asset: assets/fonts/Almarai-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

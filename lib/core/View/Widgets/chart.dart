@@ -32,7 +32,7 @@ class PercentageCircle extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.green,
+                color: Color.fromARGB(255, 43, 47, 44),
               ),
             ),
           ],

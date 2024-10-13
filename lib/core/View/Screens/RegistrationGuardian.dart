@@ -50,7 +50,9 @@ class Registrationguardian extends StatelessWidget {
                       const Text(
                         "الأسم :",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                            fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15),
                       ),
                       const Space(
                         height: 15,
@@ -74,7 +76,9 @@ class Registrationguardian extends StatelessWidget {
                       const Text(
                         "صلة القرابة :",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                            fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15),
                       ),
                       const Space(
                         height: 20,
@@ -94,7 +98,9 @@ class Registrationguardian extends StatelessWidget {
                       const Text(
                         "المهنة :",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                            fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15),
                       ),
                       const Space(
                         height: 10,

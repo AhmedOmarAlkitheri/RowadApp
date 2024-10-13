@@ -60,7 +60,10 @@ class SecondTermEvaluation extends StatelessWidget {
                     // menuWidth: MediaQuery.of(context).size.width,
                     value: evaluationvm.currentTerm,
                     items: terms
-                        .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+                        .map((e) => DropdownMenuItem(value: e, child: Text(
+                          e,
+                          style: TextStyle(fontFamily: 'vazir-light'),
+                          )))
                         .toList(),
                     onChanged: (val) {
                       evaluationvm.updateTerm(val!);

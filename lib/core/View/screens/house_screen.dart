@@ -21,12 +21,9 @@ class HouseScreen extends StatelessWidget {
                 return const ShimmerHousing();
               }
 
-             
-              
-              // if (roomVM.error) {
-              //   return Center(child: Text('Error: ${roomVM.errorMessage}'));
-              // }
-              
+              if (roomVM.error) {
+                return Center(child: Text('Error: ${roomVM.errorMessage}'));
+              }
 
               final room = roomVM.room;
               return Container(
@@ -44,7 +41,9 @@ class HouseScreen extends StatelessWidget {
                     const SizedBox(height: 5),
                     const Text(
                       'السكن',
-                      style: TextStyle(color: Colors.black, fontSize: 20),
+                      style: TextStyle(
+                           fontFamily: 'vazir-light',
+                        color: Colors.black, fontSize: 20),
                     ),
                     const SizedBox(height: 20),
                     Expanded(
@@ -70,36 +69,24 @@ class HouseScreen extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: Row(
+                                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   const SizedBox(width: 20),
-                                  Expanded(
-                                    flex: 1,
-                                    child: Row(
-                                      children: [
-                                        const SizedBox(width: 20),
-                                        Text(
-                                          'زملاء الغرفة',
-                                          style: TextStyle(fontWeight: FontWeight.bold),
-                                        ),
-                                      ],
-                                    ),
+                                  Text('الدور ${room?.floor}',
+                                  style: TextStyle(
+                                          fontFamily: 'vazir-light',
                                   ),
-                                  const SizedBox(height: 10),
-                                  Expanded(
-                                    flex: 2,
-                                    child: Center(
-                                      child: ListView.builder(
-                                        scrollDirection: Axis.horizontal,
-                                        itemCount: room?.roomMates.length ?? 0,
-                                        itemBuilder: (ctx, index) => IconContainer(
-                                          text: room?.roomMates[index],
-                                        ),
-                                      ),
-                                    ),
+                                  ),
+                                  const SizedBox(width: 104),
+                                  Text('الغرفة ${room?.roomNo}',
+                                 style:   TextStyle(
+                                          fontFamily: 'vazir-light',
+                                  ),
                                   ),
                                 ],
                               ),
                             ),
+                            const SizedBox(height: 10),
                             const Expanded(
                               flex: 1,
                               child: Row(
@@ -107,7 +94,11 @@ class HouseScreen extends StatelessWidget {
                                   SizedBox(width: 20),
                                   Text(
                                     'زملاء الغرفة',
-                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                         fontFamily: 'vazir-medium',
+                                      // fontWeight: FontWeight.bold
+                                      
+                                      ),
                                   ),
                                 ],
                               ),

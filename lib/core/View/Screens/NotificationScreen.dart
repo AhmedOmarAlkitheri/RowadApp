@@ -39,7 +39,9 @@ class Notificationscreen extends StatelessWidget {
             ),
             Text(
               "  الإشعارات",
-              style: TextStyle(color: Color(AppColor.secondaryTwoColor)),
+              style: TextStyle(
+                 fontFamily: 'vazir-medium',
+                color: Color(AppColor.secondaryTwoColor)),
             ),
           ],
         ),
@@ -62,12 +64,16 @@ class Notificationscreen extends StatelessWidget {
                 }, child: Consumer<NotificationViewModel>(
                         builder: (context, viewModel, child) {
                   if (viewModel.errorMessage != null) {
-                    return Center(child: Text(viewModel.errorMessage!));
+                    return Center(child: Text(
+                      viewModel.errorMessage!,
+                      ));
                   }  
                 
                   if (viewModel.apiResponse == null ||
                       viewModel.apiResponse!.data!.isEmpty) {
-                    return const Center(child: Text('لا توجد إشعارات متاحة'));
+                    return const Center(child: Text('لا توجد إشعارات متاحة',
+                    style: TextStyle( fontFamily: 'vazir-light'),
+                    ));
                   }
                
 //                      if (viewModel.isLoading) {

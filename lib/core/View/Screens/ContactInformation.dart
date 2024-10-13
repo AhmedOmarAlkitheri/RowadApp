@@ -50,7 +50,8 @@ class Contactinformation extends StatelessWidget {
                       const Text(
                         "رقم ولي الأمر :",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,                             fontSize: 15),
                       ),
                       const Space(
                         height: 15,
@@ -74,7 +75,8 @@ class Contactinformation extends StatelessWidget {
                       const Text(
                         "رقم الهاتف :",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,                             fontSize: 15),
                       ),
                       const Space(
                         height: 20,
@@ -98,7 +100,8 @@ class Contactinformation extends StatelessWidget {
                       const Text(
                         "رقم الواتساب :",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,                              fontSize: 15),
                       ),
                       const Space(
                         height: 20,

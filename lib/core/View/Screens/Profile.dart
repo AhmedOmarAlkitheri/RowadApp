@@ -100,7 +100,10 @@ class Profile extends StatelessWidget {
                 Text(
                   '${getstorage_helper.readFrmFile("student_name")}',
                   style: const TextStyle(
-                      fontSize: 24, fontWeight: FontWeight.bold),
+                       fontFamily: 'vazir-medium',
+                      fontSize: 24, 
+                      // fontWeight: FontWeight.bold
+                      ),
                 ),
 
                 // Text(
@@ -129,36 +132,67 @@ class Profile extends StatelessWidget {
                             const Text(
                               'معلوماتك الشخصية',
                               style: TextStyle(
-                                  fontSize: 22, fontWeight: FontWeight.bold),
+                                  fontSize: 22,
+                                     fontFamily: 'vazir-medium',
+                                  //  fontWeight: FontWeight.bold
+                                   ),
                             ),
                             const SizedBox(height: 10),
                             const Text(
                               'تاريخ الميلاد',
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
+                                  fontSize: 16,
+                                     fontFamily: 'vazir-medium',
+                                  //  fontWeight: FontWeight.bold
+                                   ),
                             ),
                             Text(
-                                '${getstorage_helper.readFrmFile("date_of_berth")}'),
+                                '${getstorage_helper.readFrmFile("date_of_berth")}',
+                                 style: TextStyle(
+                           
+                                                                       fontFamily: 'vazir-light',
+
+                                   ),
+                                ),
                             const Divider(
                               thickness: 1.5,
                             ),
                             const Text(
                               'مكان الاقامة الحالي',
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
+                                  fontSize: 16,
+                                     fontFamily: 'vazir-medium',
+                                  //  fontWeight: FontWeight.bold
+                                   ),
                             ),
                             Text(
-                                '${getstorage_helper.readFrmFile("directorate")}'),
+                                '${getstorage_helper.readFrmFile("directorate")}',
+                                 style: TextStyle(
+                           
+                                                                       fontFamily: 'vazir-light',
+
+                                   ),
+                                ),
                             const Divider(
                               thickness: 1.5,
                             ),
                             const Text(
                               'رقم جوال ولي الامر',
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
+                                  fontSize: 16, 
+                                                                       fontFamily: 'vazir-medium',
+
+                                  // fontWeight: FontWeight.bold
+                                  ),
                             ),
                             Text(
-                                '${getstorage_helper.readFrmFile("guardian_phone")}')
+                                '${getstorage_helper.readFrmFile("guardian_phone")}',
+                                 style: TextStyle(
+                           
+                                                                       fontFamily: 'vazir-light',
+
+                                   ),
+                                )
                           ],
                         ),
                       ]),
@@ -175,16 +209,30 @@ class Profile extends StatelessWidget {
                             const Text(
                               'معلوماتك الدراسية',
                               style: TextStyle(
-                                  fontSize: 22, fontWeight: FontWeight.bold),
+                                  fontSize: 22, 
+                                                                       fontFamily: 'vazir-medium',
+
+                                  // fontWeight: FontWeight.bold
+                                  ),
                             ),
                             const SizedBox(height: 10),
                             const Text(
                               "المرحلة الدراسية",
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
+                                  fontSize: 16,
+                                                                       fontFamily: 'vazir-medium',
+
+                                  //  fontWeight: FontWeight.bold
+                                   ),
                             ), // Replace with actual academic year
                             Text(
-                                '${getstorage_helper.readFrmFile("classroom")}'),
+                                '${getstorage_helper.readFrmFile("classroom")}',
+                                 style: TextStyle(
+                           
+                                                                       fontFamily: 'vazir-light',
+
+                                   ),
+                                ),
 
                             const Divider(
                               thickness: 1.5,
@@ -192,7 +240,11 @@ class Profile extends StatelessWidget {
                             const Text(
                               "المدرسة الحالية",
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
+                                  fontSize: 16, 
+                                                                       fontFamily: 'vazir-medium',
+
+                                  // fontWeight: FontWeight.bold
+                                  ),
                             ),
                             Text('${getstorage_helper.readFrmFile("school")}'),
                           ],

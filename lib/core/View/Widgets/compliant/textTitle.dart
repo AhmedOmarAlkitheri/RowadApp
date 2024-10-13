@@ -11,7 +11,9 @@ class Texttitle extends StatelessWidget {
       padding: const EdgeInsets.only(right: 20),
       child: Text(
         title,
-        style: const TextStyle(fontSize: 20),
+        style: const TextStyle(
+   fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,          fontSize: 17),
       ),
     );
   }

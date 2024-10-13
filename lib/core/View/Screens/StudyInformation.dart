@@ -54,7 +54,9 @@ class Studyinformation extends StatelessWidget {
                       const Text(
                         "المدرسة :",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                            fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15),
                       ),
                       const Space(
                         height: 20,
@@ -77,7 +79,9 @@ class Studyinformation extends StatelessWidget {
                       const Text(
                         "النسبة :",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                            fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15),
                       ),
                       const Space(
                         height: 20,
@@ -100,7 +104,9 @@ class Studyinformation extends StatelessWidget {
                       const Text(
                         "الصف الطالع إليه :",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                            fontFamily: 'almarai',
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15),
                       ),
                       const Space(
                         height: 20,
@@ -108,7 +114,7 @@ class Studyinformation extends StatelessWidget {
                       Consumer<RegistrationVm>(
                         builder: (context, value, child) => DropdownButton(
                             menuWidth: MediaQuery.of(context).size.width,
-                            value: value.next_grade ,
+                            value: value.next_grade,
                             items: classes
                                 .map((e) =>
                                     DropdownMenuItem(value: e, child: Text(e)))
@@ -124,13 +130,15 @@ class Studyinformation extends StatelessWidget {
                       const Text(
                         "ماهي المدرسة التي ترغب في الدراسة فيها ؟",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                            fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15),
                       ),
                       Consumer<RegistrationVm>(
                         builder: (context, registration, child) =>
                             DropdownButton(
                                 menuWidth: MediaQuery.of(context).size.width,
-                                value: registration.school ,
+                                value: registration.school,
                                 items: schools
                                     .map((e) => DropdownMenuItem(
                                         value: e, child: Text(e)))

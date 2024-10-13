@@ -37,7 +37,10 @@ class _ContainerbuttonState extends State<Containerbutton> {
           widget.name,
           style: const TextStyle(
               color: Color(AppColor.secondaryTwoColor),
-              fontWeight: FontWeight.bold),
+ fontFamily: 'vazir-medium',
+
+                              // fontWeight: FontWeight.bold, 
+              ),
         ),
       ),
     );

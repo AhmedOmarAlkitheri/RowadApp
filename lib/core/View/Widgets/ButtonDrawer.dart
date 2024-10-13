@@ -18,7 +18,11 @@ Widget buildIconButton(String label,
       const SizedBox(height: 5),
       Text(
         label,
-        style: const TextStyle(color: Colors.black),
+        style: const TextStyle(
+           fontFamily: 'vazir-light',
+
+                               fontWeight: FontWeight.w400, 
+          color: Colors.black),
       ),
     ],
   );

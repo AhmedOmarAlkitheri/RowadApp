@@ -47,7 +47,9 @@ class Roundedbutton extends StatelessWidget {
          )
           :Text(
             text,
-            style: TextStyle(fontSize: fontSize ?? 18, color: Colors.white),
+            style: TextStyle(fontSize: fontSize ?? 18, 
+               fontFamily: 'vazir-light',
+            color: Colors.white),
           ),
         ),
       ),

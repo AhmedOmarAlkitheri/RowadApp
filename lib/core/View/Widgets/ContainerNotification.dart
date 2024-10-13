@@ -32,7 +32,8 @@ class Containernotification extends StatelessWidget {
           children: [
             Text(title,
                 style: const TextStyle(
-                  fontWeight: FontWeight.bold,
+                   fontFamily: 'vazir-medium',
+                  // fontWeight: FontWeight.bold,
                   color: Color(AppColor.primaryColor),
                   //  color: type(typeNotification),
                 )),
@@ -41,7 +42,9 @@ class Containernotification extends StatelessWidget {
             //         const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
           ],
         ),
-        subtitle: Text(subtitle),
+        subtitle: Text(subtitle,
+        style: TextStyle( fontFamily: 'vazir-light'),
+        ),
         // trailing: Text(date,
         //     style: const TextStyle(
         //       fontWeight: FontWeight.bold,

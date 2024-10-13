@@ -41,7 +41,11 @@ class Homescreen extends StatelessWidget {
               children: [
                 Text(
                   "مركز رواد المستقبل",
-                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontFamily: 'vazir-light',
+                      fontWeight: FontWeight.w500),
                 ),
                 IconButton(
                     onPressed: () {
@@ -106,7 +110,8 @@ class Homescreen extends StatelessWidget {
                       child: Text('بدء الفصل الدراسي الجديد',
                           style: TextStyle(
                             fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            fontFamily: 'vazir-medium',
+                            // fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.start),
                     ),
@@ -166,7 +171,8 @@ class Homescreen extends StatelessWidget {
                       child: Text('بدء الفصل الدراسي الجديد',
                           style: TextStyle(
                             fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            fontFamily: 'vazir-medium',
+                            // fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.start),
                     ),
@@ -174,7 +180,10 @@ class Homescreen extends StatelessWidget {
                       padding: EdgeInsets.only(right: 30, top: 5),
                       child: Text(
                         'أهلاً بكم في الفصل الدراسي الجديد! نراكم جميعًا',
-                        style: TextStyle(fontSize: 12, color: Colors.grey[700]),
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontFamily: 'vazir-light',
+                            color: Colors.grey[700]),
                       ),
                     ),
                   ],
@@ -219,7 +228,9 @@ class Homescreen extends StatelessWidget {
                               Text(
                                 'السكن',
                                 style: TextStyle(
-                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'vazir-medium',
+
+                                  // fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
@@ -231,7 +242,9 @@ class Homescreen extends StatelessWidget {
                             children: [
                               Text(
                                 'الدور :',
-                                style: TextStyle(color: Colors.black),
+                                style: TextStyle(
+                                                              fontFamily: 'vazir-light',
+                                  color: Colors.black),
                               ),
                               Text(
                                 '1',
@@ -246,7 +259,10 @@ class Homescreen extends StatelessWidget {
                             children: [
                               Text(
                                 'الغرفة :',
-                                style: TextStyle(color: Colors.black),
+                                style: TextStyle(
+                                                              fontFamily: 'vazir-light',
+
+                                  color: Colors.black),
                               ),
                               Text(
                                 '3',
@@ -290,7 +306,11 @@ class Homescreen extends StatelessWidget {
                               ),
                               Text(
                                 'الدرجة النهائية',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                                              fontFamily: 'vazir-medium',
+
+                                  // fontWeight: FontWeight.bold
+                                  ),
                               ),
                             ],
                           ),
@@ -299,7 +319,7 @@ class Homescreen extends StatelessWidget {
                           ),
                           Center(
                               child: PercentageCircle(
-                            percentage: 90,
+                            percentage: 50,
                             label: '',
                           )),
                         ],
@@ -318,8 +338,7 @@ class Homescreen extends StatelessWidget {
                 // padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                 height: 50, width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                  color:
-                      Colors.white, // Replace with the desired background color
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
@@ -344,7 +363,11 @@ class Homescreen extends StatelessWidget {
                         ),
                         Text(
                           'الإجازات الرسمية',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                                                        fontFamily: 'vazir-medium',
+
+                            // fontWeight: FontWeight.bold
+                            ),
                         ),
                       ],
                     ),
@@ -377,6 +400,8 @@ class Homescreen extends StatelessWidget {
                                     child: Text(
                                   holiDays[index],
                                   style: TextStyle(
+                                                                fontFamily: 'vazir-light',
+
                                       color: Colors.black, fontSize: 13),
                                   softWrap: true,
                                   textAlign: TextAlign.center,
