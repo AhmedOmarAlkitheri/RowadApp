@@ -28,6 +28,7 @@ class Notificationscreen extends StatelessWidget {
     });
 
     return Scaffold(
+      
       appBar: AppBar(
         backgroundColor: const Color(AppColor.thirdColor),
         title: const Row(

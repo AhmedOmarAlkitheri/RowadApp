@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rowadapp/core/View/Widgets/Shimmer/shimmerHouse.dart';
 import 'package:rowadapp/core/View/Widgets/houseWidgets/container_button.dart';
 import 'package:rowadapp/core/View/Widgets/houseWidgets/icon_container.dart';
 import 'package:rowadapp/core/ViewModel/room_vm.dart';
@@ -20,14 +21,13 @@ class HouseScreen extends StatelessWidget {
         child: Scaffold(
           body: Consumer<RoomVM>(builder: (context, roomVM, child) {
             if (roomVM.isLoading) {
-           return Center(child: CircularProgressIndicator());
+           return ShimmerHousing();
            }
 
           //  if (roomVM.error) {
           //  return Center(child: Text('Error: ${roomVM.errorMessage}'));
           //  }
-
-      // Use null-aware operators to safely access room properties
+ // Use null-aware operators to safely access room properties
            final room = roomVM.room;
             return Container(
               padding: const EdgeInsets.all(20),
@@ -106,7 +106,7 @@ class HouseScreen extends StatelessWidget {
                               child: Center(
                                 child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: room?.roomMates.length,
+                                    itemCount: room?.roomMates.length, //4
                                     itemBuilder: (ctx, index) => IconContainer(
                                         text: room?.roomMates[0])),
                               ))

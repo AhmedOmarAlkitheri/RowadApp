@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rowadapp/core/DB/data.dart';
+import 'package:rowadapp/core/View/Widgets/Shimmer/ContainerEval.dart';
+import 'package:rowadapp/core/View/Widgets/Shimmer/evalcontainershimmmer.dart';
 import 'package:rowadapp/core/View/Widgets/Space.dart';
 import 'package:rowadapp/core/View/Widgets/WidgetSemester.dart';
 import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
@@ -24,6 +26,10 @@ class SecondTermEvaluation extends StatelessWidget {
       if (evaluationvm.errorMessage != null) {
         return Center(child: Text(evaluationvm.errorMessage!));
       }
+      if (evaluationvm.isLoading ) {
+        return Containereval(selectedTerm:selectedTerm);
+      }
+     
       return Skeletonizer(
         enabled: evaluationvm.isLoading,
         child: WidgetSemester(

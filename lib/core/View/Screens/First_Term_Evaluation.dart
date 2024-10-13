@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:rowadapp/core/DB/data.dart';
 import 'package:rowadapp/core/View/Screens/MonthEvaluation.dart';
 import 'package:rowadapp/core/View/Widgets/AppBarTerms.dart';
+import 'package:rowadapp/core/View/Widgets/Shimmer/MonthContainer.dart';
 import 'package:rowadapp/core/View/Widgets/Navigationbar.dart';
 import 'package:rowadapp/core/View/Widgets/WidgetSemester.dart';
 import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
@@ -61,10 +62,14 @@ class FirstTermEvaluation extends StatelessWidget {
                       return Center(child: Text(evaluationvm.errorMessage!));
                     }
                     if (evaluationvm.isLoading) {
-                      return const Center(child: CircularProgressIndicator());
+
+                     return   Monthcontainer();
+                      
+
+                     // return Monthcontainer();
                     }
-                    if (evaluationvm.month == null) {
-                      return const Center(child: Text('لا توجد بيانات متاحة.'));
+                    if (evaluationvm.month == null) {  return const Center(child: Text('لا توجد بيانات متاحة.'));
+                    
                     }
 
                     //  if (evaluationvm.programs == null ||

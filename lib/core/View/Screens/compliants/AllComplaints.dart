@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rowadapp/core/View/Widgets/Shimmer/ListOf.dart';
 import 'package:rowadapp/core/View/Widgets/compliant/header.dart';
 import 'package:rowadapp/core/View/Widgets/compliant/list.dart';
 import 'package:rowadapp/core/ViewModel/compliant_vm.dart';
@@ -53,9 +54,9 @@ class Allcomplaints_screen extends StatelessWidget {
                     height: 534,
                     child: Consumer<CompliantVm>(
                       builder: (ctx, c, child) {
-                        //   if (c.isLoading) {
-                        // return Center(child: CircularProgressIndicator());
-                        //   }
+                        if (c.isLoading) {
+                          return ListOfShimmer();
+                        }
 
                         if (c.error) {
                           return Center(child: Text('Error: ${c.message}'));
@@ -68,11 +69,10 @@ class Allcomplaints_screen extends StatelessWidget {
                                 onTap: () => Navigator.pushReplacementNamed(
                                     context, '/viewCompliant',
                                     arguments: c.Compliants[index]),
-                                child:  ListOf(
-                                    // sendDate: c.Compliants[index].sendDate,
-                                    title: c.Compliants[index].title,
-                                  ),
-                                
+                                child: ListOf(
+                                  // sendDate: c.Compliants[index].sendDate,
+                                  title: c.Compliants[index].title,
+                                ),
                               );
                             });
                       },
