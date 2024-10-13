@@ -1,14 +1,12 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rowadapp/core/View/Widgets/Navigationbar.dart';
 import 'package:rowadapp/core/View/Widgets/Shimmer/shimmerHouse.dart';
 import 'package:rowadapp/core/View/Widgets/houseWidgets/container_button.dart';
 import 'package:rowadapp/core/View/Widgets/houseWidgets/icon_container.dart';
 import 'package:rowadapp/core/ViewModel/room_vm.dart';
-
-
-
-
-import '../Widgets/Navigationbar.dart';
 
 class HouseScreen extends StatelessWidget {
   const HouseScreen({super.key});
@@ -21,14 +19,14 @@ class HouseScreen extends StatelessWidget {
         child: Scaffold(
           body: Consumer<RoomVM>(builder: (context, roomVM, child) {
             if (roomVM.isLoading) {
-           return ShimmerHousing();
-           }
+              return const ShimmerHousing();
+            }
 
-          //  if (roomVM.error) {
-          //  return Center(child: Text('Error: ${roomVM.errorMessage}'));
-          //  }
- // Use null-aware operators to safely access room properties
-           final room = roomVM.room;
+            //  if (roomVM.error) {
+            //  return Center(child: Text('Error: ${roomVM.errorMessage}'));
+            //  }
+
+            final room = roomVM.room;
             return Container(
               padding: const EdgeInsets.all(20),
               decoration: const BoxDecoration(
@@ -47,6 +45,7 @@ class HouseScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
+
                   Expanded(
                     flex: 3,
                     child: Container(
@@ -123,7 +122,7 @@ class HouseScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ContainerButton(
-                              onTaputton: () {
+                            onTaputton: () {
                               Navigator.pushReplacementNamed(
                                   context, '/Notificationscreen');
                             },
@@ -144,7 +143,10 @@ class HouseScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Expanded(child: Navigationbar(selectedTerm: 3,)),
+                  const Expanded(
+                      child: Navigationbar(
+                    selectedTerm: 3,
+                  )),
                 ],
               ),
             );
