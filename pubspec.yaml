@@ -44,7 +44,11 @@ dependencies:
   skeletonizer:
   grouped_list: ^6.0.0
   chat_bubbles: ^1.6.0
+<<<<<<< HEAD
   flutter_chat_bubble: ^2.0.2
+=======
+  shimmer:
+>>>>>>> caafc695495718d123910969d0c0edcdbe35289c
 dev_dependencies:
   flutter_test:
     sdk: flutter

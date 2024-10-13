@@ -3,24 +3,15 @@ import 'package:provider/provider.dart';
 import 'package:rowadapp/core/View/Widgets/AppBarTerms.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerEvaluation.dart';
 import 'package:rowadapp/core/View/Widgets/Navigationbar.dart';
+import 'package:rowadapp/core/View/Widgets/Shimmer/evalcontainershimmmer.dart';
 import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
 import 'package:rowadapp/global/components/Skeletonizer.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
-class WidgetSemester extends StatelessWidget {
-  const WidgetSemester(
-      {super.key,
-      required this.finalValue,
-      required this.programName,
-      required this.programValue,
-      required this.selectedTerm,
-      this.dropdownmenu});
+class Containereval extends StatelessWidget {
+  const Containereval({super.key, required this.selectedTerm});
 
   //  required this.ResidualResult,
-  final double? finalValue;
-  final Widget? dropdownmenu;
-  final List<String> programName;
-  final List<double?> programValue;
   final int selectedTerm;
   @override
   Widget build(BuildContext context) {
@@ -30,7 +21,10 @@ class WidgetSemester extends StatelessWidget {
         decoration: const BoxDecoration(
           //   color: Colors.black,
           gradient: LinearGradient(
-            colors: [Color(AppColor.secondaryColor), Color(AppColor.secondaryTwoColor)],
+            colors: [
+              Color(AppColor.secondaryColor),
+              Color(AppColor.secondaryTwoColor)
+            ],
             begin: AlignmentDirectional.topStart,
             end: AlignmentDirectional.bottomStart,
           ),
@@ -46,29 +40,10 @@ class WidgetSemester extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              dropdownmenu ?? const Text(""),
-              Expanded(
-                  flex: 8,
-                  child:Consumer<Evaluationvm>(builder: (context, evaluationvm, child) {
-                   if (evaluationvm.errorMessage != null) {
-        return Center(child: Text(evaluationvm.errorMessage!));
-      }
-                  
-             return Skeletonizer(
-        enabled: evaluationvm.isLoading,
-        child:
-           Containerevaluation(
-                    finalValue: finalValue,
-                    programName: programName,
-                    programValue: programValue,
-                  ));
-                  })
-              ),
-
+              Expanded(flex: 8, child: ShimmerContainerEvaluation()),
               const SizedBox(
                 height: 15,
               ),
-              
               const Expanded(
                   child: Navigationbar(
                 selectedTerm: 2,

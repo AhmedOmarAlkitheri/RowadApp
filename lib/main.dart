@@ -11,13 +11,16 @@ import 'package:rowadapp/core/ViewModel/NotificationViewModel.dart';
 import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
 import 'package:rowadapp/global/components/BottomSheet.dart';
 import 'package:rowadapp/global/components/scroll_BottomBar.dart';
+import 'package:rowadapp/global/theme/theme.dart';
+import 'package:rowadapp/global/theme/theme.dart';
 
 import 'package:rowadapp/helpers/RouteManager.dart';
 
 void main() async {
   //async
   await GetStorage.init();
-  runApp(MyApp());
+  runApp( ChangeNotifierProvider<ThemeModes>(
+      create: (ctx) => ThemeModes(), child: MyApp()),);
 }
 
 class MyApp extends StatelessWidget {
@@ -41,15 +44,18 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (ctx) => NotificationViewModel()),
         ChangeNotifierProvider(create: (ctx) => Evaluationvm()),
         ChangeNotifierProvider(create: (ctx) => BottomSheetMenu()),
+       
       ],
       child: MaterialApp(
+
+         theme: Provider.of<ThemeModes>(context).checkTheme(),
+ 
           debugShowCheckedModeBanner: false,
           supportedLocales: localization.supportedLocales,
           localizationsDelegates: localization.localizationsDelegates,
-          initialRoute: "/Login",
+          initialRoute: "/Homescreen",
           onGenerateRoute: (settings) => RouteManager.generateRoute(settings),
-          // home: HouseScreen()),
-    )
+          home: Homescreen()),
     );
   }
 }

@@ -6,6 +6,7 @@ import 'package:rowadapp/core/View/Widgets/ButtonDrawer.dart';
 import 'package:rowadapp/core/View/Widgets/Space.dart';
 import 'package:rowadapp/global/components/BottomSheet.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
+import 'package:rowadapp/global/theme/theme.dart';
 import 'package:rowadapp/helpers/Getstorage_helper.dart';
 
 void showTopSheet(BuildContext context) {
@@ -71,18 +72,25 @@ void showTopSheet(BuildContext context) {
                                   provider.toggleSelectedItem();
                                 },
                               ),
-                              buildIconButton(
-                                icon: provider.selectedItem1 == 0
-                                    ? Icons.light_mode
-                                    : Icons.mode_night_rounded,
-                                color: provider.selectedItem1 == 0
-                                    ? Colors.grey.shade200
-                                    : const Color(AppColor.primaryColor),
-                                "الوضع",
-                                onTap: () {
-                                  provider.toggleSelectedItem1();
-                                },
-                              ),
+                              Consumer<ThemeModes>(
+                                  builder: (context, thememode, child) {
+                                bool isLightMode = bool.parse(
+                                    getstorage_helper.readFrmFile("mode"));
+
+                                return buildIconButton(
+                                  icon: provider.selectedItem1 == 0
+                                      ? Icons.light_mode
+                                      : Icons.mode_night_rounded,
+                                  color: provider.selectedItem1 == 0
+                                      ? Colors.grey.shade200
+                                      : const Color(AppColor.primaryColor),
+                                  "الوضع",
+                                  onTap: () {
+                                    provider.toggleSelectedItem1();
+                                    thememode.goToTheme(!isLightMode);
+                                  },
+                                );
+                              }),
                               buildIconButton(
                                 icon: provider.selectedItem2 == 0
                                     ? Icons.exit_to_app_rounded

@@ -85,7 +85,7 @@ class RouteManager {
         });
           case '/housing':
         return MaterialPageRoute(
-          builder: (ctx) => const HouseScreen(),
+          builder: (ctx) =>  HouseScreen(),
         );
       case '/allCompliants':
         return MaterialPageRoute(

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rowadapp/core/View/Widgets/buildNavBarItem.dart';
+import 'package:rowadapp/core/View/Widgets/colorWidget.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
+import 'package:rowadapp/global/theme/AppColor/appColor_DarkMode.dart';
+import 'package:rowadapp/global/theme/AppColor/appColor_LightMode.dart';
 
 class Navigationbar extends StatefulWidget {
   const Navigationbar({super.key, required this.selectedTerm});
@@ -11,13 +14,16 @@ class Navigationbar extends StatefulWidget {
 }
 
 class _NavigationbarState extends State<Navigationbar> {
+  
   @override
   Widget build(BuildContext context) {
+   //  bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Center(
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
+          color:  ColorMethod(context , AppcolorDarkmode.secondarythereColor  ,Appcolorlightmode.colorWhite),
+        
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.25),
@@ -32,6 +38,7 @@ class _NavigationbarState extends State<Navigationbar> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             buildNavBarItem(
+              Buildcontext: context,
               icon: Icons.home,
               isSelected: widget.selectedTerm == 0,
               onTap: () {
@@ -40,6 +47,7 @@ class _NavigationbarState extends State<Navigationbar> {
               },
             ),
             buildNavBarItem(
+               Buildcontext: context,
               icon: Icons.notifications,
               isSelected: widget.selectedTerm == 1,
               onTap: () {
@@ -48,6 +56,7 @@ class _NavigationbarState extends State<Navigationbar> {
               },
             ),
             buildNavBarItem(
+               Buildcontext: context,
               icon: Icons.assignment,
               isSelected: widget.selectedTerm == 2,
               onTap: () {
@@ -56,6 +65,7 @@ class _NavigationbarState extends State<Navigationbar> {
               },
             ),
             buildNavBarItem(
+               Buildcontext: context,
               icon: Icons.home_work_sharp,
               isSelected: widget.selectedTerm == 3,
               onTap: () {
