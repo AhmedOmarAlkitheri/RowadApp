@@ -24,7 +24,7 @@ class ContainerHButton extends StatelessWidget {
           )],
         ),
         child: Text('$text',style:const TextStyle(color: Color(Appcolorlightmode.whiteColor),fontSize: 20,
-        fontWeight: FontWeight.bold,fontFamily:'Janna'),),
+       fontFamily: 'vazir-medium'),),
       ),
     );
   }

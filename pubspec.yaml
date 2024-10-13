@@ -86,9 +86,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Janna
-      fonts:
-        - asset: assets/fonts/Janna LT Bold.ttf
+    # - family: Janna
+    #   fonts:
+    #     - asset: assets/fonts/Janna LT Bold.ttf
     - family: vazir-bold
       fonts:
         - asset: assets/fonts/vazir_bold.ttf
