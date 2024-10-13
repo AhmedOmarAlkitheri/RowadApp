@@ -1,6 +1,8 @@
 import 'package:shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class ShimmerContainerEvaluation extends StatelessWidget {
   const ShimmerContainerEvaluation({super.key});
 
@@ -13,13 +15,13 @@ class ShimmerContainerEvaluation extends StatelessWidget {
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.25),
+              color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
               blurRadius: 3,
               offset: const Offset(0, 4),
             ),
           ],
           borderRadius: BorderRadius.circular(20),
-          color: Colors.white),
+          color: Color(Appcolorlightmode.whiteColor),),
       child: Column(
         children: [
           Stack(children: [

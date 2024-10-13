@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Appbarterms extends StatefulWidget {
   const Appbarterms({super.key, required this.selectedTerm});
   final int selectedTerm;
@@ -15,7 +17,7 @@ class _AppbartermsState extends State<Appbarterms> {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Colors.white,
+          color: Color(Appcolorlightmode.whiteColor),
           boxShadow: const [
             // BoxShadow(
             //   color: Colors.black.withOpacity(0.25),
@@ -42,7 +44,7 @@ class _AppbartermsState extends State<Appbarterms> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: widget.selectedTerm == 0
-                      ? const Color(AppColor.primaryColor)
+                      ? const Color(Appcolorlightmode.lightGreen)
                       : Colors.transparent,
                 ),
                 alignment: Alignment.center,
@@ -71,7 +73,7 @@ class _AppbartermsState extends State<Appbarterms> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: widget.selectedTerm == 1
-                      ? const Color(AppColor.primaryColor)
+                      ? const Color(Appcolorlightmode.lightGreen)
                       : Colors.transparent,
                 ),
                 alignment: Alignment.center,
@@ -81,8 +83,8 @@ class _AppbartermsState extends State<Appbarterms> {
                   "الفصلي",
                   style: TextStyle(
                       color: widget.selectedTerm == 1
-                          ? Colors.white
-                          : Colors.black,
+                          ? Color(Appcolorlightmode.whiteColor)
+                          : Color(Appcolorlightmode.blackColor),
                       fontWeight: FontWeight.bold,
                       fontSize: 15),
                 ),
@@ -99,7 +101,7 @@ class _AppbartermsState extends State<Appbarterms> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: widget.selectedTerm == 2
-                      ? const Color(AppColor.primaryColor)
+                      ? const Color(Appcolorlightmode.lightGreen)
                       : Colors.transparent,
                 ),
                 width: (MediaQuery.of(context).size.width - 20) / 3,
@@ -107,7 +109,7 @@ class _AppbartermsState extends State<Appbarterms> {
                   "النتيجة النهائية",
                   style: TextStyle(
                     color:
-                        widget.selectedTerm == 2 ? Colors.white : Colors.black,
+                        widget.selectedTerm == 2 ? Color(Appcolorlightmode.whiteColor) : Color(Appcolorlightmode.blackColor),
                     fontWeight: FontWeight.bold,
                      fontSize: 15
                   ),

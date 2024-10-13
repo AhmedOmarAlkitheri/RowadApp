@@ -3,6 +3,8 @@ import 'package:rowadapp/core/View/Widgets/Navigationbar.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class ShimmerHousing extends StatelessWidget {
   const ShimmerHousing({super.key});
 
@@ -14,7 +16,7 @@ class ShimmerHousing extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [Color(0xffC4FFA9), Color(0xFFFFFFFF)],
+          colors: [Color(Appcolorlightmode.backgroundTopColor), Color(Appcolorlightmode.backgroundBottomColor),],
         ),
       ),
       child: Column(
@@ -44,12 +46,12 @@ class ShimmerHousing extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.25),
+                    color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
                     blurRadius: 4,
                     offset: const Offset(0, 4),
                   ),
                 ],
-                color: Colors.white,
+                color: Color(Appcolorlightmode.whiteColor),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

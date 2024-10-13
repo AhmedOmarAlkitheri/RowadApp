@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rowadapp/global/components/typeNotifications.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Containernotification extends StatelessWidget {
   const Containernotification(
       {super.key,
@@ -19,12 +21,12 @@ class Containernotification extends StatelessWidget {
           boxShadow: const [
             BoxShadow(color: Colors.grey, offset: Offset(0, 5), blurRadius: 4)
           ],
-          color: const Color(AppColor.secondaryTwoColor),
+          color: const Color(Appcolorlightmode.whiteColor),
           borderRadius: BorderRadius.circular(10)),
       child: ListTile(
         leading: const Icon(
           Icons.notification_add_sharp,
-          color: Color(AppColor.primaryColor),
+          color: Color(Appcolorlightmode.lightGreen),
           // color: type(typeNotification),
         ),
         title: Row(
@@ -33,7 +35,7 @@ class Containernotification extends StatelessWidget {
             Text(title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Color(AppColor.primaryColor),
+                  color: Color(Appcolorlightmode.lightGreen),
                   //  color: type(typeNotification),
                 )),
             // Text(date,

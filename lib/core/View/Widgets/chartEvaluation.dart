@@ -2,6 +2,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 PieChartData datachart({required double ?val}) {
   return PieChartData(sections: showingSections(val));
 }
@@ -17,7 +19,7 @@ List<PieChartSectionData>? showingSections(double ?Value ) {
     switch (i) {
       case 0:
         return PieChartSectionData(
-          color: const Color(AppColor.primaryColor),
+          color: const Color(Appcolorlightmode.lightGreen),
           value: Value,
           radius: radius,
           title: "",
@@ -26,7 +28,7 @@ List<PieChartSectionData>? showingSections(double ?Value ) {
 
       case 1:
         return PieChartSectionData(
-            color: const Color(AppColor.secondaryColor),
+            color: const Color(Appcolorlightmode.backgroundTopColor),
             value: 100 - sum,
             radius: radius,
             title: "");

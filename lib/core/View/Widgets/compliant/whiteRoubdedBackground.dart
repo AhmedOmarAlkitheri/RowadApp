@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Whiteroubdedbackground extends StatelessWidget {
   double? height;
   double? width;
@@ -19,7 +21,7 @@ class Whiteroubdedbackground extends StatelessWidget {
         width: width ?? MediaQuery.of(context).size.width - 40,
         height: height ?? 480,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15), color: Colors.white),
+            borderRadius: BorderRadius.circular(15), color: Color(Appcolorlightmode.whiteColor)),
         child: Padding(
             padding:
                 horizontalPadding ?? const EdgeInsets.symmetric(horizontal: 10),

@@ -2,6 +2,8 @@
   import 'package:flutter/material.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 Widget buildProgramSection(String programName, List<double?>? programValues, int index, List<String> subjects) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -11,7 +13,7 @@ Widget buildProgramSection(String programName, List<double?>? programValues, int
           style:  TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: Color(AppColor.colorBlack),
+            color: Color(Appcolorlightmode.blackColor),
           ),
         ),
         const SizedBox(height: 8),
@@ -26,7 +28,7 @@ Widget buildProgramSection(String programName, List<double?>? programValues, int
                     subjects[i], 
                     style: const TextStyle(
                       fontSize: 14,
-                      color: Color(AppColor.colorBlack),
+                      color: Color(Appcolorlightmode.blackColor),
                     ),
                   ),
                   Text(
@@ -34,7 +36,7 @@ Widget buildProgramSection(String programName, List<double?>? programValues, int
                      
                     style: const TextStyle(
                       fontSize: 16,
-                      color: Color(AppColor.primaryColor),
+                      color: Color(Appcolorlightmode.lightGreen),
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -44,7 +46,7 @@ Widget buildProgramSection(String programName, List<double?>? programValues, int
           ),
         ),
         const Divider(
-          color: Colors.grey,
+          color: Color(Appcolorlightmode.greyColor),
           thickness: 1,
         ),
         const SizedBox(height: 8),

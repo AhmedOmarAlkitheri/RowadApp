@@ -8,7 +8,6 @@ import 'package:rowadapp/core/View/Screens/First_Term_Evaluation.dart';
 import 'package:rowadapp/core/View/Screens/HomeScreen.dart';
 import 'package:rowadapp/core/View/Screens/Login.dart';
 import 'package:rowadapp/core/View/Screens/NotificationScreen.dart';
-import 'package:rowadapp/core/View/Screens/PlacementScreens.dart';
 import 'package:rowadapp/core/View/Screens/Profile.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationFinash.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationGuardian.dart';
@@ -73,17 +72,17 @@ class RouteManager {
         return MaterialPageRoute(builder: (ctx) => Homescreen());
       case "/Notificationscreen":
         return MaterialPageRoute(builder: (ctx) => Notificationscreen());
-      case "/Placementscreens":
-        return MaterialPageRoute(builder: (ctx) => const Placementscreens());
 
-    
       case "/Profile":
         return MaterialPageRoute(builder: (ctx) => Profile());
-  case "/splash":
+        case "/splash":
         return MaterialPageRoute(builder: (ctx) {
-          return Splashscreen();
-        });
+          return Splashscreen();});
           case '/housing':
+        return MaterialPageRoute(
+          builder: (ctx) =>  HouseScreen(),
+        );
+      case '/Laoding':
         return MaterialPageRoute(
           builder: (ctx) =>  HouseScreen(),
         );

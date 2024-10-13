@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class PercentageCircle extends StatelessWidget {
   final double percentage;
   final String label;
@@ -23,7 +25,7 @@ class PercentageCircle extends StatelessWidget {
               child: CircularProgressIndicator(
                 value: percentage / 100,
                 backgroundColor: Colors.grey.shade300,
-                valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+                valueColor: const AlwaysStoppedAnimation<Color>(Appcolorlightmode.green),
                 strokeWidth: 6,
               ),
             ),
@@ -32,7 +34,7 @@ class PercentageCircle extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.green,
+                color: Appcolorlightmode.green,
               ),
             ),
           ],
@@ -43,7 +45,7 @@ class PercentageCircle extends StatelessWidget {
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,
-            color: Colors.black,
+            color: Color(Appcolorlightmode.blackColor),
           ),
         ),
       ],

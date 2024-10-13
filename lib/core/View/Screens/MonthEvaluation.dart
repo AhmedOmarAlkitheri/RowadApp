@@ -5,6 +5,8 @@ import 'package:rowadapp/core/View/Widgets/buildProgramSection.dart';
 import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
 import 'package:rowadapp/global/components/Skeletonizer.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
+
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
 class MonthEvaluation extends StatelessWidget {
   MonthEvaluation({super.key});
 
@@ -55,11 +57,11 @@ class MonthEvaluation extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Color(AppColor.primaryColor),
+                            color: Color(Appcolorlightmode.lightGreen),
                           ),
                         ),
                         const Divider(
-                          color: Color(AppColor.primaryColor),
+                          color: Color(Appcolorlightmode.lightGreen),
                           thickness: 2,
                         ),
                         

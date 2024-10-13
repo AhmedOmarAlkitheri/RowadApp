@@ -10,6 +10,8 @@ import 'package:rowadapp/core/View/Widgets/compliant/whiteRoubdedBackground.dart
 import 'package:rowadapp/core/ViewModel/compliant_vm.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class AddcompliantScreen extends StatelessWidget {
   AddcompliantScreen({super.key});
    TextEditingController titleText = TextEditingController();
@@ -27,7 +29,7 @@ class AddcompliantScreen extends StatelessWidget {
           body: Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [Color(AppColor.secondaryColor), Colors.white],
+                    colors: [Color(Appcolorlightmode.backgroundTopColor), Color(Appcolorlightmode.backgroundBottomColor)],
                     begin: AlignmentDirectional.topStart,
                     end: AlignmentDirectional.bottomEnd),
               ),

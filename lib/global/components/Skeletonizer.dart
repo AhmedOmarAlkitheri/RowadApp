@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/AppColor/appColor_LightMode.dart';
+
 
 class Skeletonizer extends StatelessWidget {
   final bool enabled;
@@ -12,7 +14,7 @@ class Skeletonizer extends StatelessWidget {
     if (enabled) {
       return  Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color(Appcolorlightmode.whiteColor),
             borderRadius: BorderRadius.circular(10),
           ),
           child: child,
