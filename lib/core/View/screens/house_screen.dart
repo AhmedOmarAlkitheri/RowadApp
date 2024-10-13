@@ -27,7 +27,6 @@ class HouseScreen extends StatelessWidget {
           //  return Center(child: Text('Error: ${roomVM.errorMessage}'));
           //  }
 
-      // Use null-aware operators to safely access room properties
            final room = roomVM.room;
             return Container(
               padding: const EdgeInsets.all(20),
@@ -47,6 +46,7 @@ class HouseScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
+                  
                   Expanded(
                     flex: 3,
                     child: Container(
@@ -106,7 +106,7 @@ class HouseScreen extends StatelessWidget {
                               child: Center(
                                 child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: room?.roomMates.length,
+                                    itemCount: 4,
                                     itemBuilder: (ctx, index) => IconContainer(
                                         text: room?.roomMates[0])),
                               ))

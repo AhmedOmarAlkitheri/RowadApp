@@ -46,9 +46,10 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           supportedLocales: localization.supportedLocales,
           localizationsDelegates: localization.localizationsDelegates,
-          initialRoute: "/housing",
+          initialRoute: "/Login",
           onGenerateRoute: (settings) => RouteManager.generateRoute(settings),
-          home: HouseScreen()),
+          // home: HouseScreen()),
+    )
     );
   }
 }

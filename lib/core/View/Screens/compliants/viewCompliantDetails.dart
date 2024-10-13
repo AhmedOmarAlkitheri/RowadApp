@@ -37,13 +37,17 @@ class Viewcompliantdetails extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20.0),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Icon(
-                      Icons.arrow_forward_ios_sharp,
-                      size: 30,
+                InkWell(
+                  onTap: ()=> Navigator.pushReplacementNamed(
+                              context, '/allCompliants'),
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 20.0),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Icon(
+                        Icons.arrow_forward_ios_sharp,
+                        size: 25,
+                      ),
                     ),
                   ),
                 ),
