@@ -41,13 +41,15 @@ class RegistrationFinash extends StatelessWidget {
                 width: 100,
                 height: 100,
                 decoration: const BoxDecoration(
+                  image: DecorationImage(image: AssetImage('assets/images/successregistration.svg') ,fit:  BoxFit.fill),
                     shape: BoxShape.circle,
                     color: Color(AppColor.primaryColor)),
-                child: const Icon(
-                  Icons.check_rounded,
-                  color: Color(AppColor.secondaryTwoColor),
-                  size: 80,
-                ),
+                
+                //  const Icon(
+                //   Icons.check_rounded,
+                //   color: Color(AppColor.secondaryTwoColor),
+                //   size: 80,
+                // ),
               ),
               //   Image.asset("assets/images/download.jpeg"),
               const Space(

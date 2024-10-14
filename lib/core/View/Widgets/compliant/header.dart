@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rowadapp/global/theme/AppColor/appColor_DarkMode.dart';
 
 class Header extends StatelessWidget {
   String title;
@@ -19,6 +20,8 @@ class Header extends StatelessWidget {
         imagePath,
         width: 30,
         height: 32,
+        fit: BoxFit.fill,
+        color: Color(AppcolorDarkmode.colorBlack),
       ),
       title: Text(
         title,

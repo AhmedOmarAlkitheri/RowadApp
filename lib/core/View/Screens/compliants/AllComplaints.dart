@@ -42,7 +42,7 @@ class Allcomplaints_screen extends StatelessWidget {
                   ),
                   Header(
                     title: 'صندوق الشكاوي',
-                    imagePath: 'assets/images/personprofile.png',
+                    imagePath: 'assets/images/cbox.png',
                     event: () {
                       Navigator.pushNamed(context, '/housing');
                     },
@@ -50,8 +50,8 @@ class Allcomplaints_screen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  SizedBox(
-                    height: 534,
+                  Expanded(
+                  
                     child: Consumer<CompliantVm>(
                       builder: (ctx, c, child) {
                         if (c.isLoading) {

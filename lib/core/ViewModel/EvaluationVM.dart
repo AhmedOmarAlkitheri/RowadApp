@@ -23,17 +23,17 @@ class Evaluationvm extends ChangeNotifier {
   List<double> sumvalues = [];
   bool isLoading = false;
   bool termname = false;
-  String _currentTerm = "الفصل الاول";
+  String currentTerm = "الفصل الاول";
   double yearResultTotal = 0;
 
   String? errorMessage;
   Httphelper httphelper = Httphelper.instance;
   Getstorage_helper getstorageHelper = Getstorage_helper.instance;
 
-  String get currentTerm => _currentTerm;
+ // String get currentTerm => _currentTerm;
 
   void updateTerm(String newTerm) {
-    _currentTerm = newTerm;
+  currentTerm = newTerm;
     termname = newTerm == "الفصل الاول" ? false : true;
     notifyListeners();
   }
@@ -76,6 +76,7 @@ class Evaluationvm extends ChangeNotifier {
         sumValues(eval);
         yearResultTotal =
             (eval.yearresult?.sem1 ?? 0) + (eval.yearresult?.sem2 ?? 0);
+            insertData(yearResultTotal ) ;
       } else {
         errorMessage = response.data['message'];
       }
@@ -132,4 +133,14 @@ class Evaluationvm extends ChangeNotifier {
 
     sumvalues.add((eval.road?.sem1 ?? 0) + (eval.road?.sem2 ?? 0));
   }
+  
+insertData(double yearResultTotal) {
+  Getstorage_helper getstorageHelper = Getstorage_helper.instance;
+
+  getstorageHelper.writeToFile(key: "yearResultTotal", value: yearResultTotal);
+ 
+    
+
+
+}
 }

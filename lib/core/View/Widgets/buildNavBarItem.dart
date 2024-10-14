@@ -34,6 +34,7 @@ Widget buildNavBarItem({
       alignment: Alignment.center,
       height: 40,
       width: 60,
+     
       child: Icon(
         icon,
         color: isSelected ? Colors.white : Colors.black,

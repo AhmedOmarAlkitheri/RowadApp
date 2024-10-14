@@ -47,7 +47,11 @@ class CompliantVm with ChangeNotifier {
         List<dynamic> allCompliant = jsonResponse['data'];
         Compliants =
             allCompliant.map((element) => Compliant.fromJson(element)).toList();
+
+        Compliants = Compliants.reversed.toList();
+
         _message = 'success';
+
       }
     } on DioException catch (e) {
       _error = true;
@@ -59,6 +63,8 @@ class CompliantVm with ChangeNotifier {
       _isLoading = false;
       notifyListeners();
     }
+      _isLoading = false;
+    notifyListeners();
   }
 
   Future<void> addCompliant(Compliant c) async {
@@ -96,5 +102,8 @@ class CompliantVm with ChangeNotifier {
       _isLoading = false;
       notifyListeners();
     }
+
+      _isLoading = false;
+    notifyListeners();
   }
 }

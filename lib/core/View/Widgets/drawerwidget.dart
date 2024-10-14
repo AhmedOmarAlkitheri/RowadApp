@@ -10,7 +10,7 @@ import 'package:rowadapp/global/theme/theme.dart';
 import 'package:rowadapp/helpers/Getstorage_helper.dart';
 
 void showTopSheet(BuildContext context) {
-  Getstorage_helper getstorage_helper = Getstorage_helper.instance;
+  Getstorage_helper getstorageHelper = Getstorage_helper.instance;
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
@@ -60,8 +60,8 @@ void showTopSheet(BuildContext context) {
                             children: [
                               buildIconButton(
                                 icon: provider.selectedItem == 0
-                                    ? Icons.manage_accounts_rounded
-                                    : Icons.manage_accounts_rounded,
+                                    ? Icons.person
+                                    : Icons.person,
                                 color: provider.selectedItem == 0
                                     ? Colors.grey.shade200
                                     : const Color(AppColor.primaryColor),
@@ -75,7 +75,7 @@ void showTopSheet(BuildContext context) {
                               Consumer<ThemeModes>(
                                   builder: (context, thememode, child) {
                                 bool isLightMode = bool.parse(
-                                    getstorage_helper.readFrmFile("mode"));
+                                    getstorageHelper.readFrmFile("mode"));
 
                                 return buildIconButton(
                                   icon: provider.selectedItem1 == 0
@@ -100,7 +100,7 @@ void showTopSheet(BuildContext context) {
                                     : const Color(AppColor.primaryColor),
                                 "خروج",
                                 onTap: () {
-                                  getstorage_helper.removeAll();
+                                  getstorageHelper.removeAll();
                                   Navigator.pushNamedAndRemoveUntil(
                                       context, "/splash", (route) => false);
                                   // exit(0);

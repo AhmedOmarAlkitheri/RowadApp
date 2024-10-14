@@ -73,7 +73,7 @@ class _ContainerevaluationState extends State<Containerevaluation> {
 
                 //  int columnCount = (constraints.maxWidth / 180).floor();
                 return ListView.builder(
-                    itemCount: widget.programValue.length,
+                    itemCount: widget.programValue.length -1,
                     itemBuilder: (ctx, index) {
                       return Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -26,54 +26,101 @@ class SecondTermEvaluation extends StatelessWidget {
       if (evaluationvm.errorMessage != null) {
         return Center(child: Text(evaluationvm.errorMessage!));
       }
-      if (evaluationvm.isLoading ) {
-        return Containereval(selectedTerm:selectedTerm);
+      if (evaluationvm.isLoading) {
+        return Containereval(selectedTerm: selectedTerm);
       }
-     
+
       return Skeletonizer(
         enabled: evaluationvm.isLoading,
         child: WidgetSemester(
-          finalValue: evaluationvm.termname
-              ? evaluationvm.programs![3].sem1
-              : evaluationvm
-                  .programs![3].sem2, //semesterevaluation1['finalValue'],
-          programName: programName,
-          programValue: evaluationvm.termname
-              ? evaluationvm.programs!
-                  .sublist(0, evaluationvm.programs!.length - 1)
-                  .map((program) => program.sem1)
-                  .toList()
-              : evaluationvm.programs!
-                  .sublist(0, evaluationvm.programs!.length - 1)
-                  .map((program) => program.sem2)
-                  .toList(), // semesterevaluation1['programValue'],
-          selectedTerm: selectedTerm,
-          dropdownmenu: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.only(left: 5, right: 5),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: const Color(AppColor.secondaryTwoColor)),
-                child: DropdownButton(
-                    borderRadius: BorderRadius.circular(15),
-                    // menuWidth: MediaQuery.of(context).size.width,
-                    value: evaluationvm.currentTerm,
-                    items: terms
-                        .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-                        .toList(),
-                    onChanged: (val) {
-                      evaluationvm.updateTerm(val!);
+            finalValue: evaluationvm.termname
+                ? evaluationvm.programs![3].sem1
+                : evaluationvm
+                    .programs![3].sem2, //semesterevaluation1['finalValue'],
+            programName: programName,
+            programValue: evaluationvm.termname
+                ? evaluationvm.programs!
+                    .sublist(0, evaluationvm.programs!.length - 1)
+                    .map((program) => program.sem1)
+                    .toList()
+                : evaluationvm.programs!
+                    .sublist(0, evaluationvm.programs!.length - 1)
+                    .map((program) => program.sem2)
+                    .toList(), // semesterevaluation1['programValue'],
+            selectedTerm: selectedTerm,
+            dropdownmenu:
+                // dropdownmenu: Column(
+                //   children: [
+                //     Container(
+                //       padding: const EdgeInsets.only(left: 5, right: 5),
+                //       decoration: BoxDecoration(
+                //           borderRadius: BorderRadius.circular(15),
+                //           color: const Color(AppColor.secondaryTwoColor)),
+                //       child:
+                // SizedBox(
+                //     width: 80,
+                //     height: 40,
+                Row(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Row(children: [
+                      Radio(
+                        value: terms[0],
+                        groupValue: evaluationvm.currentTerm,
+                        onChanged: (val) {
+                          evaluationvm.currentTerm = val!;
+                          evaluationvm.updateTerm(evaluationvm.currentTerm);
+                        },
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(terms[0]),
+                    ]),
+                  ),
+                ),
+                Expanded(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Row(children: [
+                      Radio(
+                        value: terms[1],
+                        groupValue: evaluationvm.currentTerm,
+                        onChanged: (val) {
+                          evaluationvm.currentTerm = val!;
+                          evaluationvm.updateTerm(evaluationvm.currentTerm);
+                        },
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(terms[1]),
+                    ]),
+                  ),
+                ),
+              ],
+            )),
 
-                      //value.updateNextGrade(val);
-                    }),
-              ),
-              const Space(
-                height: 15,
-              )
-            ],
-          ),
-        ),
+        // child: DropdownButton(
+        //     borderRadius: BorderRadius.circular(15),
+        //     // menuWidth: MediaQuery.of(context).size.width,
+        //     value: evaluationvm.currentTerm,
+        //     items: terms
+        //         .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+        //         .toList(),
+        //     onChanged: (val) {
+        //       evaluationvm.updateTerm(val!);
+
+        //       //value.updateNextGrade(val);
+        //     }),
+        //     ),
+        //     const Space(
+        //       height: 15,
+        //     )
+        //   ],
+        // ),
       );
     }));
   }

@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-
 import 'package:image_picker/image_picker.dart';
 import 'package:rowadapp/core/model/Registration_M.dart';
 import 'package:rowadapp/global/components/PictureFromGallary.dart';
@@ -16,9 +15,15 @@ class RegistrationVm with ChangeNotifier {
   static Map<String, dynamic> registrationinfo = {};
   Registrationmodel? registrationmodel;
   DateTime? currentDate;
+  bool isLoading = false;
   String next_grade = "التاسع";
   String school = "الابداع";
   Httphelper httphelper = Httphelper.instance;
+  void loading() {
+    isLoading = !isLoading;
+    notifyListeners();
+  }
+
   // DateTime get currentDate => _currentDate;
   getPicture() async {
     image = await getPictureFromGallary();
@@ -94,17 +99,14 @@ class RegistrationVm with ChangeNotifier {
       String registrationdata = jsonEncode(registrationinfo);
       print(registrationdata);
       Response response = await httphelper.postRequest(
-        url:
-            "https://rowad.actnow-ye.com/apis/register_student.php",
+        url: "https://rowad.actnow-ye.com/apis/register_student.php",
         options: headers,
         data: registrationinfo,
       );
 
       if (response.statusCode == 200) {
-
         print('تم إرسال البيانات بنجاح');
       } else {
-       
         print('فشل في إرسال البيانات: ${response.statusCode}');
       }
     } on DioException catch (x) {

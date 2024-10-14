@@ -37,11 +37,15 @@ class InputValidator {
   }
 
   static String? validatePhoneNumber(String? value) {
-    final regex = RegExp(r'^\+?[0-9]{9,15}$');
+    final regex = RegExp(r'^(77|78|70|71|73)[0-9]{7}$'); 
 
-    if (!regex.hasMatch(value!) || value.isEmpty) {
-      return 'رقم الجوال غير صالح';
-    }
+  if (value == null || value.isEmpty) {
+    return 'يرجى إدخال رقم الجوال';
+  }
+
+  if (!regex.hasMatch(value)) {
+    return 'يجب أن يكون بداية الرقم 77 أو 78 أو 73 أو 70 أو 71';
+  }
     return null;
   }
 
@@ -55,11 +59,15 @@ class InputValidator {
   }
 
   static String? validateusername(String? value) {
-    final regex = RegExp(r'^\+?[0-9]{9,15}$');
+    final regex = RegExp(r'^(77|78|70|71|73)[0-9]{7}$'); 
 
-    if (!regex.hasMatch(value!) || value.isEmpty) {
-      return 'رقم الجوال غير صالح';
-    }
+  if (value == null || value.isEmpty) {
+    return 'يرجى إدخال رقم الجوال';
+  }
+
+  if (!regex.hasMatch(value)) {
+    return 'يجب أن يكون بداية الرقم 77 أو 78 أو 73 أو 70 أو 71';
+  }
     return null;
   }
     static String? validateNotEmpty(String? value) {

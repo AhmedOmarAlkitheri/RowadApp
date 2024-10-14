@@ -10,4 +10,5 @@ class AppcolorDarkmode {
   static const int thereNotification = 0xFF03DAC6; // لون التنبيهات أو الأيقونات
   static const int secondaryTwoColor = 0xFFB0B0B0; // لون النصوص الثانوية
   static const int secondaryTHEREColor = 0x121212;
+  static const int secondaryfourColor = 0x9c9c9c;
 }

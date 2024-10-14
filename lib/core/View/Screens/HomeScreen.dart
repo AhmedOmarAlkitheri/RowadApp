@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rowadapp/core/DB/data.dart';
 import 'package:rowadapp/core/View/Widgets/drawerwidget.dart';
+import 'package:rowadapp/core/View/Widgets/fl_chat.dart';
+import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
+import 'package:rowadapp/core/ViewModel/room_vm.dart';
+import 'package:rowadapp/core/model/NotificationModel%20.dart';
+import 'package:rowadapp/helpers/Getstorage_helper.dart';
 import '../Widgets/Navigationbar.dart';
 import '../Widgets/Space.dart';
 import '../Widgets/chart.dart';
 
 class Homescreen extends StatelessWidget {
-  var holiDays = [
-    '22      مايو',
-    '26    سبتمبر',
-    '14    أكتوبر',
-    '30    نوفمبر'
-  ];
   Homescreen({super.key});
-
+  Getstorage_helper getstorageHelper = Getstorage_helper.instance;
+  double? result;
+  String? content, title;
+  Notification_M? filteredNotifications;
   @override
   Widget build(BuildContext context) {
+    result = getstorageHelper.readFrmFile("yearResultTotal");
+content = getstorageHelper.readFrmFile("content");
+  title = getstorageHelper.readFrmFile("title");
+
     return Scaffold(
       // extendBodyBehindAppBar: true,
       // appBar: AppBar(
@@ -27,8 +35,8 @@ class Homescreen extends StatelessWidget {
       //   ],
       // ),
       body: Container(
-        padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -39,7 +47,7 @@ class Homescreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "مركز رواد المستقبل",
                   style: TextStyle(color: Colors.black, fontSize: 20),
                 ),
@@ -49,14 +57,14 @@ class Homescreen extends StatelessWidget {
                       //     context, '/DrawerScreen', (route) => false);
                       showTopSheet(context);
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.menu,
                       size: 30,
                       color: Colors.black,
                     )),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Stack(children: [
@@ -70,7 +78,7 @@ class Homescreen extends StatelessWidget {
                     BoxShadow(
                       color: Colors.black.withOpacity(0.25),
                       blurRadius: 4,
-                      offset: Offset(0, 4),
+                      offset: const Offset(0, 4),
                     )
                   ],
                 ),
@@ -78,7 +86,7 @@ class Homescreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 2),
+                      padding: const EdgeInsets.symmetric(horizontal: 2),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -101,7 +109,7 @@ class Homescreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(right: 30),
                       child: Text('بدء الفصل الدراسي الجديد',
                           style: TextStyle(
@@ -111,7 +119,7 @@ class Homescreen extends StatelessWidget {
                           textAlign: TextAlign.start),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(right: 30, top: 5),
+                      padding: const EdgeInsets.only(right: 30, top: 5),
                       child: Text(
                         'أهلاً بكم في الفصل الدراسي الجديد! نراكم جميعًا',
                         style: TextStyle(fontSize: 12, color: Colors.grey[700]),
@@ -121,7 +129,7 @@ class Homescreen extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(bottom: 20),
+                padding: const EdgeInsets.only(bottom: 20),
                 decoration: BoxDecoration(
                   color:
                       Colors.white, // Replace with the desired background color
@@ -130,7 +138,7 @@ class Homescreen extends StatelessWidget {
                     BoxShadow(
                       color: Colors.black.withOpacity(0.25),
                       blurRadius: 4,
-                      offset: Offset(0, 4),
+                      offset: const Offset(0, 4),
                     )
                   ],
                 ),
@@ -138,7 +146,7 @@ class Homescreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -163,7 +171,7 @@ class Homescreen extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.only(right: 30),
-                      child: Text('بدء الفصل الدراسي الجديد',
+                      child: Text('${title ?? 'إشعار'}',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -173,7 +181,7 @@ class Homescreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(right: 30, top: 5),
                       child: Text(
-                        'أهلاً بكم في الفصل الدراسي الجديد! نراكم جميعًا',
+                        '${content ?? 'لا يوجد اشعار جديد'}',
                         style: TextStyle(fontSize: 12, color: Colors.grey[700]),
                       ),
                     ),
@@ -181,87 +189,126 @@ class Homescreen extends StatelessWidget {
                 ),
               ),
             ]),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Expanded(
                 flex: 2,
                 child: Row(
                   children: [
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      height: 250,
-                      width: MediaQuery.of(context).size.width / 3,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.25),
-                            blurRadius: 4,
-                            offset: Offset(0, 4),
-                          )
-                        ],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
+                    Expanded(
+                      child:
+                          Consumer<RoomVM>(builder: (context, roomVM, child) {
+                        return Container(
+                          padding: const EdgeInsets.all(10),
+                          height: 250,
+                          width: MediaQuery.of(context).size.width / 3,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.25),
+                                blurRadius: 4,
+                                offset: const Offset(0, 4),
+                              )
+                            ],
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Icon(
-                                Icons.home_filled,
-                                color: Colors.grey[300],
-                                size: 20,
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                'السكن',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
+                              Expanded(
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.home_filled,
+                                      color: Colors.grey[300],
+                                      size: 20,
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    const Text(
+                                      'السكن',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Expanded(
+                                child: Row(
+                                  children: [
+                                    // Expanded(
+                                    //   child: const Text(
+                                    //     'الدور : ',
+                                    //     style: TextStyle(color: Colors.black),
+                                    //   ),
+                                    // ),
+                                    Expanded(
+                                      child: Text(
+                                        '${roomVM.room?.floor ?? 'الطابق : غير مضاف'}',
+                                        style: const TextStyle(
+                                            color: Colors.black),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Expanded(
+                                child: Row(
+                                  children: [
+                                    const Text(
+                                      'الغرفة : ',
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                    Text(
+                                      '${roomVM.room?.roomNo ?? ' غير مضاف'}',
+                                      style:
+                                          const TextStyle(color: Colors.black),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Expanded(
+                                child: Row(
+                                  children: [
+                                    // Expanded(
+                                    //   child: const Text(
+                                    //     'الجناح : ',
+                                    //     style: TextStyle(color: Colors.black),
+                                    //   ),
+                                    // ),
+                                    Expanded(
+                                      child: Text(
+                                        '${roomVM.room?.suit ?? "الجناح : غير مضاف"}',
+                                        style: const TextStyle(
+                                            color: Colors.black),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
                             ],
                           ),
-                          SizedBox(
-                            height: 40,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                'الدور :',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              Text(
-                                '1',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                'الغرفة :',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              Text(
-                                '3',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
+                        );
+                      }),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 15,
                     ),
                     Container(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       height: 250,
                       width: MediaQuery.of(context).size.width / 2,
                       decoration: BoxDecoration(
@@ -272,7 +319,7 @@ class Homescreen extends StatelessWidget {
                           BoxShadow(
                             color: Colors.black.withOpacity(0.25),
                             blurRadius: 4,
-                            offset: Offset(0, 4),
+                            offset: const Offset(0, 4),
                           )
                         ],
                       ),
@@ -285,36 +332,45 @@ class Homescreen extends StatelessWidget {
                                 color: Colors.grey[300],
                                 size: 20,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
-                              Text(
+                              const Text(
                                 'الدرجة النهائية',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),
-                          SizedBox(
-                            height: 40,
+                          const SizedBox(
+                            height: 25,
                           ),
                           Center(
-                              child: PercentageCircle(
-                            percentage: 90,
-                            label: '',
-                          )),
+                            child: Consumer<Evaluationvm>(
+                                builder: (context, evaluationvm, child) {
+                              return PercentageCircle(
+                                percentage: result ?? 0,
+                                label: '',
+                              );
+                            }),
+
+                            //     child: PercentageCircle(
+                            //   percentage: 90,
+                            //   label: '',
+                            // )
+                          ),
                         ],
                       ),
                     ),
                   ],
                 )),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Expanded(
               flex: 1,
               child: Container(
-                padding:
-                    EdgeInsets.only(top: 10, bottom: 10, left: 15, right: 15),
+                padding: const EdgeInsets.only(
+                    top: 10, bottom: 10, left: 15, right: 15),
                 // padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                 height: 50, width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
@@ -325,31 +381,33 @@ class Homescreen extends StatelessWidget {
                     BoxShadow(
                       color: Colors.black.withOpacity(0.25),
                       blurRadius: 4,
-                      offset: Offset(0, 4),
+                      offset: const Offset(0, 4),
                     )
                   ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.holiday_village,
-                          color: Colors.grey[300],
-                          size: 20,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'الإجازات الرسمية',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                    Expanded(
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.holiday_village,
+                            color: Colors.grey[300],
+                            size: 20,
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          const Text(
+                            'الإجازات الرسمية',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
-                    SizedBox(
-                      height: 10,
+                    const SizedBox(
+                      height: 5,
                     ),
                     SizedBox(
                       height: 45,
@@ -360,8 +418,8 @@ class Homescreen extends StatelessWidget {
                             itemCount: 4,
                             itemBuilder: (context, index) {
                               return Container(
-                                padding: EdgeInsets.all(5),
-                                margin: EdgeInsets.only(right: 20),
+                                padding: const EdgeInsets.all(5),
+                                margin: const EdgeInsets.only(right: 20),
                                 height: 50,
                                 width: 55,
                                 decoration: BoxDecoration(
@@ -371,12 +429,12 @@ class Homescreen extends StatelessWidget {
                                   //   blurRadius: 4,
                                   //   offset: Offset(0,4),
                                   // )],
-                                  color: Color(0xffC4FFA9),
+                                  color: const Color(0xffC4FFA9),
                                 ),
                                 child: Center(
                                     child: Text(
                                   holiDays[index],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.black, fontSize: 13),
                                   softWrap: true,
                                   textAlign: TextAlign.center,
@@ -389,7 +447,7 @@ class Homescreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             const Navigationbar(

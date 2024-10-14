@@ -4,7 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:rowadapp/core/model/room.dart';
 
-
 import 'package:rowadapp/global/constraints/HttpUrl.dart';
 
 import 'package:rowadapp/helpers/Dio_Exception.dart';
@@ -15,32 +14,27 @@ class RoomVM with ChangeNotifier {
   bool _isLoading = false;
   bool _error = false;
   late String errorMessage;
-  Httphelper httphelper =Httphelper.instance ;
+  Httphelper httphelper = Httphelper.instance;
   Getstorage_helper getstorage_helper = Getstorage_helper.instance;
 
   bool get isLoading => _isLoading;
   bool get error => _error;
 
-   
-
   RoomVM() {
-    fetchRoomData();
+    fetchRoomData(getstorage_helper.readFrmFile("student_id"), getstorage_helper.readFrmFile("token"));
   }
 
   Room? room;
 
-
-  Future<void> fetchRoomData() async {
+  Future<void> fetchRoomData(id , token) async {
     _error = false;
     _isLoading = true;
     notifyListeners();
-  String id = getstorage_helper.readFrmFile("student_id");
-    String token = getstorage_helper.readFrmFile("token");
-    FormData data = FormData.fromMap({"token": token, "id":id});
-
+    // String id = getstorage_helper.readFrmFile("student_id");
+    // String token = getstorage_helper.readFrmFile("token");
+    FormData data = FormData.fromMap({"token": token, "id": id});
 
     try {
-   
       Response response =
           await httphelper.postRequest(url: Apiurls.roomData, data: data);
 
@@ -48,15 +42,15 @@ class RoomVM with ChangeNotifier {
       // print('Response: ${response.data['statuse']}');
 
       if (response.statusCode == 200) {
-
-          var jsonResponse = jsonDecode(response.data);
-          Map<String, dynamic> roomData = jsonResponse['data'];
-          print( jsonResponse['data']);
-          room = Room.fromJson(roomData);
-        }
+        var jsonResponse = jsonDecode(response.data);
+        Map<String, dynamic> roomData = jsonResponse['data'];
+        print(jsonResponse['data']);
+        room = Room.fromJson(roomData);
+        insertData(room!);
+      }
     } on DioException catch (e) {
       _error = true;
-       errorMessage = Dioexception.handleException(e);
+      errorMessage = Dioexception.handleException(e);
     } catch (e) {
       _error = true;
       errorMessage = e.toString();
@@ -66,4 +60,17 @@ class RoomVM with ChangeNotifier {
       notifyListeners();
     }
   }
+}
+
+insertData(Room room) {
+  Getstorage_helper getstorageHelper = Getstorage_helper.instance;
+
+  getstorageHelper.writeToFile(key: "floor", value: room.floor);
+  getstorageHelper.writeToFile(
+      key: "rom", value: room.roomNo);
+ getstorageHelper.writeToFile(
+      key: "suit", value: room.suit);
+    
+
+
 }

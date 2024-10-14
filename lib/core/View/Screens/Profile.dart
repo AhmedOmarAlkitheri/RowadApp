@@ -110,8 +110,8 @@ class Profile extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-              height: MediaQuery.of(context).size.height - 250,
+          Expanded(
+            //  height: MediaQuery.of(context).size.height - 250,
               // width: 200,
               child: SingleChildScrollView(
                 // scrollDirection: Axis.vertical,
@@ -201,7 +201,8 @@ class Profile extends StatelessWidget {
                     ),
                   ],
                 ),
-              ))
+              )
+              )
         ],
       ),
       // }),

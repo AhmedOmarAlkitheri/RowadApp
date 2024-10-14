@@ -7,5 +7,6 @@ class Apiurls {
   static const String roomData = '${root}getrom.php';
   static const String registration = '${root}register_student.php';
   static const String evaluation = '${root}evaluation.php';
+   static const String navigation = '${root}notification.php';
 
 }

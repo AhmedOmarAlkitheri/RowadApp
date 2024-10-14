@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
 import 'package:rowadapp/core/View/Widgets/Space.dart';
 import 'package:rowadapp/core/View/Widgets/WidgetTextFormField.dart';
+import 'package:rowadapp/core/View/Widgets/compliant/roundedButton.dart';
 import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
 import 'package:rowadapp/core/ViewModel/UserVM.dart';
+import 'package:rowadapp/core/ViewModel/compliant_vm.dart';
 import 'package:rowadapp/core/model/User.dart';
 import 'package:rowadapp/global/components/Validation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
+import 'package:rowadapp/global/theme/AppColor/appColor_DarkMode.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
@@ -100,8 +104,8 @@ class Login extends StatelessWidget {
                           height: 10,
                         ),
                         Widgettextformflied(
-                          // validator: (p0) =>
-                          //     InputValidator.validateusername(p0),
+                          validator: (p0) =>
+                              InputValidator.validateusername(p0),
                           controller: usernameController,
                           onChanged: (value) {
                             usernameController.text = value;
@@ -123,68 +127,120 @@ class Login extends StatelessWidget {
                         const Space(
                           height: 10,
                         ),
-                        Widgettextformflied(
-                          controller: passwordController,
-                          hintText: "كلمة المرور",
-                          labelText: "كلمة المرور",
-                          prefixIcon: const Icon(Icons.password_rounded),
-                          keyboardType: TextInputType.name,
-                          textInputAction: TextInputAction.done,
-                          onChanged: (value) {
-                            passwordController.text = value;
-                          },
-                        ),
+                        Consumer<UsersVm>(
+                            builder: (context, visibilityProvider, child) {
+                          return Widgettextformflied(
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                color:
+                                    const Color(AppcolorDarkmode.primaryColor),
+                                visibilityProvider.isObscured
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
+                              onPressed: () {
+                                visibilityProvider.toggleVisibility();
+                              },
+                            ),
+                            maxLines: 1,
+                            obscureText: visibilityProvider.isObscured,
+                            controller: passwordController,
+                            hintText: "كلمة المرور",
+                            labelText: "كلمة المرور",
+                            prefixIcon: const Icon(Icons.password_rounded),
+                            keyboardType: TextInputType.name,
+                            textInputAction: TextInputAction.done,
+                            onChanged: (value) {
+                              passwordController.text = value;
+                            },
+                          );
+                        }),
                         const Space(
                           height: 50,
                         ),
                         Center(
-                          child: Containerbutton(
-                              name: "تسجيل دخول",
-                              allBorderRadius: 15,
-                              onPressed: () async {
-                                if (formKey.currentState!.validate()) {
-                                      showModalBottomSheet(
-                    context: context,
-                    builder: (ctx) {
-                      return Container(
-                        height: 200,
-                        child: BottomSheet(
-                            dragHandleSize: Size.infinite,
-                            onClosing: () {},
-                            builder: (ctx) {
-                              return Center(child: CircularProgressIndicator());
-                            }),
-                      );
-                    });
-                                  // isLoading = true;
-                                  print(" JHGFD   JHGFDS");
-                                  Map<String, String> loginInfos = {};
+                          child: Consumer<UsersVm>(
+                            builder: (ctx, c, child) => Center(
+                              child: Roundedbutton(
+                                  isLoading: c.isLoading,
+                                  text: 'تسجيل الدخول',
+                                  width: 160,
+                                  height: 40,
+                                  event: () async {
+                                    //  Containerbutton(
+                                    //     name: "تسجيل دخول",
+                                    //     allBorderRadius: 15,
+                                    //     onPressed: () async {
 
-                                  loginInfos["username"] =
-                                      usernameController.text;
-                                  loginInfos["password"] =
-                                      passwordController.text;
+                                    if (formKey.currentState!.validate()) {
+                                      c.loading();
+                                      // showModalBottomSheet(
+                                      //     context: context,
+                                      //     builder: (ctx) {
+                                      //       return Container(
+                                      //         height: 200,
+                                      //         child: BottomSheet(
+                                      //             dragHandleSize: Size.infinite,
+                                      //             onClosing: () {},
+                                      //             builder: (ctx) {
+                                      //               return Center(
+                                      //                   child:
+                                      //                       CircularProgressIndicator());
+                                      //             }),
+                                      //       );
+                                      //     });
+                                      // isLoading = true;
+                                      print(" JHGFD   JHGFDS");
+                                      Map<String, String> loginInfos = {};
 
-                                  print(" JHGFD ${loginInfos}  JHGFDS");
-                                  uvm.login(loginInfos).then((x) {
-                                    isLoading = false;
+                                      loginInfos["username"] =
+                                          usernameController.text;
+                                      loginInfos["password"] =
+                                          passwordController.text;
 
-                                    if (x == "Success") {
-                                      Navigator.pushNamed(
-                                          context, "/Homescreen");
-                                    } else {
-                                      showDialog(
-                                        context: context,
-                                        builder: (ctx) {
-                                          return AlertDialog(
-                                            title: Text("$x"),
-                                          );
-                                        },
-                                      );
+                                      print(" JHGFD $loginInfos  JHGFDS");
+                                      uvm.login(loginInfos).then((x) {
+                                        //  isLoading = false;
+
+                                        if (x == "Success") {
+                                       
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(const SnackBar(
+                                            content: Text(
+                                              'تم تسجيل دخولك بنجاح',
+                                              style: TextStyle(
+                                                  color: Color(AppcolorDarkmode
+                                                      .primaryColor)),
+                                            ),
+                                            backgroundColor: Colors.white,
+                                          ));
+                                          Navigator.pushNamed(
+                                              context, "/Homescreen");
+                                        } else {
+                                             c.loading();
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
+                                            content: Text(
+                                              x,
+                                              style: const TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                            backgroundColor: Colors.red,
+                                          ));
+                                          // showDialog(
+                                          //   context: context,
+                                          //   builder: (ctx) {
+                                          //     return AlertDialog(
+                                          //       title: Text("$x"),
+                                          //     );
+                                          //   },
+                                          // );
+                                        }
+                                      });
                                     }
-                                  });
-                                }
-                              }),
+                                  }),
+                            ),
+                          ),
                         ),
                       ],
                     ),

@@ -12,12 +12,11 @@ import 'package:rowadapp/global/constraints/app_color.dart';
 
 class AddcompliantScreen extends StatelessWidget {
   AddcompliantScreen({super.key});
-   TextEditingController titleText = TextEditingController();
-   TextEditingController contentText = TextEditingController();
+  TextEditingController titleText = TextEditingController();
+  TextEditingController contentText = TextEditingController();
   CircularProgressIndicator? progress;
   CompliantVm cvm = CompliantVm();
   final _formKey = GlobalKey<FormState>();
-
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,7 @@ class AddcompliantScreen extends StatelessWidget {
                       ),
                       Header(
                         title: 'اضافة شكوى',
-                        imagePath: 'assets/images/personprofile.png',
+                        imagePath: 'assets/images/paper(1).png',
                         event: () {
                           Navigator.pushReplacementNamed(
                               context, '/allCompliants');
@@ -64,8 +63,7 @@ class AddcompliantScreen extends StatelessWidget {
                                   height: 10,
                                 ),
                                 Roundetextbox(
-                                  child: Textfield(
-                                    controller: titleText),
+                                  child: Textfield(controller: titleText),
                                 ),
                                 const SizedBox(
                                   height: 20,
@@ -84,29 +82,31 @@ class AddcompliantScreen extends StatelessWidget {
                                 const SizedBox(
                                   height: 40,
                                 ),
-                              Consumer<CompliantVm>(
-                              builder: (ctx, c, child) =>
-                                   Center(
-                                      child: Roundedbutton(
-                                        condition:c.isLoading,
-                                    text: 'إرسال',
-                                    event: () async{
-                                      if (_formKey.currentState!.validate()) {
-                                        Compliant c = Compliant();
-                                        c.title = titleText.text;
-                                        c.content = contentText.text;
-                                        // c.sendDate = (DateTime.now()).toString();
-                                      await cvm.addCompliant(c);
-                                         ScaffoldMessenger.of(context)
-                                          .showSnackBar(SnackBar(content: Text(cvm.message)));
-                                        // Navigator.pushReplacementNamed(
-                                        //     context, '/allCompliants');
-                                      }
-                                      else
-                                         ScaffoldMessenger.of(context).showSnackBar(
-                                         SnackBar(content: Text('يرجى ملء الحقول المطلوبة')));
-                                    },
-                                  )),
+                                Consumer<CompliantVm>(
+                                  builder: (ctx, c, child) => Center(
+                                    child: Roundedbutton(
+                                      isLoading: c.isLoading,
+                                      text: 'إرسال',
+                                      event: () async {
+                                        if (_formKey.currentState!.validate()) {
+                                          
+                                          Compliant compliant = Compliant();
+                                          compliant.title = titleText.text;
+                                          compliant.content = contentText.text;
+                                
+                                          await c.addCompliant(compliant); 
+                                
+                                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                            content: Text(c.message),
+                                          ));
+                                        } else {
+                                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                            content: Text('يرجى ملء الحقول المطلوبة'),
+                                          ));
+                                        }
+                                      },
+                                    ),
+                                  ),
                                 )
                               ],
                             ),

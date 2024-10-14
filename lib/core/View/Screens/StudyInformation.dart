@@ -18,7 +18,7 @@ class Studyinformation extends StatelessWidget {
 
   String favSchool = "الابداع";
 
-  String next_grade = "التاسع";
+  String next_grade = "تاسع";
 
   TextEditingController school_name = TextEditingController();
 

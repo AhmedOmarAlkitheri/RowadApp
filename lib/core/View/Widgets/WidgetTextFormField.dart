@@ -5,18 +5,20 @@ class Widgettextformflied extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final String? hintText, labelText;
-  final Widget? prefixIcon;
+  final Widget? prefixIcon , suffixIcon;
   final TextInputType keyboardType;
   final int? maxLength, maxLines;
   final TextInputAction textInputAction;
   final ValueChanged<String>? onChanged;
   final AutovalidateMode? autovalidateMode;
-
+ final bool?  obscureText;
   final InputDecoration decoration;
 
   const Widgettextformflied({
     super.key,
     this.controller,
+    this.suffixIcon,
+    this.obscureText,
     this.validator,
     this.hintText,
     this.keyboardType = TextInputType.text,
@@ -28,11 +30,13 @@ class Widgettextformflied extends StatelessWidget {
     this.labelText,
     this.prefixIcon,
     this.autovalidateMode,
+   
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+   
       autovalidateMode: autovalidateMode,
       maxLines: maxLines,
       keyboardType: keyboardType,
@@ -42,7 +46,7 @@ class Widgettextformflied extends StatelessWidget {
       textInputAction: textInputAction,
       onChanged: onChanged,
       cursorColor: const Color(AppColor.primaryColor),
-
+obscureText:  obscureText??false,
       decoration: decoration.copyWith(
         fillColor: Colors.grey[300],
         filled: true,
@@ -51,7 +55,7 @@ class Widgettextformflied extends StatelessWidget {
         labelText: labelText,
         prefixIcon: prefixIcon,
         prefixIconColor: const Color(AppColor.primaryColor),
-
+suffixIcon:  suffixIcon ,
         labelStyle: const TextStyle(color: Color(AppColor.primaryColor)),
         // icon: Icon(Icons.account_circle_rounded),
         focusedBorder: OutlineInputBorder(
@@ -61,6 +65,7 @@ class Widgettextformflied extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
           borderSide: const BorderSide(color: Colors.grey),
+          
         ),
       ),
 

@@ -4,6 +4,8 @@ import 'package:shimmer/shimmer.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
 class ListOfShimmer extends StatelessWidget {
+  const ListOfShimmer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,8 +15,8 @@ class ListOfShimmer extends StatelessWidget {
         children: [
           ListView.builder(
             shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(), 
-            itemCount: 5, 
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: 3,
             itemBuilder: (context, index) {
               return Container(
                 margin: const EdgeInsets.only(right: 10, left: 10, bottom: 10),
@@ -42,7 +44,7 @@ class ListOfShimmer extends StatelessWidget {
                         height: 35,
                         decoration: BoxDecoration(
                           color: Colors.grey[300],
-                        shape: BoxShape.circle,
+                          shape: BoxShape.circle,
                         ),
                       ),
                     ),
@@ -52,10 +54,9 @@ class ListOfShimmer extends StatelessWidget {
                       child: Container(
                         width: 100,
                         height: 20,
-                         decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(15),
-   color: Colors.grey[300],
-                       
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.grey[300],
                         ),
                       ),
                     ),

@@ -15,12 +15,12 @@ class Compliant {
       this.response});
 
   Compliant.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    title = json['titele'];
-    content = json['content'];
+    id = json['id'].toString();
+    title = json['titele'].toString();
+    content = json['content'].toString();
     // sendDate = json['sendDate'];
-    responseStatuse = json['statuse'];
-    response = json['replay'];
+    responseStatuse = json['statuse'].toString();
+    response = json['replay'].toString();
   }
 
   Map<String, dynamic> toJson() {

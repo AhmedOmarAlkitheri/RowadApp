@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationInfo.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
 //import 'package:rowadapp/core/View/Widgets/ContainerButton.dart';
 import 'package:rowadapp/core/View/Widgets/Space.dart';
 import 'package:rowadapp/core/View/Widgets/UpperRegistrationContainer.dart';
 import 'package:rowadapp/core/View/Widgets/WidgetTextFormField.dart';
+import 'package:rowadapp/core/View/Widgets/compliant/roundedButton.dart';
 import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
+import 'package:rowadapp/core/ViewModel/compliant_vm.dart';
 import 'package:rowadapp/global/components/Validation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
+import 'package:rowadapp/global/theme/AppColor/appColor_DarkMode.dart';
 
 class TellAboutYourselfScreen extends StatelessWidget {
   TellAboutYourselfScreen({super.key});
@@ -172,39 +176,96 @@ class TellAboutYourselfScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Containerbutton(
-                          allBorderRadius: 15,
-                          name: "تراجع",
-                          onPressed: () {
+                         Roundedbutton(
+                                    
+                                      text: 'تراجع',
+                                      height: 50,
+                                      width: 90,
+                                      event: () async {
+                        
                             Navigator.pop(context, "/Contactinformation");
                           },
                         ),
                         const Space(
                           width: 10,
                         ),
-                        Containerbutton(
-                            allBorderRadius: 15,
-                            name: "إرسال",
-                            onPressed: () async {
-                              if (formKey.currentState!.validate()) {
-                                RegistrationVm
-                                        .registrationinfo['skills_hobbies'] =
-                                    skills.text;
-                                RegistrationVm.registrationinfo[
-                                        'achievements_participations'] =
-                                    participations.text;
-                                RegistrationVm
-                                        .registrationinfo['future_ambitions'] =
-                                    futureAmbitions.text;
-                                RegistrationVm.registrationinfo[
-                                    'reason_for_joining'] = joinSchool.text;
-                                print(RegistrationVm.registrationinfo);
-                                await RegistrationVm().postRegistration();
+                        // Containerbutton(
+                        //     allBorderRadius: 15,
+                        //     name: "إرسال",
+                        //     onPressed: () async {
+                        Consumer<RegistrationVm>(
+                            builder: (ctx, c, child) => Center(
+                                  child: Roundedbutton(
+                                      isLoading: c.isLoading,
+                                      text: 'إرسال',
+                                      height: 50,
+                                      width: 90,
+                                      event: () async {
+                                        if (formKey.currentState!.validate()) {
+                                          c.loading();
+                                          // showModalBottomSheet(
+                                          //     context: context,
+                                          //     builder: (ctx) {
+                                          //       return Container(
+                                          //         height: 200,
+                                          //         child: BottomSheet(
+                                          //             dragHandleSize: Size.infinite,
+                                          //             onClosing: () {},
+                                          //             builder: (ctx) {
+                                          //               return Center(
+                                          //                   child:
+                                          //                       CircularProgressIndicator());
+                                          //             }),
+                                          //       );
+                                          //     });
+                                          RegistrationVm.registrationinfo[
+                                              'skills_hobbies'] = skills.text;
+                                          RegistrationVm.registrationinfo[
+                                                  'achievements_participations'] =
+                                              participations.text;
+                                          RegistrationVm.registrationinfo[
+                                                  'future_ambitions'] =
+                                              futureAmbitions.text;
+                                          RegistrationVm.registrationinfo[
+                                                  'reason_for_joining'] =
+                                              joinSchool.text;
+                                          //   print(RegistrationVm.registrationinfo);
 
-                                Navigator.pushNamed(
-                                    context, "/RegistrationFinash");
-                              }
-                            }),
+                                          await RegistrationVm()
+                                              .postRegistration()
+                                              .then((x) {
+                                            if (x == "Success") {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(const SnackBar(
+                                                content: Text(
+                                                  'تم تسجيل دخولك بنجاح',
+                                                  style: TextStyle(
+                                                      color: Color(AppcolorDarkmode
+                                                          .secondaryTwoColor)),
+                                                ),
+                                                backgroundColor: Color(
+                                                    AppcolorDarkmode
+                                                        .primaryColor),
+                                              ));
+                                              Navigator.pushNamed(context,
+                                                  "/RegistrationFinash");
+                                            } else {
+                                              c.loading();
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(SnackBar(
+                                                content: Text(
+                                                  '$x',
+                                                  style: const TextStyle(
+                                                      color: Color(AppcolorDarkmode
+                                                          .secondaryTwoColor)),
+                                                ),
+                                                backgroundColor: Colors.red,
+                                              ));
+                                            }
+                                          });
+                                        }
+                                      }),
+                                ))
                       ],
                     ),
                     const Space(

@@ -6,7 +6,7 @@ ThemeData darkMode() {
   return ThemeData(
     brightness: Brightness.dark,
     appBarTheme: const AppBarTheme(
-      backgroundColor: Color(AppcolorDarkmode.colorBlack),
+      backgroundColor: Color(AppcolorDarkmode.secondaryfourColor),
       titleTextStyle: TextStyle(color: Color(AppcolorDarkmode.secondaryColor)),
     ),
     colorScheme: const ColorScheme(
@@ -20,7 +20,7 @@ ThemeData darkMode() {
       surface: Color(AppcolorDarkmode.secondaryTwoColor),
       onSurface: Color(AppcolorDarkmode.secondaryTwoColor),
     ),
-    scaffoldBackgroundColor: const Color(AppcolorDarkmode.colorBlack),
+    scaffoldBackgroundColor: const Color(AppcolorDarkmode.secondaryfourColor),
     drawerTheme: const DrawerThemeData(
       backgroundColor: Color(AppcolorDarkmode.secondaryTHEREColor),
     ),
