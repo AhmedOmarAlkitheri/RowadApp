@@ -5,6 +5,8 @@ import 'package:rowadapp/core/View/Widgets/chartEvaluation.dart';
 import 'package:rowadapp/core/View/Widgets/fl_chat.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Containerevaluation extends StatefulWidget {
   const Containerevaluation(
       {super.key,
@@ -12,7 +14,7 @@ class Containerevaluation extends StatefulWidget {
       required this.programName,
       required this.programValue});
 
-  final double ? finalValue;
+  final double? finalValue;
 
   final List<String> programName;
   final List<double?> programValue;
@@ -27,14 +29,18 @@ class _ContainerevaluationState extends State<Containerevaluation> {
       padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
       width: MediaQuery.of(context).size.width,
       height: 450,
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-          color: Colors.black.withOpacity(0.25),
-          blurRadius: 3,
-          // spreadRadius: 2,
-          offset: const Offset(0, 4),
-        ),
-      ], borderRadius: BorderRadius.circular(20), color: Colors.white),
+      decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color:
+                  const Color(Appcolorlightmode.blackColor).withOpacity(0.25),
+              blurRadius: 3,
+              // spreadRadius: 2,
+              offset: const Offset(0, 4),
+            ),
+          ],
+          borderRadius: BorderRadius.circular(20),
+          color: const Color(Appcolorlightmode.whiteColor)),
       child: Column(
         children: [
           Stack(children: [
@@ -73,26 +79,34 @@ class _ContainerevaluationState extends State<Containerevaluation> {
 
                 //  int columnCount = (constraints.maxWidth / 180).floor();
                 return ListView.builder(
-                    itemCount: widget.programValue.length -1,
+                    itemCount: widget.programValue.length ,
                     itemBuilder: (ctx, index) {
                       return Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            widget.programName[index],
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
+                          Expanded(
+                            flex: 3,
+                            child: Text(
+                              widget.programName[index],
+                              style: const TextStyle(
+                                fontFamily: 'vazir-medium',
+                                // fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                              ),
                             ),
                           ),
                           const SizedBox(
                             height: 60,
                           ),
-                          Text("${widget.programValue[index]?.toStringAsFixed(2)}%",
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: Color(AppColor.primaryColor)))
+                          Expanded(
+                            child: Text(
+                                "${widget.programValue[index]?.toStringAsFixed(2)}%",
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
+                                    color:
+                                        Color(Appcolorlightmode.lightGreen))),
+                          )
                         ],
                       );
                       // );

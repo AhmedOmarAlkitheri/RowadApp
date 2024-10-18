@@ -1,11 +1,9 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:rowadapp/core/DB/data.dart';
 import 'package:rowadapp/core/model/Evaluation.dart';
 import 'package:rowadapp/core/model/Month.dart';
-import 'package:rowadapp/core/model/NotificationModel%20.dart';
+
 import 'package:rowadapp/core/model/Program.dart';
 import 'package:rowadapp/helpers/Dio_Exception.dart';
 import 'package:rowadapp/helpers/Getstorage_helper.dart';
@@ -20,6 +18,9 @@ class Evaluationvm extends ChangeNotifier {
   List<double?>? alquran;
   List<double?>? behavior;
   List<double?>? activities;
+  List<double?>? a;
+  List<double?>? b;
+  List<double?>? ac;
   List<double> sumvalues = [];
   bool isLoading = false;
   bool termname = false;
@@ -30,10 +31,10 @@ class Evaluationvm extends ChangeNotifier {
   Httphelper httphelper = Httphelper.instance;
   Getstorage_helper getstorageHelper = Getstorage_helper.instance;
 
- // String get currentTerm => _currentTerm;
+  // String get currentTerm => _currentTerm;
 
   void updateTerm(String newTerm) {
-  currentTerm = newTerm;
+    currentTerm = newTerm;
     termname = newTerm == "الفصل الاول" ? false : true;
     notifyListeners();
   }
@@ -54,18 +55,18 @@ class Evaluationvm extends ChangeNotifier {
       FormData fromdata = FormData.fromMap({'token': token});
 
       var response = await httphelper.getRequest(
-          url: 'https://dummyjson.com/c/6d47-b49a-4c67-96f2',
+          url: 'https://dummyjson.com/c/cea9-7fb0-4483-9993',
           // data: fromdata,
           options: headers);
 
       if (response.statusCode == 200) {
-      //  print("ahmed");
+        //  print("ahmed");
         print(response.data['data']);
         Evaluation eval = Evaluation.fromJson(response.data['data']);
-     //   print(response.data['data']);
-         month = eval.moths;
-      //   print("ddffggf ${eval.moths?[0].madoubleainingPrayer} ahmed");
-      //      print("ddffggf ${eval.moths?[0].madoubleainingTheVoluntaryPrayers} ahmeds");
+        //   print(response.data['data']);
+        month = eval.moths;
+        //   print("ddffggf ${eval.moths?[0].madoubleainingPrayer} ahmed");
+        //      print("ddffggf ${eval.moths?[0].madoubleainingTheVoluntaryPrayers} ahmeds");
         divideMonthIntoPrograms(month);
         programs ??= [];
 
@@ -76,7 +77,7 @@ class Evaluationvm extends ChangeNotifier {
         sumValues(eval);
         yearResultTotal =
             (eval.yearresult?.sem1 ?? 0) + (eval.yearresult?.sem2 ?? 0);
-            insertData(yearResultTotal ) ;
+        insertData(yearResultTotal);
       } else {
         errorMessage = response.data['message'];
       }
@@ -114,6 +115,13 @@ class Evaluationvm extends ChangeNotifier {
       alquran?.addAll(values.sublist(6, 8));
       activities?.addAll(values.sublist(8, 11));
     }
+    // b ??= [];
+    // a ??= [];
+    // ac ??= [];
+   // b?.addAll(behavior/3) ;
+    
+    //behavior = (behavior / 3);
+
     print(behavior);
     print(alquran);
     print(activities);
@@ -133,14 +141,11 @@ class Evaluationvm extends ChangeNotifier {
 
     sumvalues.add((eval.road?.sem1 ?? 0) + (eval.road?.sem2 ?? 0));
   }
-  
-insertData(double yearResultTotal) {
-  Getstorage_helper getstorageHelper = Getstorage_helper.instance;
 
-  getstorageHelper.writeToFile(key: "yearResultTotal", value: yearResultTotal);
- 
-    
+  insertData(double yearResultTotal) {
+    Getstorage_helper getstorageHelper = Getstorage_helper.instance;
 
-
-}
+    getstorageHelper.writeToFile(
+        key: "yearResultTotal", value: yearResultTotal);
+  }
 }

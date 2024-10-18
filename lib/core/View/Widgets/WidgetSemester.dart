@@ -7,6 +7,8 @@ import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
 import 'package:rowadapp/global/components/Skeletonizer.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class WidgetSemester extends StatelessWidget {
   const WidgetSemester(
       {super.key,
@@ -30,7 +32,7 @@ class WidgetSemester extends StatelessWidget {
         decoration: const BoxDecoration(
           //   color: Colors.black,
           gradient: LinearGradient(
-            colors: [Color(AppColor.secondaryColor), Color(AppColor.secondaryTwoColor)],
+            colors: [Color(Appcolorlightmode.backgroundTopColor), Color(Appcolorlightmode.backgroundBottomColor)],
             begin: AlignmentDirectional.topStart,
             end: AlignmentDirectional.bottomStart,
           ),

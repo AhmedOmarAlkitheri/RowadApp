@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 //, {bool hasDot = false}
 Widget buildIconButton(String label,
     {required IconData icon,
@@ -12,13 +14,16 @@ Widget buildIconButton(String label,
         child: CircleAvatar(
           radius: 25,
           backgroundColor: color,
-          child: Icon(icon, color: Colors.black),
+          child: Icon(icon, color: Color(Appcolorlightmode.blackColor)),
         ),
       ),
       const SizedBox(height: 5),
       Text(
         label,
-        style: const TextStyle(color: Colors.black),
+        style: const TextStyle(
+                                     fontFamily: 'vazir-light',
+
+          color: Color(Appcolorlightmode.blackColor)),
       ),
     ],
   );

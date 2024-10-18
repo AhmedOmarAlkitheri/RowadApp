@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Containerstep extends StatelessWidget {
   final bool isActive;
 
@@ -14,11 +16,11 @@ class Containerstep extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: isActive
-            ? const Color(AppColor.primaryColor)
-            : const Color(AppColor.secondaryTwoColor),
+            ? const Color(Appcolorlightmode.lightGreen)
+            : const Color(Appcolorlightmode.whiteColor),
         border: Border.all(color: Colors.black),
       ),
-      child: isActive ? Icon(Icons.check, color: Colors.white) : null,
+      child: isActive ? Icon(Icons.check, color: Color(Appcolorlightmode.whiteColor)) : null,
     );
   }
 }

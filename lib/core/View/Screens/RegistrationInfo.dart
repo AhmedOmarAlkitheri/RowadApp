@@ -12,6 +12,7 @@ import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
 import 'package:rowadapp/global/components/PickerTime.dart';
 import 'package:rowadapp/global/components/Validation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
+import 'package:rowadapp/global/theme/AppColor/appColor_LightMode.dart';
 
 class Registrationinfo extends StatelessWidget {
   Registrationinfo({super.key});
@@ -114,40 +115,48 @@ class Registrationinfo extends StatelessWidget {
                       const Space(
                         height: 20,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            "تاريخ الميلاد :",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
-                              color: Color(AppColor.colorBlack),
-                            ),
-                          ),
-                          Consumer<RegistrationVm>(
-                            builder: (context, value, child) => InkWell(
-                              child: Text(
-                                value.currentDate != null
-                                    ? '${value.currentDate?.day}/${value.currentDate?.month}/${value.currentDate?.year}'
-                                    : '      لم تحدد تاريخ ميلادك',
-                                style: const TextStyle(fontSize: 20),
+                   
+
+
+
+
+ Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              "تاريخ الميلاد :",
+                              style: TextStyle(
+ fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,                                fontSize: 15,
+                                color: Color(Appcolorlightmode.blackColor),
                               ),
-                              onTap: () async {
-                                selectedDate = (await showDatePicker(
-                                  context: context,
-                                  initialDate: selectedDate ?? DateTime.now(),
-                                  firstDate: DateTime(1900),
-                                  lastDate: DateTime(2100),
-                                ));
-                                if (selectedDate != null) {
-                                  value.updateDate(selectedDate!);
-                                }
-                              },
                             ),
-                          ),
-                        ],
-                      ),
+                            Consumer<RegistrationVm>(
+                              builder: (context, value, child) => InkWell(
+                                child: Text(
+                                  value.currentDate != null
+                                      ? '${value.currentDate?.day}/${value.currentDate?.month}/${value.currentDate?.year}'
+                                      : '      لم تحدد تاريخ ميلادك',
+                                  style: const TextStyle(
+                                     fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                                    fontSize: 15),
+                                ),
+                                onTap: () async {
+                                  selectedDate = (await showDatePicker(
+                                    context: context,
+                                    initialDate: selectedDate ?? DateTime.now(),
+                                    firstDate: DateTime(1900),
+                                    lastDate: DateTime(2100),
+                                  ));
+                                  if (selectedDate != null) {
+                                    value.updateDate(selectedDate!);
+                                  }
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
                       const Space(
                         height: 20,
                       ),

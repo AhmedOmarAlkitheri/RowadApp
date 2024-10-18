@@ -7,6 +7,8 @@ import 'package:rowadapp/core/View/Widgets/houseWidgets/container_button.dart';
 import 'package:rowadapp/core/View/Widgets/houseWidgets/icon_container.dart';
 import 'package:rowadapp/core/ViewModel/room_vm.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class HouseScreen extends StatelessWidget {
   const HouseScreen({super.key});
 
@@ -31,7 +33,7 @@ class HouseScreen extends StatelessWidget {
                 gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [Color(0xffC4FFA9), Color(0xFFFFFFFF)])),
+                    colors: [Color(Appcolorlightmode.backgroundTopColor), Color(Appcolorlightmode.backgroundBottomColor)])),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -39,7 +41,10 @@ class HouseScreen extends StatelessWidget {
                   height: 5,
                 ),
                 const Text('السكن',
-                    style: TextStyle(color: Colors.black, fontSize: 20)),
+                   style: TextStyle(
+                                                fontFamily: 'vazir-light',
+
+                          color: Color(Appcolorlightmode.blackColor), fontSize: 20)),
                 const SizedBox(
                   height: 20,
                 ),
@@ -55,7 +60,7 @@ class HouseScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.25),
+                          color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
                           blurRadius: 4,
                           offset: const Offset(0, 4),
                         )
@@ -81,13 +86,17 @@ class HouseScreen extends StatelessWidget {
                                   const SizedBox(
                                     height: 5,
                                   ),
-                                  Text(room?.suit ?? "الجناح : غير مضاف"),
+                                  Text(room?.suit ?? "الجناح : غير مضاف" ,  style: TextStyle(
+                      fontFamily: 'vazir-medium',
+                                    ),),
                                 ],
                               ),
                               const Space(
                                 width: 40,
                               ),
-                              Text('الغرفة ${room?.roomNo ?? ': غير مضاف'}'),
+                              Text('الغرفة ${room?.roomNo ?? ': غير مضاف'}' ,  style: TextStyle(
+                      fontFamily: 'vazir-medium',
+                                    ),),
                               const SizedBox(
                                 width: 20,
                               ),
@@ -102,7 +111,10 @@ class HouseScreen extends StatelessWidget {
                               ),
                               Text(
                                 'زملاء الغرفة',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                // style: TextStyle(fontWeight: FontWeight.bold),
+                                 style: TextStyle(
+                      fontFamily: 'vazir-medium',
+                                    ),
                               ),
                             ])),
                         const SizedBox(
@@ -129,7 +141,7 @@ class HouseScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ContainerButton(
+                        ContainerHButton(
                           onTaputton: () {
                             Navigator.pushReplacementNamed(
                                 context, '/Notificationscreen');
@@ -140,7 +152,7 @@ class HouseScreen extends StatelessWidget {
                         const SizedBox(
                           height: 25,
                         ),
-                        ContainerButton(
+                        ContainerHButton(
                           onTaputton: () {
                             Navigator.pushReplacementNamed(
                                 context, '/allCompliants');
@@ -148,9 +160,12 @@ class HouseScreen extends StatelessWidget {
                           text: 'الشكاوي',
                         ),
                       ],
+   
+                      
+                      ),
                     ),
                   ),
-                ),
+                
                 const Expanded(
                     child: Navigationbar(
                   selectedTerm: 3,

@@ -8,6 +8,8 @@ import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
 import 'package:rowadapp/global/components/Skeletonizer.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Containereval extends StatelessWidget {
   const Containereval({super.key, required this.selectedTerm});
 
@@ -22,8 +24,8 @@ class Containereval extends StatelessWidget {
           //   color: Colors.black,
           gradient: LinearGradient(
             colors: [
-              Color(AppColor.secondaryColor),
-              Color(AppColor.secondaryTwoColor)
+              Color(Appcolorlightmode.backgroundTopColor),
+              Color(Appcolorlightmode.backgroundBottomColor),
             ],
             begin: AlignmentDirectional.topStart,
             end: AlignmentDirectional.bottomStart,

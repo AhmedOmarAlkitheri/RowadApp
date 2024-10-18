@@ -8,7 +8,6 @@ import 'package:rowadapp/core/View/Screens/First_Term_Evaluation.dart';
 import 'package:rowadapp/core/View/Screens/HomeScreen.dart';
 import 'package:rowadapp/core/View/Screens/Login.dart';
 import 'package:rowadapp/core/View/Screens/NotificationScreen.dart';
-import 'package:rowadapp/core/View/Screens/PlacementScreens.dart';
 import 'package:rowadapp/core/View/Screens/Profile.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationFinash.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationGuardian.dart';
@@ -68,28 +67,29 @@ class RouteManager {
       case "/FinalResult":
         return MaterialPageRoute(builder: (ctx) => Finalresult());
       case "/Evaluationscreen":
-        return MaterialPageRoute(builder: (ctx) =>  Evaluationscreen());
+        return MaterialPageRoute(builder: (ctx) => Evaluationscreen());
       case "/Homescreen":
         return MaterialPageRoute(builder: (ctx) => Homescreen());
       case "/Notificationscreen":
         return MaterialPageRoute(builder: (ctx) => Notificationscreen());
-      case "/Placementscreens":
-        return MaterialPageRoute(builder: (ctx) => const Placementscreens());
 
-    
       case "/Profile":
         return MaterialPageRoute(builder: (ctx) => Profile());
-  case "/splash":
+      case "/splash":
         return MaterialPageRoute(builder: (ctx) {
           return Splashscreen();
         });
-          case '/housing':
+      case '/housing':
         return MaterialPageRoute(
-          builder: (ctx) =>  HouseScreen(),
+          builder: (ctx) => const HouseScreen(),
+        );
+      case '/Laoding':
+        return MaterialPageRoute(
+          builder: (ctx) => const HouseScreen(),
         );
       case '/allCompliants':
         return MaterialPageRoute(
-          builder: (ctx) => const Allcomplaints_screen(),
+          builder: (ctx) => Allcomplaints_screen(),
         );
       case '/sendCompliant':
         return MaterialPageRoute(builder: (ctx) => AddcompliantScreen());
@@ -99,7 +99,6 @@ class RouteManager {
             builder: (ctx) => Viewcompliantdetails(
                   c: C,
                 ));
-      default:
     }
     return null;
   }

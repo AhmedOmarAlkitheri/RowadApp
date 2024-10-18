@@ -13,20 +13,22 @@ class Finalresult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     programnames.addAll(programs + programName);
-    return Scaffold(
-        body: Consumer<Evaluationvm>(builder: (context, evaluationvm, child) {
- if (evaluationvm.sumvalues.isEmpty && evaluationvm.yearResultTotal == null) {
-       return const Center(child: Text('لا توجد بيانات متاحة.'));
-      }
-           if (evaluationvm.isLoading ) {
-        return Containereval(selectedTerm: selectedTerm);
-      }
-      return WidgetSemester(
-        finalValue: evaluationvm.yearResultTotal,
-        programName: programnames,
-        programValue: evaluationvm.sumvalues,
-        selectedTerm: selectedTerm,
-      );
-    }));
+    return SafeArea(
+      child: Scaffold(
+          body: Consumer<Evaluationvm>(builder: (context, evaluationvm, child) {
+       if (evaluationvm.sumvalues.isEmpty && evaluationvm.yearResultTotal == null) {
+         return const Center(child: Text('لا توجد بيانات متاحة.'));
+        }
+             if (evaluationvm.isLoading ) {
+          return Containereval(selectedTerm: selectedTerm);
+        }
+        return WidgetSemester(
+          finalValue: evaluationvm.yearResultTotal,
+          programName: programnames,
+          programValue: evaluationvm.sumvalues,
+          selectedTerm: selectedTerm,
+        );
+      })),
+    );
   }
 }

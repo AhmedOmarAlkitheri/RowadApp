@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../global/theme/AppColor/appColor_LightMode.dart';
+
 class ErrorWidgetView extends StatelessWidget {
   const ErrorWidgetView({super.key, required this.error});
   final String error;
@@ -12,7 +14,7 @@ class ErrorWidgetView extends StatelessWidget {
     var registrationVm = Provider.of<RegistrationVm>(context, listen: false);
     // var productVm = Provider.of<ProductVm>(context, listen: false);
     return RefreshIndicator(
-      color: const Color(AppColor.primaryColor),
+      color: const Color(Appcolorlightmode.lightGreen),
       onRefresh: () async {
         //   await registrationVm();
         // await categoryVm.refershData();

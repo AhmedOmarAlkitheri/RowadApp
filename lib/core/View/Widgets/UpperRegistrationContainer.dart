@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerRegistration.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Upperregistrationcontainer extends StatefulWidget {
   const Upperregistrationcontainer(
       {super.key, required this.isActive, required this.location});
@@ -16,10 +18,11 @@ class _RegistrationinfoState extends State<Upperregistrationcontainer> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        
           decoration: const BoxDecoration(
             //   color: Colors.black,
             gradient: LinearGradient(
-              colors: [Color(AppColor.secondaryColor), Colors.white],
+              colors: [Color(Appcolorlightmode.backgroundTopColor), Color(Appcolorlightmode.backgroundBottomColor)],
               begin: AlignmentDirectional.topStart,
               end: AlignmentDirectional.bottomStart,
             ),
@@ -31,9 +34,10 @@ class _RegistrationinfoState extends State<Upperregistrationcontainer> {
               child: Container(
                 width: 172,
                 height: 185,
-                decoration: const BoxDecoration(
+                decoration:  BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color(AppColor.secondarythereColor)),
+                    color: Color(Appcolorlightmode.darkGreen)
+                            .withOpacity(0.31)),
               ),
             ),
             Positioned(
@@ -57,8 +61,8 @@ class _RegistrationinfoState extends State<Upperregistrationcontainer> {
                 child: Text(
                   "تسجيل",
                   style: TextStyle(
-                      color: Color(AppColor.colorBlack),
-                      fontWeight: FontWeight.bold,
+                      color: Color(Appcolorlightmode.blackColor),
+                     fontFamily: 'vazir-light',
                       fontSize: 28),
                 ),
               ),
@@ -70,7 +74,7 @@ class _RegistrationinfoState extends State<Upperregistrationcontainer> {
                 width: MediaQuery.of(context).size.width,
                 height: 290 - 180,
                 decoration: const BoxDecoration(
-                    color: Color(AppColor.secondaryTwoColor),
+                    color: Color(Appcolorlightmode.whiteColor),
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20))),
@@ -81,9 +85,11 @@ class _RegistrationinfoState extends State<Upperregistrationcontainer> {
                     const SizedBox(
                       height: 30,
                     ),
-                    Containerregistration(
-                      isActive: widget.isActive,
-                      location: widget.location,
+                    Expanded(
+                      child: Containerregistration(
+                        isActive: widget.isActive,
+                        location: widget.location,
+                      ),
                     ),
                   ],
                 ),

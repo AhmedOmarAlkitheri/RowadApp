@@ -8,8 +8,11 @@ import 'package:rowadapp/global/components/Skeletonizer.dart';
 
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Allcomplaints_screen extends StatelessWidget {
-  const Allcomplaints_screen({super.key});
+  Allcomplaints_screen({super.key});
+  int counter = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class Allcomplaints_screen extends StatelessWidget {
       create: (context) => CompliantVm(),
       child: Scaffold(
           floatingActionButton: FloatingActionButton(
-              backgroundColor: const Color(AppColor.primaryColor),
+              backgroundColor: const Color(Appcolorlightmode.lightGreen),
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/sendCompliant');
               },
@@ -29,7 +32,7 @@ class Allcomplaints_screen extends StatelessWidget {
           body: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                  colors: [Color(AppColor.secondaryColor), Colors.white],
+                  colors: [Color(Appcolorlightmode.backgroundTopColor), Color(Appcolorlightmode.backgroundBottomColor)],
                   begin: AlignmentDirectional.topStart,
                   end: AlignmentDirectional.bottomEnd),
             ),
@@ -42,7 +45,7 @@ class Allcomplaints_screen extends StatelessWidget {
                   ),
                   Header(
                     title: 'صندوق الشكاوي',
-                    imagePath: 'assets/images/cbox.png',
+                    imagePath: 'assets/cbox.png',
                     event: () {
                       Navigator.pushNamed(context, '/housing');
                     },
@@ -65,13 +68,14 @@ class Allcomplaints_screen extends StatelessWidget {
                         return ListView.builder(
                             itemCount: c.Compliants.length,
                             itemBuilder: (ctx, index) {
+                           int reversedIndex = c.Compliants.length - 1 - index;
                               return InkWell(
                                 onTap: () => Navigator.pushReplacementNamed(
                                     context, '/viewCompliant',
-                                    arguments: c.Compliants[index]),
+                                    arguments: c.Compliants[reversedIndex]),
                                 child: ListOf(
                                   // sendDate: c.Compliants[index].sendDate,
-                                  title: c.Compliants[index].title,
+                                  title: c.Compliants[reversedIndex].title,
                                 ),
                               );
                             });

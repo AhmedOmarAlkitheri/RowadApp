@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class ListOfShimmer extends StatelessWidget {
   const ListOfShimmer({super.key});
 
@@ -22,10 +24,10 @@ class ListOfShimmer extends StatelessWidget {
                 margin: const EdgeInsets.only(right: 10, left: 10, bottom: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
+                  color: Color(Appcolorlightmode.whiteColor),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.25),
+                      color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
                       blurRadius: 3,
                       offset: const Offset(0, 4),
                     ),

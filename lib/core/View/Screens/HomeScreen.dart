@@ -6,6 +6,7 @@ import 'package:rowadapp/core/View/Widgets/fl_chat.dart';
 import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
 import 'package:rowadapp/core/ViewModel/room_vm.dart';
 import 'package:rowadapp/core/model/NotificationModel%20.dart';
+import 'package:rowadapp/global/theme/AppColor/appColor_LightMode.dart';
 import 'package:rowadapp/helpers/Getstorage_helper.dart';
 import '../Widgets/Navigationbar.dart';
 import '../Widgets/Space.dart';
@@ -20,8 +21,8 @@ class Homescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     result = getstorageHelper.readFrmFile("yearResultTotal");
-content = getstorageHelper.readFrmFile("content");
-  title = getstorageHelper.readFrmFile("title");
+    content = getstorageHelper.readFrmFile("content");
+    title = getstorageHelper.readFrmFile("title");
 
     return Scaffold(
       // extendBodyBehindAppBar: true,
@@ -40,7 +41,10 @@ content = getstorageHelper.readFrmFile("content");
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [Color(0xffC4FFA9), Color(0xFFFFFFFF)])),
+                colors: [
+              Color(Appcolorlightmode.backgroundTopColor),
+              Color(Appcolorlightmode.backgroundBottomColor)
+            ])),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -49,7 +53,11 @@ content = getstorageHelper.readFrmFile("content");
               children: [
                 const Text(
                   "مركز رواد المستقبل",
-                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  style: TextStyle(
+                      color: Color(Appcolorlightmode.blackColor),
+                      fontFamily: 'vazir-light',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20),
                 ),
                 IconButton(
                     onPressed: () {
@@ -170,18 +178,18 @@ content = getstorageHelper.readFrmFile("content");
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(right: 30),
-                      child: Text('${title ?? 'إشعار'}',
-                          style: TextStyle(
+                      padding: const EdgeInsets.only(right: 30),
+                      child: Text(title ?? 'إشعار',
+                          style: const TextStyle(
                             fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            fontFamily: 'vazir-medium',
                           ),
                           textAlign: TextAlign.start),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(right: 30, top: 5),
+                      padding: const EdgeInsets.only(right: 30, top: 5),
                       child: Text(
-                        '${content ?? 'لا يوجد اشعار جديد'}',
+                        content ?? 'لا يوجد اشعار جديد',
                         style: TextStyle(fontSize: 12, color: Colors.grey[700]),
                       ),
                     ),
@@ -201,8 +209,8 @@ content = getstorageHelper.readFrmFile("content");
                           Consumer<RoomVM>(builder: (context, roomVM, child) {
                         return Container(
                           padding: const EdgeInsets.all(10),
-                          height: 250,
-                          width: MediaQuery.of(context).size.width / 3,
+                          height: 210,
+                          width: MediaQuery.of(context).size.width / 2,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10),
@@ -231,14 +239,14 @@ content = getstorageHelper.readFrmFile("content");
                                     const Text(
                                       'السكن',
                                       style: TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'vazir-medium',
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
                               const SizedBox(
-                                height: 10,
+                                height: 7,
                               ),
                               Expanded(
                                 child: Row(
@@ -251,34 +259,41 @@ content = getstorageHelper.readFrmFile("content");
                                     // ),
                                     Expanded(
                                       child: Text(
-                                        '${roomVM.room?.floor ?? 'الطابق : غير مضاف'}',
-                                        style: const TextStyle(
-                                            color: Colors.black),
-                                      ),
+                                          roomVM.room?.floor ??
+                                              'الطابق : غير مضاف',
+                                          style: const TextStyle(
+                                              fontFamily: 'vazir-light',
+                                              color: Color(Appcolorlightmode
+                                                  .blackColor))),
                                     ),
                                   ],
                                 ),
                               ),
                               const SizedBox(
-                                height: 10,
+                                height: 7,
                               ),
                               Expanded(
                                 child: Row(
                                   children: [
                                     const Text(
-                                      'الغرفة : ',
-                                      style: TextStyle(color: Colors.black),
+                                      'الغرفة :',
+                                      style: TextStyle(
+                                          fontFamily: 'vazir-light',
+                                          color: Color(
+                                              Appcolorlightmode.blackColor)),
                                     ),
                                     Text(
-                                      '${roomVM.room?.roomNo ?? ' غير مضاف'}',
-                                      style:
-                                          const TextStyle(color: Colors.black),
+                                      roomVM.room?.roomNo ?? ' غير مضاف',
+                                      style: const TextStyle(
+                                          fontFamily: 'vazir-light',
+                                          color: Color(
+                                              Appcolorlightmode.blackColor)),
                                     ),
                                   ],
                                 ),
                               ),
                               const SizedBox(
-                                height: 10,
+                                height: 7,
                               ),
                               Expanded(
                                 child: Row(
@@ -291,10 +306,13 @@ content = getstorageHelper.readFrmFile("content");
                                     // ),
                                     Expanded(
                                       child: Text(
-                                        '${roomVM.room?.suit ?? "الجناح : غير مضاف"}',
-                                        style: const TextStyle(
-                                            color: Colors.black),
-                                      ),
+                                          roomVM.room?.suit ??
+                                              "الجناح : غير مضاف",
+                                          style: const TextStyle(
+                                            fontFamily: 'vazir-light',
+                                            color: Color(
+                                                Appcolorlightmode.blackColor),
+                                          )),
                                     ),
                                   ],
                                 ),
@@ -309,15 +327,16 @@ content = getstorageHelper.readFrmFile("content");
                     ),
                     Container(
                       padding: const EdgeInsets.all(10),
-                      height: 250,
-                      width: MediaQuery.of(context).size.width / 2,
+                      height: 210,
+                      width: MediaQuery.of(context).size.width / 2.2,
                       decoration: BoxDecoration(
                         color: Colors
                             .white, // Replace with the desired background color
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.25),
+                            color: const Color(Appcolorlightmode.blackColor)
+                                .withOpacity(0.25),
                             blurRadius: 4,
                             offset: const Offset(0, 4),
                           )
@@ -370,9 +389,10 @@ content = getstorageHelper.readFrmFile("content");
               flex: 1,
               child: Container(
                 padding: const EdgeInsets.only(
-                    top: 10, bottom: 10, left: 15, right: 15),
+                    top: 6, bottom: 6, left: 15, right: 15),
                 // padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-                height: 50, width: MediaQuery.of(context).size.width,
+                height: 50,
+                width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color:
                       Colors.white, // Replace with the desired background color
@@ -399,50 +419,145 @@ content = getstorageHelper.readFrmFile("content");
                           const SizedBox(
                             width: 5,
                           ),
-                          const Text(
-                            'الإجازات الرسمية',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                          const Expanded(
+                            child: Text(
+                              'الإجازات الرسمية',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ],
                       ),
                     ),
                     const SizedBox(
-                      height: 5,
+                      height: 10,
                     ),
-                    SizedBox(
-                      height: 45,
-                      width: MediaQuery.of(context).size.width,
-                      child: Center(
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: 4,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                padding: const EdgeInsets.all(5),
-                                margin: const EdgeInsets.only(right: 20),
-                                height: 50,
-                                width: 55,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  // boxShadow: [BoxShadow(
-                                  //   color: Colors.black.withOpacity(0.25),
-                                  //   blurRadius: 4,
-                                  //   offset: Offset(0,4),
-                                  // )],
-                                  color: const Color(0xffC4FFA9),
-                                ),
-                                child: Center(
-                                    child: Text(
-                                  holiDays[index],
-                                  style: const TextStyle(
-                                      color: Colors.black, fontSize: 13),
-                                  softWrap: true,
-                                  textAlign: TextAlign.center,
-                                )),
-                              );
-                            }),
+                    Expanded(
+                      flex: 3,
+                      child: SizedBox(
+                        height: 50,
+                        width: MediaQuery.of(context).size.width,
+                        child: Center(
+                          child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: 4,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  padding: const EdgeInsets.all(5),
+                                  margin: const EdgeInsets.only(right: 20),
+                                  height: 50,
+                                  width: 55,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    // boxShadow: [BoxShadow(
+                                    //   color: Colors.black.withOpacity(0.25),
+                                    //   blurRadius: 4,
+                                    //   offset: Offset(0,4),
+                                    // )],
+                                    color: const Color(0xffC4FFA9),
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    holiDays[index],
+                                    style: const TextStyle(
+                                        fontFamily: 'vazir-light',
+                                        color:
+                                            Color(Appcolorlightmode.blackColor),
+                                        fontSize: 14),
+                                    softWrap: true,
+                                    textAlign: TextAlign.center,
+                                  )),
+                                );
+                              }),
+                        ),
                       ),
                     ),
+
+                    // const SizedBox(
+                    //   height: 15,
+                    // ),
+                    // Expanded(
+                    //   flex: 1,
+                    //   child: Container(
+                    //     padding: const EdgeInsets.only(
+                    //         top: 15, bottom: 10, left: 15, right: 15),
+                    //     // padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                    //     height: 50, width: MediaQuery.of(context).size.width,
+                    //     decoration: BoxDecoration(
+                    //       color: const Color(Appcolorlightmode
+                    //           .whiteColor), // Replace with the desired background color
+                    //       borderRadius: BorderRadius.circular(10),
+                    //       boxShadow: [
+                    //         BoxShadow(
+                    //           color: const Color(Appcolorlightmode.blackColor)
+                    //               .withOpacity(0.25),
+                    //           blurRadius: 4,
+                    //           offset: const Offset(0, 4),
+                    //         )
+                    //       ],
+                    //     ),
+                    //     child: Column(
+                    //       crossAxisAlignment: CrossAxisAlignment.start,
+                    //       children: [
+                    //         Row(
+                    //           children: [
+                    //             Icon(
+                    //               Icons.holiday_village,
+                    //               color: Colors.grey[300],
+                    //               size: 20,
+                    //             ),
+                    //             const SizedBox(
+                    //               width: 7,
+                    //             ),
+                    //             const Text(
+                    //               'الإجازات الرسمية',
+                    //               style: TextStyle(
+                    //                 fontFamily: 'vazir-medium',
+                    //               ),
+                    //             ),
+                    //           ],
+                    //         ),
+                    //         const SizedBox(
+                    //           height: 23,
+                    //         ),
+                    //         SizedBox(
+                    //           height: 60,
+                    //           width: MediaQuery.of(context).size.width,
+                    //           child: Center(
+                    //             child: ListView.builder(
+                    //                 scrollDirection: Axis.horizontal,
+                    //                 itemCount: 4,
+                    //                 itemBuilder: (context, index) {
+                    //                   return Container(
+                    //                     padding: const EdgeInsets.all(5),
+                    //                     margin: const EdgeInsets.only(right: 20),
+                    //                     height: 50,
+                    //                     width: 57,
+                    //                     decoration: BoxDecoration(
+                    //                       borderRadius: BorderRadius.circular(10),
+                    //                       // boxShadow: [BoxShadow(
+                    //                       //   color: Colors.black.withOpacity(0.25),
+                    //                       //   blurRadius: 4,
+                    //                       //   offset: Offset(0,4),
+                    //                       // )],
+                    //                       color: const Color(
+                    //                               Appcolorlightmode.backgroundTopColor)
+                    //                           .withOpacity(0.30),
+                    //                     ),
+                    //                     child: Center(
+                    //                         child: Text(
+                    //                       holiDays[index],
+                    //                       style: const TextStyle(
+                    //                           fontFamily: 'vazir-light',
+                    //                           color:
+                    //                               Color(Appcolorlightmode.blackColor),
+                    //                           fontSize: 15),
+                    //                       softWrap: true,
+                    //                       textAlign: TextAlign.center,
+                    //                     )),
+                    //                   );
+                    //                 }),
+                    //           ),
+                    //         ),
                   ],
                 ),
               ),
@@ -455,7 +570,10 @@ content = getstorageHelper.readFrmFile("content");
             ),
           ],
         ),
-      ),
+      ), //)
+      // ]
+      // )
+      // )
     );
   }
 }

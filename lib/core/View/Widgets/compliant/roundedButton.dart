@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rowadapp/global/constraints/app_color.dart';
+
+
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
 
 class Roundedbutton extends StatelessWidget {
   final GestureTapCallback? event;
@@ -27,7 +29,7 @@ class Roundedbutton extends StatelessWidget {
         height: height ?? 33,
         width: width ?? 110,
         decoration: BoxDecoration(
-          color: const Color(AppColor.primaryColor),
+          color: const Color(Appcolorlightmode.lightGreen),
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
@@ -43,16 +45,27 @@ class Roundedbutton extends StatelessWidget {
                   height: 15,
                   width: 15,
                   child: CircularProgressIndicator(
-                    color: Colors.white,
+                          color: Color(Appcolorlightmode.whiteColor),
+       
+                   
                   ),
                 )
-              : Text(
-                  text,
-                  style: TextStyle(
-                    fontSize: fontSize ?? 18,
-                    color: Colors.white,
-                  ),
-                ),
+        //       : Text(
+        //           text,
+        //           style: TextStyle(
+        //             fontSize: fontSize ?? 18,
+        //             color: Colors.white,
+        //           ),
+        //         ),
+        //                          ),
+        //  )
+          :Text(
+            text,
+            style: TextStyle(
+                             fontFamily: 'vazir-light',
+
+              fontSize: fontSize ?? 18, color: Color(Appcolorlightmode.whiteColor)),
+        ),
         ),
       ),
     );

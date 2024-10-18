@@ -19,14 +19,14 @@ Widget buildNavBarItem({
         boxShadow: [
           if (isSelected)
             BoxShadow(
-              color: Colors.black.withOpacity(0.25),
+              color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
               blurRadius: 3,
               offset: const Offset(0, 4),
             ),
         ],
         borderRadius: BorderRadius.circular(15),
        color: isSelected
-    ? ( ColorMethod(Buildcontext, AppcolorDarkmode.colorBlack  ,Appcolorlightmode.primaryColor))
+    ? ( ColorMethod(Buildcontext, AppcolorDarkmode.colorBlack  ,Appcolorlightmode.lightGreen))
     : (
       Colors.transparent),
            
@@ -37,7 +37,7 @@ Widget buildNavBarItem({
      
       child: Icon(
         icon,
-        color: isSelected ? Colors.white : Colors.black,
+        color: isSelected ? Color(Appcolorlightmode.whiteColor) : Color(Appcolorlightmode.blackColor),
       ),
     ),
   );

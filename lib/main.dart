@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import 'package:rowadapp/core/View/Screens/HomeScreen.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationFinash.dart';
+import 'package:rowadapp/core/View/Screens/SplashScreen.dart';
 import 'package:rowadapp/core/View/Screens/house_screen.dart';
 
 import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
@@ -65,9 +66,9 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             supportedLocales: localization.supportedLocales,
             localizationsDelegates: localization.localizationsDelegates,
-            initialRoute: "/Homescreen",
+            initialRoute: "/Splashscreen",
             onGenerateRoute: (settings) => RouteManager.generateRoute(settings),
-            home: Homescreen()),
+            home: Splashscreen()),
       
     );
   }

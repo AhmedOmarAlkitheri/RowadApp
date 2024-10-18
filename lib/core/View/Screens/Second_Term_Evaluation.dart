@@ -10,6 +10,8 @@ import 'package:rowadapp/core/ViewModel/NotificationViewModel.dart';
 import 'package:rowadapp/global/components/Skeletonizer.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class SecondTermEvaluation extends StatelessWidget {
   SecondTermEvaluation({super.key});
 

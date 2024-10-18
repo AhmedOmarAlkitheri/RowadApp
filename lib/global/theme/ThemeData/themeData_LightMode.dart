@@ -6,25 +6,26 @@ ThemeData lightMode() {
   return ThemeData(
     brightness: Brightness.light,
     appBarTheme: AppBarTheme(
-      backgroundColor: Color(Appcolorlightmode.primaryColor),
+      backgroundColor: Color(Appcolorlightmode.lightGreen),
       titleTextStyle: TextStyle(color: Colors.white),
     ),
     colorScheme: ColorScheme(
       brightness: Brightness.light,
-      primary: Color(Appcolorlightmode.primaryColor),
-      onPrimary: Color(Appcolorlightmode.secondaryColor),
-      secondary: Color(Appcolorlightmode.secondColorbutton),
-      onSecondary: Color(Appcolorlightmode.secondarythereColor),
-      error: Color(Appcolorlightmode.primaryColor),
-      onError: Color(Appcolorlightmode.secondarythereColor),
-      surface: Color(Appcolorlightmode.colorWhite),
-      onSurface: Color(Appcolorlightmode.secondaryColor),
-      background: Color(Appcolorlightmode.colorWhite),
-      onBackground: Color(Appcolorlightmode.secondaryColor),
+      primary: Color(Appcolorlightmode.lightGreen),
+      onPrimary: Color(Appcolorlightmode.blackColor),
+      secondary: Color(Appcolorlightmode.buttonSecondColor),
+      onSecondary: Color(Appcolorlightmode.darkGreen),
+      error: Color(Appcolorlightmode.lightGreen),
+      onError: Color(Appcolorlightmode.darkGreen),
+      surface: Color(Appcolorlightmode.whiteColor),
+      onSurface: Color(Appcolorlightmode.blackColor),
+      background: Color(Appcolorlightmode.whiteColor),
+      onBackground: Color(Appcolorlightmode.blackColor),
     ),
-    scaffoldBackgroundColor: Color(Appcolorlightmode.colorWhite),
+    scaffoldBackgroundColor: Color(Appcolorlightmode.whiteColor),
     drawerTheme: DrawerThemeData(
       backgroundColor: Colors.white,
     ),
+     fontFamily:'vazir-light'
   );
 }

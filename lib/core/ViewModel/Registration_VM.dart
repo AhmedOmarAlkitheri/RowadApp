@@ -16,7 +16,7 @@ class RegistrationVm with ChangeNotifier {
   Registrationmodel? registrationmodel;
   DateTime? currentDate;
   bool isLoading = false;
-  String next_grade = "التاسع";
+  String next_grade = "تاسع";
   String school = "الابداع";
   Httphelper httphelper = Httphelper.instance;
   void loading() {

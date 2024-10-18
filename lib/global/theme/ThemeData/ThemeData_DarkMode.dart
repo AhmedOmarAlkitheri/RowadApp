@@ -24,5 +24,6 @@ ThemeData darkMode() {
     drawerTheme: const DrawerThemeData(
       backgroundColor: Color(AppcolorDarkmode.secondaryTHEREColor),
     ),
+      fontFamily:'vazir-light'
   );
 }

@@ -1,6 +1,8 @@
 import 'package:shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 Widget buildProgramSectionShimmer() {
   return 
      Column(
@@ -59,7 +61,7 @@ Widget buildProgramSectionShimmer() {
             ),
           ),
           const Divider(
-            color: Colors.grey,
+            color: Color(Appcolorlightmode.greyColor),
             thickness: 1,
           ),
           const SizedBox(height: 8),

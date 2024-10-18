@@ -12,6 +12,8 @@ import 'package:rowadapp/global/components/Validation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 import 'package:rowadapp/global/theme/AppColor/appColor_DarkMode.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Login extends StatelessWidget {
   Login({super.key});
 
@@ -22,112 +24,124 @@ class Login extends StatelessWidget {
   bool isLoading = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          //   color: Colors.black,
-          gradient: LinearGradient(
-            colors: [Color(AppColor.secondaryColor), Colors.white],
-            begin: AlignmentDirectional.topStart,
-            end: AlignmentDirectional.bottomStart,
-          ),
-        ),
-        child: Form(
-          key: formKey,
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Positioned(
-                right: -50,
-                top: 17.5,
-                child: Container(
-                  width: 172,
-                  height: 185,
-                  decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(AppColor.secondarythereColor)),
-                ),
-              ),
-              Positioned(
-                  // right: -55,
-                  top: 55,
-                  right: 5,
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          decoration: const BoxDecoration(
+              //   color: Colors.black,
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                Color(Appcolorlightmode.backgroundTopColor),
+                Color(Appcolorlightmode.backgroundBottomColor)
+              ])),
+          child:
+          
+           Form(
+            key: formKey,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Positioned(
+                  right: -50,
+                  top: 17.5,
                   child: Container(
-                    width: 110,
-                    height: 100,
-                    decoration: const BoxDecoration(
+                      width: 172,
+                      height: 185,
+                      decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: AssetImage("assets/images/logo.png"),
-                            fit: BoxFit.fill)),
-                  )),
-              const Positioned(
-                left: 40,
-                top: 80,
-                child: SizedBox(
-                  height: 50,
-                  child: Text(
-                    "تسجيل دخول",
-                    style: TextStyle(
-                        color: Color(AppColor.colorBlack),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 28),
+                        color: Color(Appcolorlightmode.darkGreen)
+                            .withOpacity(0.31),
+                      )),
+                ),
+                Positioned(
+                    // right: -55,
+                    top: 55,
+                    right: 5,
+                    child: Container(
+                      width: 110,
+                      height: 100,
+                      decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              image: AssetImage("assets/images/logo.png"),
+                              fit: BoxFit.fill)),
+                    )),
+                const Positioned(
+                  left: 40,
+                  top: 80,
+                  child: SizedBox(
+                    height: 50,
+                    child: Text(
+                      "تسجيل دخول",
+                      style: TextStyle(
+                          color: Color(Appcolorlightmode.blackColor),
+                          fontFamily: 'vazir-light',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 28),
+                    ),
                   ),
                 ),
-              ),
-              Positioned(
-                top: 170,
-                child: Container(
-                  padding: const EdgeInsets.only(left: 20, right: 30),
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height - 180,
-                  decoration: const BoxDecoration(
-                      color: Color(AppColor.secondaryTwoColor),
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20))),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Space(
-                          height: 40,
-                        ),
-                        const Text(
-                          "أسم المستخدم",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
-                        ),
-                        const Space(
-                          height: 10,
-                        ),
-                        Widgettextformflied(
-                          validator: (p0) =>
-                              InputValidator.validateusername(p0),
-                          controller: usernameController,
-                          onChanged: (value) {
-                            usernameController.text = value;
-                          },
-                          hintText: "أسم المستخدم",
-                          labelText: "أسم المستخدم",
-                          prefixIcon: const Icon(Icons.account_circle_rounded),
-                          keyboardType: TextInputType.phone,
-                          textInputAction: TextInputAction.done,
-                        ),
-                        const Space(
-                          height: 30,
-                        ),
-                        const Text(
-                          "كلمة المرور",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
-                        ),
-                        const Space(
-                          height: 10,
-                        ),
-                        Consumer<UsersVm>(
+                Positioned(
+                  top: 170,
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 20, right: 30),
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height - 180,
+                    decoration: const BoxDecoration(
+                        color: Color(Appcolorlightmode.whiteColor),
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20))),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Space(
+                            height: 50,
+                          ),
+                          Text(
+                            "اسم المستخدم",
+                            style: TextStyle(
+                                fontFamily: 'vazir-light',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18,
+                                color: Color(Appcolorlightmode.greyColor)),
+                          ),
+                          const Space(
+                            height: 10,
+                          ),
+                          Widgettextformflied(
+                             validator: (p0) =>
+                                InputValidator.validateusername(p0),
+                            controller: usernameController,
+                            // onChanged: (value) {
+                            //   usernameController.text = value;
+                            // },
+                          // hintText: "أسم المستخدم",
+                             labelText: "أسم المستخدم",
+                             prefixIcon: const Icon(Icons.account_circle_rounded),
+                            keyboardType: TextInputType.phone,
+                            textInputAction: TextInputAction.done,
+                          ),
+                          const Space(
+                            height: 30,
+                          ),
+                          Text(
+                            "كلمة المرور",
+                            style: TextStyle(
+                                fontFamily: 'vazir-light',
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18,
+                                color: Color(Appcolorlightmode.greyColor)),
+                          ),
+                          const Space(
+                            height: 10,
+                          ),
+                          Consumer<UsersVm>(
                             builder: (context, visibilityProvider, child) {
                           return Widgettextformflied(
                             suffixIcon: IconButton(
@@ -150,13 +164,13 @@ class Login extends StatelessWidget {
                             prefixIcon: const Icon(Icons.password_rounded),
                             keyboardType: TextInputType.name,
                             textInputAction: TextInputAction.done,
-                            onChanged: (value) {
-                              passwordController.text = value;
-                            },
+                            // onChanged: (value) {
+                            //   passwordController.text = value;
+                            // },
                           );
                         }),
                         const Space(
-                          height: 50,
+                          height: 20,
                         ),
                         Center(
                           child: Consumer<UsersVm>(
@@ -226,31 +240,45 @@ class Login extends StatelessWidget {
                                                   color: Colors.white),
                                             ),
                                             backgroundColor: Colors.red,
+
                                           ));
-                                          // showDialog(
-                                          //   context: context,
-                                          //   builder: (ctx) {
-                                          //     return AlertDialog(
-                                          //       title: Text("$x"),
-                                          //     );
-                                          //   },
-                                          // );
-                                        }
-                                      });
-                                    }
-                                  }),
-                            ),
-                          ),
-                        ),
-                      ],
+                                  }
+                                      }  );
+                                    }}
+                                    
+
+
+    
+                      ),
                     ),
                   ),
                 ),
-              )
-            ],
+                Space(height: 20,),
+                Center(child:  Roundedbutton(
+                               
+                                  text: 'التسجيل في المركز',
+                                  width: 160,
+                                  height: 40,
+                                  event: () async {
+Navigator.pushNamed(
+                                      context, "/Registrationscreen");
+                                      
+                                  }
+                ))
+                                  
+                                  
+                                  
+                                  
+              ],
+            ),
           ),
         ),
       ),
+              ]
+            )
+          )
+        )
+      )
     );
   }
 }

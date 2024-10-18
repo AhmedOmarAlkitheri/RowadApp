@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:rowadapp/global/components/typeNotifications.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Containernotification extends StatelessWidget {
   const Containernotification(
-      {super.key,
-      required this.title,
-      required this.subtitle,
-       this.date});
-  final String title, subtitle ;
+      {super.key, required this.title, required this.subtitle, this.date});
+  final String title, subtitle;
   final String? date;
 //  required this.typeNotification,
   @override
@@ -19,12 +18,12 @@ class Containernotification extends StatelessWidget {
           boxShadow: const [
             BoxShadow(color: Colors.grey, offset: Offset(0, 5), blurRadius: 4)
           ],
-          color: const Color(AppColor.secondaryTwoColor),
+          color: const Color(Appcolorlightmode.whiteColor),
           borderRadius: BorderRadius.circular(10)),
       child: ListTile(
         leading: const Icon(
           Icons.notification_add_sharp,
-          color: Color(AppColor.primaryColor),
+          color: Color(Appcolorlightmode.lightGreen),
           // color: type(typeNotification),
         ),
         title: Row(
@@ -32,8 +31,9 @@ class Containernotification extends StatelessWidget {
           children: [
             Text(title,
                 style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Color(AppColor.primaryColor),
+                  fontFamily: 'vazir-medium',
+
+                  color: Color(Appcolorlightmode.lightGreen),
                   //  color: type(typeNotification),
                 )),
             // Text(date,
@@ -41,7 +41,10 @@ class Containernotification extends StatelessWidget {
             //         const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
           ],
         ),
-        subtitle: Text(subtitle),
+        subtitle: Text(
+          subtitle,
+          style: TextStyle(fontFamily: 'vazir-light'),
+        ),
         // trailing: Text(date,
         //     style: const TextStyle(
         //       fontWeight: FontWeight.bold,
