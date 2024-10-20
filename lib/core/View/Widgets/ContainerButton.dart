@@ -29,14 +29,9 @@ class Containerbutton extends StatelessWidget {
           )
         ],
         borderRadius: BorderRadius.circular(allBorderRadius),
-        gradient: const LinearGradient(
-          colors: [
-            Color(Appcolorlightmode.buttonFirstColor),
-            Color(Appcolorlightmode.buttonSecondColor)
-          ],
-          begin: AlignmentDirectional.topStart,
-          end: AlignmentDirectional.bottomCenter,
-        ),
+
+           color:  Color(Appcolorlightmode.darkGreen)
+
       ),
       child: MaterialButton(
         //  color: Colors.blue,
@@ -49,7 +44,7 @@ class Containerbutton extends StatelessWidget {
           style: const TextStyle(
               fontFamily: 'vazir-medium',
               color: Color(Appcolorlightmode.whiteColor),
-              fontWeight: FontWeight.bold,
+              // fontWeight: FontWeight.bold,
               fontSize: 18),
         ),
       ),

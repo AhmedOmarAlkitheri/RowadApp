@@ -13,9 +13,9 @@ class Splashscreen extends StatelessWidget {
     print(getstorage_helper.readFrmFile('token'));
     Future.delayed(Duration(seconds: 3), () {
       if (getstorage_helper.readFrmFile("token") == null) {
-        Navigator.pushNamed(context, "/Login");
+        Navigator.pushNamedAndRemoveUntil(context, "/Slider", (route)=> false);
       } else {
-        Navigator.pushNamed(context, "/Homescreen");
+        Navigator.pushNamedAndRemoveUntil(context, "/Homescreen", (route)=> false);
       }
     });
     return SafeArea(

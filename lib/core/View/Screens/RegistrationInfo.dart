@@ -50,7 +50,7 @@ class Registrationinfo extends StatelessWidget {
               )),
           Expanded(
             child: Container(
-              color: const Color(AppColor.secondaryTwoColor),
+              color: const Color(Appcolorlightmode.whiteColor),
               padding: const EdgeInsets.only(left: 20, right: 15),
               width: MediaQuery.of(context).size.width,
               //  height: MediaQuery.of(context).size.height - 400,
@@ -91,7 +91,7 @@ class Registrationinfo extends StatelessWidget {
                         height: 20,
                       ),
                       const Text(
-                        " أسمك الرباعي :",
+                        " اسمك الرباعي :",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
@@ -100,8 +100,8 @@ class Registrationinfo extends StatelessWidget {
                       ),
                       Widgettextformflied(
                         controller: studName,
-                        hintText: "من فضلك أدخل أسمك الرباعي",
-                        labelText: "أسمك الرباعي",
+                        // hintText: "من فضلك أدخل اسمك الرباعي",
+                        // labelText: "أسمك الرباعي",
                         //  prefixIcon: Icon(Icons.account_circle),
                         keyboardType: TextInputType.name,
                         textInputAction: TextInputAction.done,
@@ -120,14 +120,15 @@ class Registrationinfo extends StatelessWidget {
 
 
 
- Row(
+                          Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const Text(
                               "تاريخ الميلاد :",
                               style: TextStyle(
- fontFamily: 'almarai',
-                            fontWeight: FontWeight.w500,                                fontSize: 15,
+                              fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                                fontSize: 15,
                                 color: Color(Appcolorlightmode.blackColor),
                               ),
                             ),
@@ -136,7 +137,7 @@ class Registrationinfo extends StatelessWidget {
                                 child: Text(
                                   value.currentDate != null
                                       ? '${value.currentDate?.day}/${value.currentDate?.month}/${value.currentDate?.year}'
-                                      : '      لم تحدد تاريخ ميلادك',
+                                      : 'لم تحدد تاريخ ميلادك',
                                   style: const TextStyle(
                                      fontFamily: 'almarai',
                             fontWeight: FontWeight.w500,
@@ -182,7 +183,7 @@ class Registrationinfo extends StatelessWidget {
                                     validator: (p0) =>
                                         InputValidator.validateArabic(p0),
                                     hintText: "المحافظة",
-                                    labelText: "مكان الميلاد",
+                                    // labelText: "مكان الميلاد",
                                     onChanged: (value) {
                                       placeOfBirth.text = value;
                                     },
@@ -214,8 +215,8 @@ class Registrationinfo extends StatelessWidget {
                                   ),
                                   Widgettextformflied(
                                     controller: Directorate,
-                                    hintText: "أدخل المديرية",
-                                    labelText: "المديرية",
+                                    // hintText: "أدخل المديرية",
+                                    // labelText: "المديرية",
                                     validator: (p0) =>
                                         InputValidator.validateArabic(p0),
                                     onChanged: (value) {

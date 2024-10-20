@@ -4,7 +4,7 @@ class InputValidator {
     final parts = value!.trim().split(' ');
 
     if (!regex.hasMatch(value) || value.isEmpty || parts.length < 4) {
-      return 'أدخل أسمك الرباعي بالشكل المطلوب';
+      return 'أدخل اسمك الرباعي بالشكل المطلوب';
     }
     return null;
   }
@@ -14,7 +14,7 @@ class InputValidator {
     final parts = value!.trim().split(' ');
 
     if (!regex.hasMatch(value) || value.isEmpty || parts.length < 3) {
-      return 'أدخل أسم ولي امرك الثلاثي وما فوق بالشكل المطلوب';
+      return 'أدخل اسم ولي امرك الثلاثي وما فوق بالشكل المطلوب';
     }
     return null;
   }
@@ -31,7 +31,7 @@ class InputValidator {
   static String? validateNumbers(String? value) {
     final regex = RegExp(r'^\d+(\.\d+)?$');
     if (!regex.hasMatch(value!) || value.isEmpty) {
-      return 'يجب أن يحتوي المدخل على نسبة أخر فصل دراسي فقط';
+      return 'يجب أن يحتوي المدخل على نسبة آخر فصل دراسي فقط';
     }
     return null;
   }

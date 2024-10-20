@@ -30,7 +30,7 @@ class Roundedbutton extends StatelessWidget {
         width: width ?? 110,
         decoration: BoxDecoration(
           color: const Color(Appcolorlightmode.lightGreen),
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.25),
@@ -63,7 +63,6 @@ class Roundedbutton extends StatelessWidget {
             text,
             style: TextStyle(
                              fontFamily: 'vazir-light',
-
               fontSize: fontSize ?? 18, color: Color(Appcolorlightmode.whiteColor)),
         ),
         ),

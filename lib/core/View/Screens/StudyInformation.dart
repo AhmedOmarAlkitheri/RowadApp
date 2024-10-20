@@ -9,6 +9,8 @@ import 'package:rowadapp/core/ViewModel/Registration_VM.dart';
 import 'package:rowadapp/global/components/Validation.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Studyinformation extends StatelessWidget {
   Studyinformation({super.key});
 
@@ -37,7 +39,7 @@ class Studyinformation extends StatelessWidget {
               )),
           Expanded(
             child: Container(
-              color: const Color(AppColor.secondaryTwoColor),
+              color: const Color(Appcolorlightmode.whiteColor),
               padding: const EdgeInsets.only(left: 20, right: 15),
               width: MediaQuery.of(context).size.width,
               //  height: MediaQuery.of(context).size.height - 400,

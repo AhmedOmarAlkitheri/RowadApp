@@ -57,10 +57,10 @@ obscureText:  obscureText??false,
         hintText: hintText,
         labelText: labelText,
         prefixIcon: prefixIcon,
-        prefixIconColor: const Color(Appcolorlightmode.lightGreen),
+        prefixIconColor: const Color(Appcolorlightmode.darkGreen),
 
 suffixIcon:  suffixIcon ,
-        labelStyle: const TextStyle(color: Color(Appcolorlightmode.lightGreen)),
+        labelStyle: const TextStyle(color: Color(Appcolorlightmode.greyColor)),
         // icon: Icon(Icons.account_circle_rounded),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),

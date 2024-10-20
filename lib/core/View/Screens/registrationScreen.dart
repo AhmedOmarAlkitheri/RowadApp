@@ -23,9 +23,17 @@ class _RegistrationscreenState extends State<Registrationscreen> {
             // height: MediaQuery.of(context).size.height,
 
             Container(
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color(Appcolorlightmode.backgroundTopColor),
+                        Color(Appcolorlightmode.backgroundBottomColor)
+                      ])),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          color: const Color(Appcolorlightmode.backgroundTopColor),
+          // color: const Color(Appcolorlightmode.backgroundTopColor),
           child: Column(
             children: [
               SizedBox(
@@ -35,20 +43,20 @@ class _RegistrationscreenState extends State<Registrationscreen> {
                   children: [
                     Positioned(
                       top: -100,
-                      right: -45,
+                      right: -50,
                       child: Center(
                         child: Container(
-                          width: 450,
-                          height: 450,
-                          decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Color(Appcolorlightmode.buttonFirstColor)),
+                          width: 500,
+                          height: 500,
+                          decoration:  BoxDecoration(
+                              borderRadius: BorderRadius.circular(230),
+                              color: Color(Appcolorlightmode.darkGreen).withOpacity(0.31)),
                         ),
                       ),
                     ),
                     Positioned(
                       top: 80,
-                      right: 100,
+                      right: 110,
                       child: Column(
                         children: [
                           Container(
@@ -56,11 +64,11 @@ class _RegistrationscreenState extends State<Registrationscreen> {
                             width: 170,
                             decoration: const BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage("assets/images/logo.png"),
+                                    image: AssetImage("assets/images/logo2.png"),
                                     fit: BoxFit.fill)),
                           ),
                           const Space(
-                            height: 20,
+                            height: 40,
                           ),
                           Container(
                             child: const Text(
@@ -77,12 +85,13 @@ class _RegistrationscreenState extends State<Registrationscreen> {
                   ],
                 ),
               ),
+              const Space(
+                height: 120,
+              ),
               Containerbutton(
                   name: "تسجيل",
-                  dwidth: 160,
-                  allBorderRadius: 15,
-                  
-                                  dheight: 40,
+                  dwidth: 250,
+                  allBorderRadius: 10,
                   onPressed: () {
                     Navigator.pushNamed(context, "/Registrationinfo");
                   })

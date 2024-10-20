@@ -51,7 +51,7 @@ class Registrationguardian extends StatelessWidget {
                           height: 20,
                         ),
                         const Text(
-                          "الأسم :",
+                          "الاسم :",
                           style: TextStyle(
                             fontFamily: 'almarai',
                             fontWeight: FontWeight.w500,
@@ -62,7 +62,7 @@ class Registrationguardian extends StatelessWidget {
                         ),
                         Widgettextformflied(
                           controller: guardianName,
-                          hintText: "أسم ولي الأمر",
+                          hintText: "اسم ولي الأمر",
                           validator: (p0) =>
                               InputValidator.validateGuardianName(p0),
                           onChanged: (value) {
@@ -79,8 +79,9 @@ class Registrationguardian extends StatelessWidget {
                         const Text(
                           "صلة القرابة :",
                           style: TextStyle(
- fontFamily: 'almarai',
-                            fontWeight: FontWeight.w500,                              fontSize: 15),
+                            fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                              fontSize: 15),
                         ),
                         const Space(
                           height: 20,
@@ -100,15 +101,16 @@ class Registrationguardian extends StatelessWidget {
                         const Text(
                           "المهنة :",
                           style: TextStyle(
- fontFamily: 'almarai',
-                            fontWeight: FontWeight.w500,                               fontSize: 15),
+                           fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                              fontSize: 15),
                         ),
                         const Space(
                           height: 10,
                         ),
                         Widgettextformflied(
                           controller: profession,
-                          hintText: "مهنة ولي الامر",
+                          hintText: "مهنة ولي الأمر",
                           validator: (p0) => InputValidator.validateArabic(p0),
                           onChanged: (value) {
                             profession.text = value;

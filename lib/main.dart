@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
-
 import 'package:rowadapp/core/View/Screens/HomeScreen.dart';
 import 'package:rowadapp/core/View/Screens/RegistrationFinash.dart';
 import 'package:rowadapp/core/View/Screens/SplashScreen.dart';
 import 'package:rowadapp/core/View/Screens/house_screen.dart';
-
 import 'package:rowadapp/core/ViewModel/EvaluationVM.dart';
 import 'package:rowadapp/core/ViewModel/NotificationViewModel.dart';
 import 'package:rowadapp/core/ViewModel/Registration_VM.dart';

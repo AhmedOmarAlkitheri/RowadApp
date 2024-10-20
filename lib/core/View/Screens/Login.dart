@@ -122,7 +122,7 @@ class Login extends StatelessWidget {
                             //   usernameController.text = value;
                             // },
                           // hintText: "أسم المستخدم",
-                             labelText: "أسم المستخدم",
+                          //    labelText: "أسم المستخدم",
                              prefixIcon: const Icon(Icons.account_circle_rounded),
                             keyboardType: TextInputType.phone,
                             textInputAction: TextInputAction.done,
@@ -159,8 +159,8 @@ class Login extends StatelessWidget {
                             maxLines: 1,
                             obscureText: visibilityProvider.isObscured,
                             controller: passwordController,
-                            hintText: "كلمة المرور",
-                            labelText: "كلمة المرور",
+                            // hintText: "كلمة المرور",
+                            // labelText: "كلمة المرور",
                             prefixIcon: const Icon(Icons.password_rounded),
                             keyboardType: TextInputType.name,
                             textInputAction: TextInputAction.done,
@@ -170,7 +170,7 @@ class Login extends StatelessWidget {
                           );
                         }),
                         const Space(
-                          height: 20,
+                          height: 100,
                         ),
                         Center(
                           child: Consumer<UsersVm>(
@@ -178,8 +178,8 @@ class Login extends StatelessWidget {
                               child: Roundedbutton(
                                   isLoading: c.isLoading,
                                   text: 'تسجيل الدخول',
-                                  width: 160,
-                                  height: 40,
+                                  width: 250,
+                                  height: 50,
                                   event: () async {
                                     //  Containerbutton(
                                     //     name: "تسجيل دخول",
@@ -255,12 +255,11 @@ class Login extends StatelessWidget {
                 ),
                 Space(height: 20,),
                 Center(child:  Roundedbutton(
-                               
-                                  text: 'التسجيل في المركز',
-                                  width: 160,
-                                  height: 40,
+                                  text: 'تسجيل',
+                                  width: 250,
+                                  height: 50,
                                   event: () async {
-Navigator.pushNamed(
+                                    Navigator.pushNamed(
                                       context, "/Registrationscreen");
                                       
                                   }

@@ -11,16 +11,16 @@ class Containerstep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 30,
-      height: 30,
+      width: 15,
+      height: 15,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: isActive
             ? const Color(Appcolorlightmode.lightGreen)
             : const Color(Appcolorlightmode.whiteColor),
-        border: Border.all(color: Colors.black),
+        border: Border.all(color: Colors.grey),
       ),
-      child: isActive ? Icon(Icons.check, color: Color(Appcolorlightmode.whiteColor)) : null,
+      child: isActive ? Icon(Icons.circle, color: Color(Appcolorlightmode.lightGreen),size: 5,) : null,
     );
   }
 }

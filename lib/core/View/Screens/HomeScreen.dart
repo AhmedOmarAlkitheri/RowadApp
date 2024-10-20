@@ -80,11 +80,11 @@ class Homescreen extends StatelessWidget {
                 padding: const EdgeInsets.only(
                     right: 20, left: 20, top: 20, bottom: 15),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Color(Appcolorlightmode.whiteColor),
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.25),
+                      color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
                       blurRadius: 4,
                       offset: const Offset(0, 4),
                     )
@@ -140,7 +140,7 @@ class Homescreen extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 20),
                 decoration: BoxDecoration(
                   color:
-                      Colors.white, // Replace with the desired background color
+                  Color(Appcolorlightmode.whiteColor), // Replace with the desired background color
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(

@@ -4,6 +4,8 @@ import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:rowadapp/core/model/compliant.dart';
 import 'package:rowadapp/global/constraints/app_color.dart';
 
+import '../../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Viewcompliantdetails extends StatelessWidget {
   late Compliant c;
   //  = Compliant(
@@ -28,7 +30,7 @@ class Viewcompliantdetails extends StatelessWidget {
         body: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                  colors: [Color(AppColor.secondaryColor), Colors.white],
+                  colors: [Color(Appcolorlightmode.backgroundTopColor), Color(Appcolorlightmode.backgroundBottomColor)],
                   begin: AlignmentDirectional.topStart,
                   end: AlignmentDirectional.bottomEnd),
             ),
@@ -67,10 +69,10 @@ class Viewcompliantdetails extends StatelessWidget {
                                 child: BubbleSpecialOne(
                                   text: messages[index].text!,
                                   isSender: messages[index].isSentByme,
-                                  color: Colors.white,
+                                  color: Color(Appcolorlightmode.whiteColor),
                                   textStyle: const TextStyle(
                                     fontSize: 20,
-                                    color: Colors.black,
+                                    color: Color(Appcolorlightmode.blackColor),
                                     fontWeight: FontWeight.normal,
                                   ),
                                 ),

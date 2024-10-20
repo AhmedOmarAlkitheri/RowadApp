@@ -10,7 +10,7 @@ class Appcolorlightmode {
 
   //الألوان المستخدمة بالتطبيق
   static const int blackColor = 0xFF000000;
-  static const int backgroundTopColor = 0xFFC4FFA9;
+  static const int backgroundTopColor = 0xFFEFFFE8;
   static const int backgroundBottomColor = 0xFFFFFFFF;
   static const int buttonFirstColor = 0xFFB9F29E;
   static const int buttonSecondColor = 0xFF6BBF44;

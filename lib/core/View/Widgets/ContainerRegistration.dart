@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rowadapp/core/View/Widgets/ContainerStep.dart';
 import 'package:rowadapp/core/View/Widgets/Line.dart';
 
+import '../../../global/theme/AppColor/appColor_LightMode.dart';
+
 class Containerregistration extends StatefulWidget {
   const Containerregistration(
       {super.key, required this.isActive, required this.location});
@@ -31,7 +33,7 @@ class _ContainerregistrationState extends State<Containerregistration> {
                   ),
                   const Expanded(
                     child: Line(
-                      height: 2,
+                      height: 1,
                       width: 40,
                     ),
                   ),
@@ -45,7 +47,7 @@ class _ContainerregistrationState extends State<Containerregistration> {
                   ),
                   const Expanded(
                     child: Line(
-                      height: 2,
+                      height: 1,
                       width: 40,
                     ),
                   ),
@@ -59,7 +61,7 @@ class _ContainerregistrationState extends State<Containerregistration> {
                   ),
                   const Expanded(
                     child: Line(
-                      height: 2,
+                      height: 1,
                       width: 40,
                     ),
                   ),
@@ -73,7 +75,7 @@ class _ContainerregistrationState extends State<Containerregistration> {
                   ),
                   const Expanded(
                     child: Line(
-                      height: 2,
+                      height: 1,
                       width: 40,
                     ),
                   ),
@@ -97,43 +99,43 @@ class _ContainerregistrationState extends State<Containerregistration> {
                     Expanded(
                       child: Text(
                         "معلومات\nشخصية",
-                        // style: TextStyle(fontSize: 17),
+                        style: TextStyle(color: Color(Appcolorlightmode.greyColor)),
                       ),
                     ),
-                    // SizedBox(
-                    //   width: 20,
-                    // ),
+                    SizedBox(
+                      width: 10,
+                    ),
                     Expanded(
                       child: Text(
                         "معلومات\nولي الامر",
-                        // style: TextStyle(fontSize: 15),
+                        style: TextStyle(color: Color(Appcolorlightmode.greyColor)),
                       ),
                     ),
-                    // SizedBox(
-                    //   width: 20,
-                    // ),
+                    SizedBox(
+                      width: 15,
+                    ),
                     Expanded(
                       child: Text(
                         "معلومات\nالدراسة",
-                        // style: TextStyle(fontSize: 15),
+                        style: TextStyle(color: Color(Appcolorlightmode.greyColor)),
                       ),
                     ),
-                    // SizedBox(
-                    //   width: 20,
-                    // ),
+                    SizedBox(
+                      width: 20,
+                    ),
                     Expanded(
                       child: Text(
                         "معلومات\nالتواصل",
-                        // style: TextStyle(fontSize: 15),
+                        style: TextStyle(color: Color(Appcolorlightmode.greyColor)),
                       ),
                     ),
-                    // SizedBox(
-                    //   width: 40,
-                    // ),
+                    SizedBox(
+                      width: 15,
+                    ),
                     Expanded(
                       child: Text(
                         "حدثنا\n عنك",
-                        // style: TextStyle(fontSize: 15),
+                        style: TextStyle(color: Color(Appcolorlightmode.greyColor)),
                       ),
                     ),
                   ],

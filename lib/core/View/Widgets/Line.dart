@@ -11,7 +11,7 @@ class Line extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      color: const Color(Appcolorlightmode.blackColor),
+      color:  Colors.grey,
     );
   }
 }

@@ -50,7 +50,7 @@ class _RegistrationinfoState extends State<Upperregistrationcontainer> {
                   decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                          image: AssetImage("assets/images/logo.png"),
+                          image: AssetImage("assets/images/logo2.png"),
                           fit: BoxFit.fill)),
                 )),
             const Positioned(

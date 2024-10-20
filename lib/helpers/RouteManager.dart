@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rowadapp/core/View/Screens/SlidersScreen.dart';
 import 'package:rowadapp/core/model/compliant.dart';
 import 'package:rowadapp/core/View/Screens/ContactInformation.dart';
-
 import 'package:rowadapp/core/View/Screens/EvaluationScreen.dart';
 import 'package:rowadapp/core/View/Screens/Final_Result.dart';
 import 'package:rowadapp/core/View/Screens/First_Term_Evaluation.dart';
@@ -73,6 +73,8 @@ class RouteManager {
       case "/Notificationscreen":
         return MaterialPageRoute(builder: (ctx) => Notificationscreen());
 
+      case "/Slider":
+        return MaterialPageRoute(builder: (ctx) => Slidersscreen());
       case "/Profile":
         return MaterialPageRoute(builder: (ctx) => Profile());
       case "/splash":

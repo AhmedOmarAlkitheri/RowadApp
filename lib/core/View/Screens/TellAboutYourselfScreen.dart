@@ -55,8 +55,9 @@ class TellAboutYourselfScreen extends StatelessWidget {
                         "المهارات و المواهب و الهوايات :",
                         style:
                             TextStyle(
-fontFamily: 'almarai',
-                            fontWeight: FontWeight.w500,                             fontSize: 15),
+                            fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                                fontSize: 15),
                       ),
                       const Space(
                         height: 20,
@@ -121,8 +122,9 @@ fontFamily: 'almarai',
                         "ماهو طموحك في المستقبل :",
                         style:
                             TextStyle(
-fontFamily: 'almarai',
-                            fontWeight: FontWeight.w500,                               fontSize: 15),
+                             fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                                fontSize: 15),
                       ),
                       const Space(
                         height: 20,
@@ -154,8 +156,9 @@ fontFamily: 'almarai',
                         "لماذا تريد الالتحاق بالمركز:",
                         style:
                             TextStyle(
-fontFamily: 'almarai',
-                            fontWeight: FontWeight.w500,                             fontSize: 15),
+                            fontFamily: 'almarai',
+                            fontWeight: FontWeight.w500,
+                                fontSize: 15),
                       ),
                       const Space(
                         height: 20,
@@ -172,7 +175,7 @@ fontFamily: 'almarai',
                           },
                           hintText: "لماذا تريد الالتحاق بالمركز",
                           maxLines: 3,
-                          labelText: "لدي",
+                          // labelText: "لدي",
                           keyboardType: TextInputType.name,
                           textInputAction: TextInputAction.newline,
                         ),
