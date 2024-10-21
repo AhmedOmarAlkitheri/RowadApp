@@ -65,7 +65,7 @@ class Login extends StatelessWidget {
                       decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                              image: AssetImage("assets/images/logo.png"),
+                              image: AssetImage("assets/images/logo2.png"),
                               fit: BoxFit.fill)),
                     )),
                 const Positioned(
@@ -139,7 +139,7 @@ class Login extends StatelessWidget {
                                 color: Color(Appcolorlightmode.greyColor)),
                           ),
                           const Space(
-                            height: 10,
+                            height: 20,
                           ),
                           Consumer<UsersVm>(
                             builder: (context, visibilityProvider, child) {
@@ -170,7 +170,7 @@ class Login extends StatelessWidget {
                           );
                         }),
                         const Space(
-                          height: 100,
+                          height: 130,
                         ),
                         Center(
                           child: Consumer<UsersVm>(

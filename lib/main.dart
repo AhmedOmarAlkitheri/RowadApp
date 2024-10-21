@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
     );
     return SafeArea(
         child: MaterialApp(
-        
+
            theme: Provider.of<ThemeModes>(context).checkTheme(),
          
             debugShowCheckedModeBanner: false,

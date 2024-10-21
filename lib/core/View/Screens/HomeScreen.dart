@@ -208,15 +208,15 @@ class Homescreen extends StatelessWidget {
                       child:
                           Consumer<RoomVM>(builder: (context, roomVM, child) {
                         return Container(
-                          padding: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.only(top: 3,left: 10,right: 10,bottom: 10),
                           height: 210,
                           width: MediaQuery.of(context).size.width / 2,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(Appcolorlightmode.whiteColor),
                             borderRadius: BorderRadius.circular(10),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.25),
+                                color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
                                 blurRadius: 4,
                                 offset: const Offset(0, 4),
                               )
@@ -272,29 +272,7 @@ class Homescreen extends StatelessWidget {
                               const SizedBox(
                                 height: 7,
                               ),
-                              Expanded(
-                                child: Row(
-                                  children: [
-                                    const Text(
-                                      'الغرفة :',
-                                      style: TextStyle(
-                                          fontFamily: 'vazir-light',
-                                          color: Color(
-                                              Appcolorlightmode.blackColor)),
-                                    ),
-                                    Text(
-                                      roomVM.room?.roomNo ?? ' غير مضاف',
-                                      style: const TextStyle(
-                                          fontFamily: 'vazir-light',
-                                          color: Color(
-                                              Appcolorlightmode.blackColor)),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 7,
-                              ),
+
                               Expanded(
                                 child: Row(
                                   children: [
@@ -316,7 +294,31 @@ class Homescreen extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                              )
+                              ),
+                              const SizedBox(
+                                height: 7,
+                              ),
+                              Expanded(
+                                child: Row(
+                                  children: [
+                                    const Text(
+                                      'الغرفة ',
+                                      style: TextStyle(
+                                          fontFamily: 'vazir-light',
+                                          color: Color(
+                                              Appcolorlightmode.blackColor)),
+                                    ),
+                                    Text(
+                                      roomVM.room?.roomNo ?? ': غير مضاف',
+                                      style: const TextStyle(
+                                          fontFamily: 'vazir-light',
+                                          color: Color(
+                                              Appcolorlightmode.blackColor)),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
                             ],
                           ),
                         );
@@ -326,7 +328,7 @@ class Homescreen extends StatelessWidget {
                       width: 15,
                     ),
                     Container(
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(15),
                       height: 210,
                       width: MediaQuery.of(context).size.width / 2.2,
                       decoration: BoxDecoration(
@@ -361,7 +363,7 @@ class Homescreen extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(
-                            height: 25,
+                            height: 40,
                           ),
                           Center(
                             child: Consumer<Evaluationvm>(
@@ -389,7 +391,7 @@ class Homescreen extends StatelessWidget {
               flex: 1,
               child: Container(
                 padding: const EdgeInsets.only(
-                    top: 6, bottom: 6, left: 15, right: 15),
+                    top: 10, bottom: 15, left: 15, right: 15),
                 // padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
                 height: 50,
                 width: MediaQuery.of(context).size.width,
@@ -420,6 +422,7 @@ class Homescreen extends StatelessWidget {
                             width: 5,
                           ),
                           const Expanded(
+                            flex: 1,
                             child: Text(
                               'الإجازات الرسمية',
                               style: TextStyle(fontWeight: FontWeight.bold),
@@ -432,9 +435,9 @@ class Homescreen extends StatelessWidget {
                       height: 10,
                     ),
                     Expanded(
-                      flex: 3,
+                      flex: 2,
                       child: SizedBox(
-                        height: 50,
+                        height: 30,
                         width: MediaQuery.of(context).size.width,
                         child: Center(
                           child: ListView.builder(
@@ -444,8 +447,8 @@ class Homescreen extends StatelessWidget {
                                 return Container(
                                   padding: const EdgeInsets.all(5),
                                   margin: const EdgeInsets.only(right: 20),
-                                  height: 50,
-                                  width: 55,
+                                  height: 30,
+                                  width: 60,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     // boxShadow: [BoxShadow(
@@ -453,7 +456,7 @@ class Homescreen extends StatelessWidget {
                                     //   blurRadius: 4,
                                     //   offset: Offset(0,4),
                                     // )],
-                                    color: const Color(0xffC4FFA9),
+                                    color: const  Color(Appcolorlightmode.lightGreen).withOpacity(0.10),
                                   ),
                                   child: Center(
                                       child: Text(
@@ -472,92 +475,6 @@ class Homescreen extends StatelessWidget {
                       ),
                     ),
 
-                    // const SizedBox(
-                    //   height: 15,
-                    // ),
-                    // Expanded(
-                    //   flex: 1,
-                    //   child: Container(
-                    //     padding: const EdgeInsets.only(
-                    //         top: 15, bottom: 10, left: 15, right: 15),
-                    //     // padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-                    //     height: 50, width: MediaQuery.of(context).size.width,
-                    //     decoration: BoxDecoration(
-                    //       color: const Color(Appcolorlightmode
-                    //           .whiteColor), // Replace with the desired background color
-                    //       borderRadius: BorderRadius.circular(10),
-                    //       boxShadow: [
-                    //         BoxShadow(
-                    //           color: const Color(Appcolorlightmode.blackColor)
-                    //               .withOpacity(0.25),
-                    //           blurRadius: 4,
-                    //           offset: const Offset(0, 4),
-                    //         )
-                    //       ],
-                    //     ),
-                    //     child: Column(
-                    //       crossAxisAlignment: CrossAxisAlignment.start,
-                    //       children: [
-                    //         Row(
-                    //           children: [
-                    //             Icon(
-                    //               Icons.holiday_village,
-                    //               color: Colors.grey[300],
-                    //               size: 20,
-                    //             ),
-                    //             const SizedBox(
-                    //               width: 7,
-                    //             ),
-                    //             const Text(
-                    //               'الإجازات الرسمية',
-                    //               style: TextStyle(
-                    //                 fontFamily: 'vazir-medium',
-                    //               ),
-                    //             ),
-                    //           ],
-                    //         ),
-                    //         const SizedBox(
-                    //           height: 23,
-                    //         ),
-                    //         SizedBox(
-                    //           height: 60,
-                    //           width: MediaQuery.of(context).size.width,
-                    //           child: Center(
-                    //             child: ListView.builder(
-                    //                 scrollDirection: Axis.horizontal,
-                    //                 itemCount: 4,
-                    //                 itemBuilder: (context, index) {
-                    //                   return Container(
-                    //                     padding: const EdgeInsets.all(5),
-                    //                     margin: const EdgeInsets.only(right: 20),
-                    //                     height: 50,
-                    //                     width: 57,
-                    //                     decoration: BoxDecoration(
-                    //                       borderRadius: BorderRadius.circular(10),
-                    //                       // boxShadow: [BoxShadow(
-                    //                       //   color: Colors.black.withOpacity(0.25),
-                    //                       //   blurRadius: 4,
-                    //                       //   offset: Offset(0,4),
-                    //                       // )],
-                    //                       color: const Color(
-                    //                               Appcolorlightmode.backgroundTopColor)
-                    //                           .withOpacity(0.30),
-                    //                     ),
-                    //                     child: Center(
-                    //                         child: Text(
-                    //                       holiDays[index],
-                    //                       style: const TextStyle(
-                    //                           fontFamily: 'vazir-light',
-                    //                           color:
-                    //                               Color(Appcolorlightmode.blackColor),
-                    //                           fontSize: 15),
-                    //                       softWrap: true,
-                    //                       textAlign: TextAlign.center,
-                    //                     )),
-                    //                   );
-                    //                 }),
-                    //           ),
-                    //         ),
                   ],
                 ),
               ),

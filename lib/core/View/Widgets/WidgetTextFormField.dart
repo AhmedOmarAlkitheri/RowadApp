@@ -57,7 +57,7 @@ obscureText:  obscureText??false,
         hintText: hintText,
         labelText: labelText,
         prefixIcon: prefixIcon,
-        prefixIconColor: const Color(Appcolorlightmode.darkGreen),
+        prefixIconColor: const Color(Appcolorlightmode.iconLoginColor),
 
 suffixIcon:  suffixIcon ,
         labelStyle: const TextStyle(color: Color(Appcolorlightmode.greyColor)),

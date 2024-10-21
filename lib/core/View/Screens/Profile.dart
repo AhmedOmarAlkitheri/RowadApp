@@ -25,7 +25,7 @@ class Profile extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xffD8FFC6),
+        backgroundColor: const Color(Appcolorlightmode.backgroundTopColor),
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -33,7 +33,7 @@ class Profile extends StatelessWidget {
           actions: [
             InkWell(
               child: const Icon(
-                Icons.arrow_forward,
+                Icons.arrow_forward_ios_outlined,
                 size: 30,
               ),
               onTap: () {
@@ -69,11 +69,11 @@ class Profile extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 borderRadius:
-                    const BorderRadius.vertical(bottom: Radius.circular(25)),
-                color: const Color(Appcolorlightmode.backgroundTopColor),
+                    const BorderRadius.vertical(bottom: Radius.circular(35)),
+                color: const Color(Appcolorlightmode.buttonFirstColor).withOpacity(0.5),
                 boxShadow: [
                   BoxShadow(
-                    color: Color(Appcolorlightmode.greyColor).withOpacity(0.5),
+                    color: Color(Appcolorlightmode.greyColor).withOpacity(0.20),
                     spreadRadius: 5,
                     blurRadius: 7,
                     offset: const Offset(0, 3),
@@ -85,23 +85,23 @@ class Profile extends StatelessWidget {
                 children: <Widget>[
                   const SizedBox(height: 10),
                   Container(
-                    width: 140,
-                    height: 140,
+                    width: 100,
+                    height: 100,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             //'{registration.profileData?.image}' ??
                             image:
-                                AssetImage("assets/images/personprofile.png"),
+                                AssetImage("assets/images/profile.png"),
                             fit: BoxFit.fill),
                         shape: BoxShape.circle),
                   ),
       
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 25),
                   //{registration.profileData?.studName}
                   Text(
                     '${getstorage_helper.readFrmFile("student_name")}',
                     style: const TextStyle(
-                        fontSize: 24, fontWeight: FontWeight.bold),
+                        fontSize: 18, fontWeight: FontWeight.bold),
                   ),
       
                   // Text(
@@ -119,7 +119,7 @@ class Profile extends StatelessWidget {
                   child: Column(
                     children: [
                       const SizedBox(
-                        height: 20,
+                        height: 35,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -130,39 +130,41 @@ class Profile extends StatelessWidget {
                               const Text(
                                 'معلوماتك الشخصية',
                                 style: TextStyle(
-                                    fontSize: 22, 
+                                    fontSize: 20,
 fontFamily: 'vazir-medium'                                    ),
                               ),
                               const SizedBox(height: 10),
                               const Text(
                                 'تاريخ الميلاد',
                                 style: TextStyle(
-                                    fontSize: 16, 
+                                    fontSize: 14,
 fontFamily: 'vazir-medium'                                    ),
                               ),
                               Text(
                                   '${getstorage_helper.readFrmFile("date_of_berth")}'
                                   ,style: TextStyle(fontFamily: 'vazir-light'),
                                   ),
-                              const Divider(
-                                thickness: 1.5,
+                              Divider(
+                                color: Colors.grey[400],
+                                thickness: 0.9,
                               ),
                               const Text(
                                 'مكان الاقامة الحالي',
                                 style: TextStyle(
-                                    fontSize: 16, 
+                                    fontSize: 14,
                                     fontFamily: 'vazir-medium'
                                     ),
                               ),
                               Text(
                                   '${getstorage_helper.readFrmFile("directorate")}'),
-                              const Divider(
-                                thickness: 1.5,
+                               Divider(
+                                 color: Colors.grey[400],
+                                thickness: 0.9,
                               ),
                               const Text(
                                 'رقم جوال ولي الامر',
                                 style: TextStyle(
-                                    fontSize: 16, 
+                                    fontSize: 14,
 fontFamily: 'vazir-medium'                                    ),
                               ),
                               Text(
@@ -187,7 +189,7 @@ fontFamily: 'vazir-medium'                                    ),
                               const Text(
                                 'معلوماتك الدراسية',
                                 style: TextStyle(
-                                    fontSize: 22, 
+                                    fontSize: 20,
          fontFamily: 'vazir-medium',
                                  ),
                               ),
@@ -195,7 +197,7 @@ fontFamily: 'vazir-medium'                                    ),
                               const Text(
                                 "المرحلة الدراسية",
                                 style: TextStyle(
-                                    fontSize: 16, 
+                                    fontSize: 14,
          fontFamily: 'vazir-medium',
 
                                                          ),
@@ -203,8 +205,9 @@ fontFamily: 'vazir-medium'                                    ),
                               Text(
                                   '${getstorage_helper.readFrmFile("classroom")}'),
       
-                              const Divider(
-                                thickness: 1.5,
+                               Divider(
+                                color: Colors.grey[400],
+                                thickness: 0.9,
                               ),
                               const Text(
                                 "المدرسة الحالية",

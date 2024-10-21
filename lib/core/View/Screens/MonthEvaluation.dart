@@ -57,12 +57,12 @@ class MonthEvaluation extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Color(Appcolorlightmode.lightGreen),
+                            color: Color(Appcolorlightmode.darkGreen),
                           ),
                         ),
                         const Divider(
                           color: Color(Appcolorlightmode.lightGreen),
-                          thickness: 2,
+                          thickness: 1,
                         ),
                         
                       

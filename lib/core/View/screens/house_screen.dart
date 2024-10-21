@@ -86,17 +86,14 @@ class HouseScreen extends StatelessWidget {
                                   const SizedBox(
                                     height: 5,
                                   ),
-                                  Text(room?.suit ?? "الجناح : غير مضاف" ,  style: TextStyle(
-                      fontFamily: 'vazir-medium',
-                                    ),),
+                                  Text(room?.suit ?? "الجناح : غير مضاف"
+                                    ),
                                 ],
                               ),
                               const Space(
                                 width: 40,
                               ),
-                              Text('الغرفة ${room?.roomNo ?? ': غير مضاف'}' ,  style: TextStyle(
-                      fontFamily: 'vazir-medium',
-                                    ),),
+                              Text('الغرفة ${room?.roomNo ?? ': غير مضاف'}'),
                               const SizedBox(
                                 width: 20,
                               ),
@@ -147,7 +144,7 @@ class HouseScreen extends StatelessWidget {
                                 context, '/Notificationscreen');
                           },
                           //     onTaputton: ,
-                          text: 'أشعارات الدفع',
+                          text: 'اشعارات الدفع',
                         ),
                         const SizedBox(
                           height: 25,

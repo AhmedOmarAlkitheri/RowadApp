@@ -45,10 +45,11 @@ Widget buildProgramSection(String programName, List<double?>? programValues, int
             }),
           ),
         ),
-        const Divider(
-          color: Color(Appcolorlightmode.greyColor),
-          thickness: 1,
-        ),
+
+   Divider(
+     color: Colors.grey[400],
+     thickness: 0.9,
+      ),
         const SizedBox(height: 8),
       ],
     );

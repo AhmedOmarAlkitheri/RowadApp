@@ -12,7 +12,7 @@ class Appcolorlightmode {
   static const int blackColor = 0xFF000000;
   static const int backgroundTopColor = 0xFFEFFFE8;
   static const int backgroundBottomColor = 0xFFFFFFFF;
-  static const int buttonFirstColor = 0xFFB9F29E;
+  static const int buttonFirstColor = 0xFF7ABA78;
   static const int buttonSecondColor = 0xFF6BBF44;
   static const int lightGreen = 0xFF6BBF44;
   static const int whiteColor = 0xFFFFFFFF;
@@ -20,5 +20,6 @@ class Appcolorlightmode {
   static const int greyColor = 0xFF6C6666;
   static const int colorWelcome = 0xFF891F1D;
   static const Color green = Colors.green;
+  static const int iconLoginColor = 0xFF7ABA78;
 
 }

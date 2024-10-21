@@ -12,16 +12,24 @@ class Registrationscreen extends StatefulWidget {
   State<Registrationscreen> createState() => _RegistrationscreenState();
 }
 
-class _RegistrationscreenState extends State<Registrationscreen> {
+class _RegistrationscreenState extends State<Registrationscreen> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState(){
+    super.initState();
+    _controller = AnimationController(duration: const Duration(seconds: 2), vsync: this,)..forward();
+  }
+    void dispose(){
+    _controller.dispose();
+    super.dispose();
+    }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         //backgroundColor:
         body:
-            // width: MediaQuery.of(context).size.width,
-            // height: MediaQuery.of(context).size.height,
-
             Container(
               decoration: const BoxDecoration(
                   gradient: LinearGradient(
@@ -43,7 +51,7 @@ class _RegistrationscreenState extends State<Registrationscreen> {
                   children: [
                     Positioned(
                       top: -100,
-                      right: -50,
+                      right: -52,
                       child: Center(
                         child: Container(
                           width: 500,
@@ -64,19 +72,22 @@ class _RegistrationscreenState extends State<Registrationscreen> {
                             width: 170,
                             decoration: const BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage("assets/images/logo2.png"),
+                                    image: AssetImage("assets/images/rowad.png"),
                                     fit: BoxFit.fill)),
                           ),
                           const Space(
                             height: 40,
                           ),
                           Container(
-                            child: const Text(
-                              "مرحبًا بك",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 32,
-                                  color: Color(Appcolorlightmode.colorWelcome)),
+                            child: FadeTransition(
+                              opacity: _controller,
+                              child: const Text(
+                                "مرحبًا بك",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 32,
+                                    color: Color(Appcolorlightmode.colorWelcome)),
+                              ),
                             ),
                           ),
                         ],
@@ -86,7 +97,7 @@ class _RegistrationscreenState extends State<Registrationscreen> {
                 ),
               ),
               const Space(
-                height: 120,
+                height: 90,
               ),
               Containerbutton(
                   name: "تسجيل",

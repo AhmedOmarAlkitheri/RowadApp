@@ -11,7 +11,7 @@ class Splashscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print(getstorage_helper.readFrmFile('token'));
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 4), () {
       if (getstorage_helper.readFrmFile("token") == null) {
         Navigator.pushNamedAndRemoveUntil(context, "/Slider", (route)=> false);
       } else {
@@ -39,7 +39,7 @@ class Splashscreen extends StatelessWidget {
                       child: Transform.scale(
                         scale: value,
                         child: Image.asset(
-                          "assets/images/logo2.png",
+                          "assets/images/rowad.png",
                           width: 250,
                           height: 250,
                         ),
@@ -47,7 +47,7 @@ class Splashscreen extends StatelessWidget {
                     );
                   },
                 ),
-                // SizedBox(height: 25),
+
                 // TweenAnimationBuilder(
                 //   tween: Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0)),
                 //   duration: Duration(seconds: 1),
@@ -57,7 +57,7 @@ class Splashscreen extends StatelessWidget {
                 //       child: Text(
                 //         "مركز رواد المستقبل",
                 //         style:
-                //             TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                //             TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Color(Appcolorlightmode.blackColor)),
                 //       ),
                 //     );
                 //   },

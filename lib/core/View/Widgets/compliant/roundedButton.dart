@@ -29,7 +29,7 @@ class Roundedbutton extends StatelessWidget {
         height: height ?? 33,
         width: width ?? 110,
         decoration: BoxDecoration(
-          color: const Color(Appcolorlightmode.lightGreen),
+          color: const Color(Appcolorlightmode.buttonFirstColor),
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(

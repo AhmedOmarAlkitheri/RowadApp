@@ -31,7 +31,7 @@ class Notificationscreen extends StatelessWidget {
       child: Scaffold(
         
         appBar: AppBar(
-          backgroundColor: const Color(Appcolorlightmode.lightGreen),
+          backgroundColor: const Color(Appcolorlightmode.darkGreen),
           title: const Row(
             children: [
               Icon(
@@ -40,7 +40,7 @@ class Notificationscreen extends StatelessWidget {
               ),
               Text(
                 "  الإشعارات",
-                style: TextStyle(color: Color(Appcolorlightmode.whiteColor)),
+                style: TextStyle(color: Color(Appcolorlightmode.whiteColor),fontSize: 18),
               ),
             ],
           ),

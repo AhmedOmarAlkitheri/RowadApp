@@ -12,12 +12,12 @@ class Slidersscreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: OnBoardingSlider(
-            headerBackgroundColor: Color(Appcolorlightmode.darkGreen).withOpacity(0.31),
+            headerBackgroundColor: Color(Appcolorlightmode.lightGreen),
             finishButtonText: 'التالي',
-            pageBackgroundColor: Color(Appcolorlightmode.darkGreen).withOpacity(0.31),
+            pageBackgroundColor: Color(Appcolorlightmode.whiteColor),
             finishButtonStyle: FinishButtonStyle(
               // hoverColor: Color(Appcolorlightmode.darkGreen),
-              backgroundColor: Color(Appcolorlightmode.darkGreen)
+              backgroundColor: Color(Appcolorlightmode.buttonFirstColor)
             ),
             onFinish: (){
               Navigator.pushReplacementNamed(context, "/Login");
@@ -25,70 +25,121 @@ class Slidersscreen extends StatelessWidget {
             //  skipTextButton: Text('Skip'),
             //  trailing: Text('Login'),
             background: [
-            Container(color:Color(Appcolorlightmode.buttonSecondColor) ,),
-              Container(color:Color(Appcolorlightmode.buttonSecondColor) ,),
-              Container(color:Color(Appcolorlightmode.buttonSecondColor) ,),
+            Container(color:Color(Appcolorlightmode.whiteColor) ,),
+              Container(color:Color(Appcolorlightmode.whiteColor) ,),
+              Container(color:Color(Appcolorlightmode.whiteColor) ,),
+              Container(color:Color(Appcolorlightmode.whiteColor) ,),
+              Container(color:Color(Appcolorlightmode.whiteColor) ,),
+
             ],
-            totalPage: 3,
+            totalPage: 5,
             speed: 1.8,
             pageBodies: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 70),
-                child: Container(
-                    height: 230,
-                    decoration: BoxDecoration(
-                        color: Color(Appcolorlightmode.whiteColor),
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
-                            blurRadius: 4,
-                            offset: Offset(0, 4),
-                          )
-                        ]),
-                    child: Center(child: Column(children: [
-                      Text('أهلًا بك عزيزي الطالب \n'
-                          'لتكون جزءًا من مركز رواد المستقبل',style: TextStyle(fontSize: 18,),textAlign: TextAlign.center,)
-                    ],))),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/background.jpg'), // المسار إلى الصورة
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: SizedBox(
+                  height: 200, width: 100,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          height: 100,width: 100,
+                          child: Image.asset("assets/images/5-stars.png")),
+                      SizedBox(height: 50,),
+                          Text('مرحبًا بك\n في تطبيق مركز رواد المستقبل',textAlign: TextAlign.center,style: TextStyle(fontSize: 18),)
+                    ],
+                  ),
+                ),
+
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 70),
-                child: Container(
-                    height: 230,
-                    decoration: BoxDecoration(
-                        color: Color(Appcolorlightmode.whiteColor),
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(Appcolorlightmode.blackColor).withOpacity(0.25),
-                            blurRadius: 4,
-                            offset: Offset(0, 4),
-                          )
-                        ]),
-                    child: Center(child: Column(children: [
-                      Text('أهلًا بك عزيزي الطالب \n'
-                          'لتكون جزءًا من مركز رواد المستقبل',style: TextStyle(fontSize: 18,),textAlign: TextAlign.center,)
-                    ],))),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/background.jpg'), // المسار إلى الصورة
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: SizedBox(
+                  height: 200, width: 100,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          height: 100,width: 100,
+                          child: Image.asset("assets/images/reading.png")),
+                      SizedBox(height: 50,),
+                      Text('اكتشف البرامج المنضمّ إليها لدينا\n واطلع على تقييماتك ومستواك فيها',textAlign: TextAlign.center,style: TextStyle(fontSize: 18),)
+                    ],
+                  ),
+                ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 70),
-                child: Container(
-                    height: 230,
-                    decoration: BoxDecoration(
-                        color: Colors
-                            .white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(Appcolorlightmode.whiteColor).withOpacity(0.25),
-                            blurRadius: 4,
-                            offset: Offset(0, 4),
-                          )
-                        ]),
-                    child: Center(child: Column(children: [
-                      Text('أهلًا بك عزيزي الطالب \n'
-                          'لتكون جزءًا من مركز رواد المستقبل',style: TextStyle(fontSize: 18,),textAlign: TextAlign.center,)
-                    ],))),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/background.jpg'), // المسار إلى الصورة
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: SizedBox(
+                  height: 200, width: 100,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          height: 100,width: 100,
+                          child: Image.asset("assets/images/suggestion.png")),
+                      SizedBox(height: 50,),
+                      Text('لديك شكوى؟\n قم برفعها مباشرةً من خلال التطبيق وسنكون في خدمتك',textAlign: TextAlign.center,style: TextStyle(fontSize: 18),)
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/background.jpg'), // المسار إلى الصورة
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: SizedBox(
+                  height: 200, width: 100,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 100,width: 100,
+                          child: Image.asset("assets/images/roommate.png")),
+                      SizedBox(height: 50,),
+                      Text('احصل على تفاصيل حول معلومات السكن\n وزملاء الغرفة معك',textAlign: TextAlign.center,style: TextStyle(fontSize: 18),)
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/background.jpg'), // المسار إلى الصورة
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: SizedBox(
+                  height: 200, width: 100,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                          height: 100,width: 100,
+                          child: Image.asset("assets/images/thank-you.png")),
+                      SizedBox(height: 50,),
+                      Text('شكرًا لاختيارك مركز رواد المستقبل\n نحن هنا لدعمك في رحلتك التعليمية',textAlign: TextAlign.center,style: TextStyle(fontSize: 18),)
+                    ],
+                  ),
+                ),
               ),
             ],
         ),
