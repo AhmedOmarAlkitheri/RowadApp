@@ -1,7 +1,9 @@
-# rowadapp
+# •	Rawad Al-Mustaqbal Center App
 
-A new Flutter project.
+A dedicated application for students of the center to manage registration processes, receive notifications from the administration, and view housing information, including the number of students sharing the same room. It also features the ability to submit complaints and receive responses. Students can review evaluations of the programs they are enrolled in, whether (monthly, biannual, or annual). The app includes features like (Dark Theme, Light Theme) and other tasks performed by the student and displayed by the application.
 
+## Vedio For Application :
+https://github.com/user-attachments/assets/bd1fab1f-b04c-4c03-9227-d9abd34d74e0
 ## Getting Started
 
 This project is a starting point for a Flutter application.
